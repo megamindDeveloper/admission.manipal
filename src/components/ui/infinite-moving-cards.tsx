@@ -1,0 +1,127 @@
+"use client";
+
+import { cn } from "@/lib/utils";
+import React, { useEffect, useState, useCallback } from "react";
+
+export const InfiniteMovingCards = ({
+  items,
+  direction = "left",
+  speed = "fast",
+  pauseOnHover = true,
+  className,
+}: {
+  items: {
+    quote: React.ReactNode;
+    name: string;
+    title: string;
+  }[];
+  direction?: "left" | "right";
+  speed?: "fast" | "normal" | "slow";
+  pauseOnHover?: boolean;
+  className?: string;
+}) => {
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const scrollerRef = React.useRef<HTMLUListElement>(null);
+
+  const [start, setStart] = useState(false);
+
+  const addAnimation = useCallback(() => {
+    if (containerRef.current && scrollerRef.current) {
+      const scrollerContent = Array.from(scrollerRef.current.children);
+
+      scrollerContent.forEach((item) => {
+        const duplicatedItem = item.cloneNode(true);
+        if (scrollerRef.current) {
+          scrollerRef.current.appendChild(duplicatedItem);
+        }
+      });
+
+      getDirection();
+      getSpeed();
+      setStart(true);
+    }
+  }, []);
+
+  useEffect(() => {
+    addAnimation();
+  }, [addAnimation]);
+
+  const getDirection = () => {
+    if (containerRef.current) {
+      if (direction === "left") {
+        containerRef.current.style.setProperty("--animation-direction", "forwards");
+      } else {
+        containerRef.current.style.setProperty("--animation-direction", "reverse");
+      }
+    }
+  };
+  const getSpeed = () => {
+    if (containerRef.current) {
+      if (speed === "fast") {
+        containerRef.current.style.setProperty("--animation-duration", "20s");
+      } else if (speed === "normal") {
+        containerRef.current.style.setProperty("--animation-duration", "40s");
+      } else {
+        containerRef.current.style.setProperty("--animation-duration", "80s");
+      }
+    }
+  };
+  const bgColors = [
+    "#b3eacc", // 1st item
+    "#2d9bf1", // 2nd item
+    "#fdf4c5", // 3rd item
+    "#e2d2ed", // 4th item
+    "#ffecf6", // 5th item
+  ];
+  const textColors = [
+    "#21130d", // 1st item
+    "#ffffff", // 2nd item
+    "#21130d", // 3rd item
+    "#21130d", // 4th item
+    "#21130d", // 5th item
+  ];
+  return (
+    <div
+      ref={containerRef}
+      className={cn("scroller relative z-20 max-w-7xl overflow-hidden", className)}
+      style={
+        {
+          // Inline styles to ensure CSS variables are applied
+          "--animation-duration": speed === "fast" ? "20s" : speed === "normal" ? "40s" : "80s",
+          "--animation-direction": direction === "left" ? "forwards" : "reverse",
+        } as React.CSSProperties
+      }
+    >
+      <ul
+        ref={scrollerRef}
+        className={cn(
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-4 py-4",
+          start && "animate-scroll",
+          pauseOnHover && "hover:[animation-play-state:paused]"
+        )}
+      >
+        {items.map((item, idx) => (
+          <li
+            className="relative w-[300px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 px-8 py-6 dark:border-zinc-700 bg-opacity-20 flex flex-col justify-between"
+            key={item.name}
+            style={{
+              backgroundColor: bgColors[idx % bgColors.length],
+              color: textColors[idx % textColors.length],
+            }}
+          >
+            <blockquote>
+              <span className="relative z-20 font-normal text-[20px] dark:text-gray-100">{item.quote}</span>
+            </blockquote>
+
+            <div className="mt-[100px]">
+              <span className="flex flex-col gap-1">
+                <span className="text-xl font-extrabold">{item.name}</span>
+                <span className="text-xl font-normal">{item.title}</span>
+              </span>
+            </div>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+};
