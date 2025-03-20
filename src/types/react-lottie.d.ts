@@ -2,7 +2,7 @@ declare module 'react-lottie' {
   interface LottieOptions {
     loop?: boolean;
     autoplay?: boolean;
-    animationData: any;
+    animationData: object; // Replace 'any' with 'object'
     rendererSettings?: {
       preserveAspectRatio?: string;
     };
@@ -22,4 +22,4 @@ declare module 'react-lottie' {
 
   const Lottie: React.FC<LottieProps>;
   export default Lottie;
-} 
+}
