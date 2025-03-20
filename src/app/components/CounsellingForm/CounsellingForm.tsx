@@ -1,12 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
 import animationData from "../../../animation/pulseAnimation.json";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
-import type { LeafletMouseEvent } from "leaflet"; // Add type import
+import type { LeafletMouseEvent, Map } from "leaflet";
 import logo from "../../../../public/images/logo/manipalBottom.svg"
 // Dynamically import components
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
@@ -17,9 +17,10 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { 
 
 const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "pk.eyJ1IjoiamFtc2hhZDEiLCJhIjoiY2xrOXNsdTR0MDBoZDNkbXcxNXc1YnYybCJ9.7mKn2TGyJPQ5p1cIIss9ow";
 const MAPBOX_STYLE_ID = "streets-v12";
-const center = [12.853876986146968, 74.84635264097497];
+const center: [number, number] = [12.853876986146968, 74.84635264097497];
 
 const CounsellingForm = () => {
+  const mapRef = useRef<Map | null>(null);
   const [formData, setFormData] = useState({
     studentName: "",
     parentEmail: "",
@@ -28,19 +29,25 @@ const CounsellingForm = () => {
     location: "",
   });
 
-  const [selectedLocation, setSelectedLocation] = useState(center);
+  const [selectedLocation, setSelectedLocation] = useState<[number, number]>(center);
   const [popupContent, setPopupContent] = useState("Selected Location");
 
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      import("leaflet").then((leaflet) => {
-        L = leaflet;
-      });
-    }
-  }, []);
+    if (mapRef.current) {
+      const handleMapClick = (e: LeafletMouseEvent) => {
+        const { lat, lng } = e.latlng;
+        setSelectedLocation([lat, lng]);
+        const locationText = `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`;
+        setPopupContent(locationText);
+        setFormData({ ...formData, location: locationText });
+      };
 
-  
+      mapRef.current.on('click', handleMapClick);
+      return () => {
+        mapRef.current?.off('click', handleMapClick);
+      };
+    }
+  }, [formData]);
 
   const lottieOptions = {
     loop: true,
@@ -60,16 +67,6 @@ const CounsellingForm = () => {
     window.open(googleMapsUrl, "_blank");
   };
 
-  const handleMapClick = (e: LeafletMouseEvent) => {
-    const { lat, lng } = e.latlng;
-    setSelectedLocation([lat, lng]);
-    const locationText = `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`;
-    setPopupContent(locationText);
-    setFormData({ ...formData, location: locationText });
-  };
-
-
-
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     console.log("Form submitted:", formData);
@@ -79,10 +76,10 @@ const CounsellingForm = () => {
   return (
     <div className="relative flex flex-col items-center py-12">
       <MapContainer
+        ref={mapRef}
         center={center}
         zoom={17}
         style={{ width: "100%", height: "100vh" }}
-        onClick={handleMapClick}
         scrollWheelZoom={false}
         zoomControl={false}
         minZoom={17}
