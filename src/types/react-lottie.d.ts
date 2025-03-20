@@ -23,3 +23,4 @@ declare module 'react-lottie' {
   const Lottie: React.FC<LottieProps>;
   export default Lottie;
 }
+
