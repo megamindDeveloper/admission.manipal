@@ -10,10 +10,10 @@ import logo from "../../../../public/images/logo/manipalBottom.svg";
 
 // Correct dynamic imports for Leaflet components
 const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-const { MapContainer, TileLayer, Marker, Popup } = dynamic(
-  () => import("react-leaflet"),
-  { ssr: false }
-);
+const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
+const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
+const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), { ssr: false });
+const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { ssr: false });
 
 const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "pk.eyJ1IjoiamFtc2hhZDEiLCJhIjoiY2xrOXNsdTR0MDBoZDNkbXcxNXc1YnYybCJ9.7mKn2TGyJPQ5p1cIIss9ow";
 const MAPBOX_STYLE_ID = "streets-v12";
