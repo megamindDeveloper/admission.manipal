@@ -2,8 +2,15 @@
 
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import websitebg from "../../../../public/images/Manipal School - Website Cover 1.png";
-import logo from "../../../../public/images/logo/manipalHead.svg"
+import websitebg1 from "../../../../public/images/Manipal1.png";
+import websitebg2 from "../../../../public/images/Manipal1.png";
+import websitebg3 from "../../../../public/images/Manipal1.png";
+import logo from "../../../../public/images/logo/manipalHead.svg";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import { toast } from "react-hot-toast"; // Import toast
+import { useState } from "react";
+
 interface FormData {
   studentName: string;
   parentEmail: string;
@@ -13,10 +20,31 @@ interface FormData {
 }
 
 const HeroBanner = () => {
-  const { register, handleSubmit } = useForm<FormData>();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>();
+  const [loading, setLoading] = useState(false);
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
+    const response = await fetch("/api/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
 
-  const onSubmit = (data: FormData) => {
-    console.log(data);
+    const result = await response.json();
+    setLoading(false);
+    if (result.result === "success") {
+      toast.success("Form submitted successfully!");
+      reset(); // Clear the form fields after submission
+    } else {
+      toast.error("Error submitting form.");
+    }
   };
 
   return (
@@ -46,16 +74,27 @@ const HeroBanner = () => {
       <main className="relative min-h-screen flex items-center justify-center">
         {/* Background Image */}
         <div className="absolute inset-0">
-          <Image src={websitebg} alt="Students" className="w-full h-full object-cover" />
+          <Carousel autoPlay interval={5000} transitionTime={1000} infiniteLoop showThumbs={false} showStatus={false}>
+            <div>
+              <Image src={websitebg1} alt="Students 1" className="w-full h-[89vh] object-cover" />
+            </div>
+            <div>
+              <Image src={websitebg2} alt="Students 2" className="w-full h-[89vh] object-cover" />
+            </div>
+            <div>
+              <Image src={websitebg3} alt="Students 3" className="w-full h-[89vh] object-cover" />
+            </div>
+          </Carousel>
         </div>
 
         {/* Form Container - Centered */}
 
-        <div className="relative container mx-auto px-4 py-12 min-h-[80vh] flex justify-end  items-start">
+        <div className="relative container mx-auto px-4 min-h-[80vh] flex justify-end  items-start">
           {/* Form Card */}
-          <div className="bg-white rounded-lg  shadow-lg px-8 py-16 w-full max-w-[40vw] xl:max-w-[30vw]  xl:my-auto my-0 relative ">
-            <div className="absolute top-0 right-0 w-16 h-16 bg-green-400 rounded-tr-lg"></div>
-            <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-pink-400 rounded-full opacity-50"></div>
+          <div className="absolute top-[-3rem] right-[-2rem] w-36 h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full rotate-"></div>
+          <div className="absolute bottom-[8rem] right-[34%] w-36 h-18 bg-pink-400 rotate-220 rounded-t-full opacity-50"></div>
+
+          <div className="bg-white rounded-lg  shadow-lg px-8 py-16 w-full max-w-[40vw] xl:max-w-[30vw]  my-0 relative ">
 
             <h2
               className="text-3xl xl:text-4xl font-bold mb-6 text-gray-800 text-center pb-10"
@@ -69,52 +108,58 @@ const HeroBanner = () => {
                 <input
                   type="text"
                   placeholder="Student Name"
-                  {...register("studentName")}
-                  className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+                  {...register("studentName", { required: "Student Name is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-xl"
                 />
+                {errors.studentName && <p className="text-red-500 text-sm">{errors.studentName.message}</p>}
               </div>
 
               <div>
                 <input
                   type="email"
                   placeholder="Parent Email"
-                  {...register("parentEmail")}
-                  className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+                  {...register("parentEmail", { required: "Email is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-xl"
                 />
+                {errors.parentEmail && <p className="text-red-500 text-sm">{errors.parentEmail.message}</p>}
               </div>
 
               <div>
                 <input
                   type="tel"
                   placeholder="Parent Phone Number"
-                  {...register("parentPhone")}
-                  className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+                  {...register("parentPhone", { required: "Phone number is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-xl"
                 />
+                {errors.parentPhone && <p className="text-red-500 text-sm">{errors.parentPhone.message}</p>}
               </div>
 
               <div>
                 <input
                   type="text"
                   placeholder="Class Name"
-                  {...register("class")}
-                  className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+                  {...register("class", { required: "Class is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-xl"
                 />
+                {errors.class && <p className="text-red-500 text-sm">{errors.class.message}</p>}
               </div>
 
               <div>
                 <input
                   type="text"
                   placeholder="Located in"
-                  {...register("location")}
-                  className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+                  {...register("location", { required: "Location is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-xl"
                 />
+                {errors.location && <p className="text-red-500 text-sm">{errors.location.message}</p>}
               </div>
+
               <div className="justify-center flex">
                 <button
                   type="submit"
-                  className="w-full bg-[#FB7824] text-white py-2 mt-8 px-6 rounded-3xl font-bold text-2xl transition-colors duration-200 max-w-[10vw] "
+                  className="bg-[#FB7824] cursor-pointer text-white py-2 px-6 rounded-3xl font-bold text-2xl flex items-center justify-center"
                 >
-                  Submit
+                  {loading ? <>Submitting...</> : "Submit"}
                 </button>
               </div>
             </form>

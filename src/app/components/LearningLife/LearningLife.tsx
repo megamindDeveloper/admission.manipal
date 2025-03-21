@@ -49,15 +49,15 @@ function LearningLife() {
           <span className="text-orange-500">Senior Secondary</span>
         </h1>
 
-        <div className="space-y-4">
+        {/* Grid for 4 Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {educationLevels.map((level) => (
             <div
               key={level.id}
-              className={`overflow-hidden transition-all duration-500 ease-in-out rounded-xl
-                ${expandedLevel === level.id ? 'max-h-[300px]' : 'max-h-[68px]'}`}
+              className="overflow-hidden transition-all duration-500 ease-in-out rounded-xl w-full h-full"
             >
               <button
-                className={`w-full text-left p-6 text-white transition-all duration-300 transform 
+                className={`w-full h-full text-left p-6 text-white transition-all duration-300 transform 
                   ${level.color} ${level.hoverColor} 
                   ${expandedLevel === level.id ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
                   shadow-lg hover:shadow-xl`}
@@ -65,16 +65,16 @@ function LearningLife() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-semibold">{level.title}</span>
+                  {/* ChevronRight icon will only appear on small/medium screens */}
                   <ChevronRight
                     className={`transition-transform duration-500 ease-in-out
-                      ${expandedLevel === level.id ? 'rotate-90' : ''}`}
+                      ${expandedLevel === level.id ? 'rotate-90' : ''} lg:hidden`}
                     size={24}
                   />
                 </div>
                 
                 <div className={`mt-4 pt-4 border-t border-white/20 text-white/90
-                  transition-opacity duration-500 ease-in-out
-                  ${expandedLevel === level.id ? 'opacity-100' : 'opacity-0'}`}
+                  `}
                 >
                   <p>Comprehensive education program tailored for {level.title} students.</p>
                   <ul className="mt-2 list-disc list-inside">
