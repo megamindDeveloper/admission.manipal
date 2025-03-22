@@ -31,7 +31,7 @@ function AboutSchool() {
 
           <div className="w-full" >
             {/* Container div for padding around Lottie */}
-            <div className="p-8">
+            <div>
               <Lottie options={defaultOptions} height={300} width={300} />
             </div>
           </div>

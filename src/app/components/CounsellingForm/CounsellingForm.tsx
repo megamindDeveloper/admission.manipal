@@ -118,7 +118,13 @@ const CounsellingForm = () => {
         </svg>
       </div>
       <div onClick={handleLocationClick} className="absolute cursor-pointer top-[46vh] left-[46%] w-36 h-36 z-[1000]">
-        <Lottie options={lottieOptions} />
+        {/* <Lottie options={lottieOptions} /> */}
+        <div className="absolute inset-0">
+          <div className="w-24 h-24 rounded-full bg-[#FB7824] animate-ping" />
+        </div>
+        <div className="absolute inset-0">
+          <div className="w-24 h-24 rounded-full bg-[#FB7824] animate-pulse" />
+        </div>
       </div>
       {/* <div className="absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg max-w-7xl w-full"> */}
       <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg:max-w-4xl">

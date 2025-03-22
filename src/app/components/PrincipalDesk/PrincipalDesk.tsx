@@ -20,7 +20,7 @@ const PrincipalDesk = () => {
       <div className="relative">
         <div className="px-auto mx-auto">
       <div className="absolute top-[2.5rem] right-[-5%]  w-36 h-36 bg-[#2B9FF7]  rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
-      <div className="absolute  left-[-15%] bottom-[-5rem] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#31CB6E] rotate-45 rounded-b-full opacity-100 z-50"></div>
+      <div className="absolute  left-[-15%] bottom-[-5rem] xl:w-80 xl:h-40 lg:w-64 lg:h-32 bg-[#31CB6E] rotate-45 rounded-b-full opacity-100 z-50"></div>
       <div className="absolute top-[4%] opacity-100 z-50 left-[-3%]">
         <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path

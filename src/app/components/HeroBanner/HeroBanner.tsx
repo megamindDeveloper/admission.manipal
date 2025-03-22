@@ -11,6 +11,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { toast } from "react-hot-toast"; // Import toast
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
+import Link from "next/link";
 
 interface FormData {
   studentName: string;
@@ -51,9 +52,118 @@ const HeroBanner = () => {
   return (
     <div className="min-h-screen">
       {/* Top Contact Bar */}
-      <div className="bg-orange-500 text-white text-sm py-2 px-4">
-        <div className="container mx-auto">
-          Contact Ms. XYZ Sample Name Phone: +91 9538820398 | Office Telephone: +91 824 4252305 / 4252307 feedback@manipal.edu
+      <div className="bg-orange-500 text-white text-sm py-2 px-4 overflow-hidden whitespace-nowrap">
+        <div className="relative flex space-x-10 animate-marquee">
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
+          
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
+          
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
+          <p>
+            Contact Ms. XYZ Sample Name Phone:
+            <Link href="tel:+919538820398" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+            </Link>
+            | Office Telephone:
+            <Link href="tel:+918244252305" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+            </Link>{" "}
+            /
+            <Link href="tel:+918244252307" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
+            </Link>
+            |
+            <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
+              <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+            </Link>
+          </p>
         </div>
       </div>
 

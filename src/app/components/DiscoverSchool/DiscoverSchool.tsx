@@ -1,22 +1,10 @@
-"use client"
-
 import React from "react";
 import studentImage from "../../../../public/images/freepik__the-style-is-candid-image-photography-with-natural__18228 1.png";
 import Image from "next/image";
-import dynamic from "next/dynamic";
 
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
-import animationData from "../../../animation/discoverSchoolAnimation1.json";
 const DiscoverSchool = () => {
-  const defaultOptions = {
-    loop: false, // Set to true to loop the animation
-    autoplay: true, // Play animation automatically
-    animationData: animationData, // Lottie animation JSON
-    rendererSettings: {
-      preserveAspectRatio: "xMidYMid slice",
-    },
-  };
 
+  
   return (
     <div className="bg-white">
       <div className="max-w-7xl xl:mx-auto lg:mx-8 h-auto">
@@ -25,10 +13,7 @@ const DiscoverSchool = () => {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-20 lg:gap-16">
             {/* Image section */}
             <div className="relative z-0">
-              <div className="absolute lg:right-[-10%] xl:right-[-15%] top-[-10rem] z-10">
-                {" "}
-                <Lottie options={defaultOptions} height={300} width={300} />
-              </div>
+              <div className="absolute lg:right-[-10%] xl:right-[0%] top-[-5rem] w-36 h-36 bg-[#AF84CC]  rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
               <div className="absolute xl:bottom-[-10%] lg:bottom-[-13%] left-[0%]">
                 <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
