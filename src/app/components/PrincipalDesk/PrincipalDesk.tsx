@@ -8,20 +8,28 @@ const PrincipalDesk = () => {
     return match && match[2].length === 11 ? match[2] : null;
   };
   return (
-    <div className="max-w-7xl mx-auto py-16 relative">
+    <div className="max-w-7xl xl:mx-auto lg:mx-8 py-16 relative">
       {/* Decorative Elements */}
       {/* <div className="absolute top-0 left-0 w-24 h-24 text-[#FB9D2B]">
         <svg viewBox="0 0 100 100" className="w-full h-full">
           <path d="M0 0 L100 0 L100 20 L20 20 L20 100 L0 100 Z" fill="currentColor" />
         </svg>
       </div> */}
-      <div className="absolute bottom-0 right-0 w-32 h-32 bg-[#2B9FF7] rounded-full" />
-      <div className="absolute -bottom-16 -left-16 w-32 h-32 bg-[#31CB6E] rounded-full" />
 
       {/* Content */}
       <div className="relative">
         <div className="px-auto mx-auto">
-          <h1 className="text-[2.5rem] text-black font-bold mb-12 text-center">
+      <div className="absolute top-[2.5rem] right-[-5%]  w-36 h-36 bg-[#2B9FF7]  rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
+      <div className="absolute  left-[-15%] bottom-[-5rem] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#31CB6E] rotate-45 rounded-b-full opacity-100 z-50"></div>
+      <div className="absolute top-[4%] opacity-100 z-50 left-[-3%]">
+        <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
+            fill="#FB9D2B"
+          />
+        </svg>
+      </div>
+          <h1 className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-12 text-center">
           From the <span className="text-[#31CB6E]">Principal&apos;s Desk</span>
           </h1>
         </div>

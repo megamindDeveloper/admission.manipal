@@ -17,11 +17,11 @@ function AboutSchool() {
   }
 
   return (
-    <div className="bg-white flex items-center p-16">
-      <div className="max-w-7xl mx-auto">
+    <div className="bg-white flex items-center">
+      <div className="max-w-7xl  xl:mx-auto lg:mx-8 h-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           <div className="space-y-4">
-            <h1 className="text-[2.5rem] leading-tight tracking-tight">
+            <h1 className="lg:text-[2rem] xl:text-[2.5rem] leading-tight tracking-tight">
               <span className="text-[#FF5F1F] font-bold">Manipal School  </span>
               <span className="font-bold text-[#1A1A1A]">
                 is a premier institution dedicated to holistic education, blending academics, culture & technology to nurture well-rounded learners.
@@ -29,7 +29,7 @@ function AboutSchool() {
             </h1>
           </div>
 
-          <div className="w-full" style={{ height: '500px' }}>
+          <div className="w-full" >
             {/* Container div for padding around Lottie */}
             <div className="p-8">
               <Lottie options={defaultOptions} height={300} width={300} />

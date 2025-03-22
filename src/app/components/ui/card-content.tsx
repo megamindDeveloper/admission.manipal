@@ -28,7 +28,7 @@ export default function CardContent({
 }: CardContentProps) {
   return (
     <motion.div
-      className={cn(backgroundColor, "dark:bg-neutral-800 p-8 md:p-14 rounded-3xl mb-4", className)}
+      className={cn(backgroundColor, "p-8 md:p-14 rounded-3xl mb-4", className)}
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: 1,

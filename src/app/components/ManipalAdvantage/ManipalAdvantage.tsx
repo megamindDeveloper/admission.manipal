@@ -9,15 +9,15 @@ import advantageImage4 from "../../../../public/images/advantage4.png";
 import Image from "next/image";
 const ManipalAdvantage = () => {
   return (
-    <div className="max-w-7xl mx-auto bg-white pt-44">
-      <h1 className="text-[2rem] text-black font-bold mb-8">
+    <div className="max-w-7xl xl:mx-auto lg:mx-8 bg-white pt-44 ">
+      <h1 className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8">
         Step into the <span className="text-purple-600">Manipal Advantage</span>
       </h1>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {/* Digital Classrooms Card */}
         <div className="relative col-span-2 rounded-2xl overflow-hidden h-[380px]">
-          <Image src={advantageImage1} className="absolute inset-0 object-contain w-[100%]" alt="Students in classroom" />
+          <Image src={advantageImage1} className="absolute inset-0 object-cover h-[100%] w-[100%]" alt="Students in classroom" />
           <div className="absolute inset-0   p-8 flex flex-col justify-start">
             <h2 className=" font-bold text-[2rem] leading-9 text-white mb-2 max-w-2/4">Well-Equipped Future Ready Digital Classrooms</h2>
             <p className="text-gray-200 max-w-1/3">Awarded the School Excellence Award for future-ready digital classrooms.</p>

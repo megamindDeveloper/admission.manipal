@@ -46,16 +46,25 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className 
   );
 };
 function Activities() {
+  
   return (
     <div className="min-h-screen relative">
-      <div className="max-w-7xl mx-auto">
+      <div className="absolute bottom-[4%] opacity-100 z-50 right-[-3%]">
+        <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
+            fill="#FB9D2B"
+          />
+        </svg>
+      </div>
+      <div className="max-w-7xl xl:mx-auto lg:mx-8">
         <div className="my-24">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">
+          <h1 className="xl:text-[2.5rem] lg:text-[2rem] leading-10 font-bold text-gray-900 mb-4">
             Comprehensive Support
             <br />
             for Growing Minds
           </h1>
-          <p className="text-gray-600 max-w-2xl mx-auto">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
+          <p className="text-gray-600 max-w-1/3 ">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
         </div>
         <div className="grid grid-cols-12 gap-4 relative">
           <FacilityCard
@@ -96,7 +105,7 @@ function Activities() {
           <FacilityCard
             title="Higher Education Exposure"
             imageUrl="/images/activityImages/activityImage6.png"
-            className="col-span-4 row-span-2 max-w-[310px] top-[-13rem] fade-in"
+            className="col-span-4 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem] fade-in"
             style={{ animationDelay: "1.0s" }}
             gradientColor="#FB7824"
           />

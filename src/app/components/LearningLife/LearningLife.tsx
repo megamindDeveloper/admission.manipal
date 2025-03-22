@@ -41,9 +41,10 @@ function LearningLife() {
   ];
 
   return (
-    <div className="bg-gradient-to-br flex items-center justify-center p-6">
-      <div className="w-full max-w-7xl">
-        <h1 className="text-[2.5rem] text-black font-bold mb-8">
+    <div className="bg-gradient-to-br flex items-center relative justify-center ">
+      <div className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC] rotate-37 rounded-b-full opacity-100 z-50"></div>
+      <div className="w-full max-w-7xl  xl:mx-auto lg:mx-8  mt-56">
+        <h1 className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8">
           Learning for Life: From{' '}
           <span className="text-blue-500">Nursery</span> to{' '}
           <span className="text-orange-500">Senior Secondary</span>

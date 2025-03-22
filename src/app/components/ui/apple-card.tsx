@@ -93,7 +93,7 @@ useEffect(() => {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0, transition: { duration: 0.3 } }}
-              className="bg-black/80 backdrop-blur-lg  w-full fixed inset-0"
+              className=" backdrop-blur-lg  w-full fixed inset-0"
             />
             <motion.div
               initial={{ opacity: 0, y: 50, scale: 0.95 }}
@@ -115,7 +115,7 @@ useEffect(() => {
                 transition: { duration: 0.3 },
               }}
               ref={containerRef}
-              className="max-w-5xl mx-auto bg-white dark:bg-neutral-900 h-fit z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative overflow-hidden"
+              className="max-w-5xl xl:mx-auto mx-6 bg-white shadow-2xl  dark:bg-neutral-900 h-fit z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative overflow-hidden"
             >
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}

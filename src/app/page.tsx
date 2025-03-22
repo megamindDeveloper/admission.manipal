@@ -14,7 +14,7 @@ import CounsellingForm from "./components/CounsellingForm/CounsellingForm";
 
 export default function Home() {
   return (
-    <section>
+    <section className="overflow-hidden">
       <HeroBanner/>
       <AboutSchool/>
       <DiscoverSchool/>

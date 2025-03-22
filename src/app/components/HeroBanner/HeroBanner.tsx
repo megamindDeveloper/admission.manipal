@@ -10,6 +10,7 @@ import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import { toast } from "react-hot-toast"; // Import toast
 import { useState } from "react";
+import { IconMapPin } from "@tabler/icons-react";
 
 interface FormData {
   studentName: string;
@@ -62,10 +63,12 @@ const HeroBanner = () => {
           <div className="flex items-center gap-4">
             <Image src={logo} alt="Manipal School Logo" className="h-12" />
           </div>
-          <div className="text-right text-sm text-gray-600">
-            Ward 55, Behind Manipal College of Dental Sciences, Attavar,
-            <br />
-            Mangalore DK District Karnataka, India - 575 001
+          <div
+            onClick={() => window.open("https://maps.app.goo.gl/1VF8MxuicvabAJoT9", "_blank")}
+            className="flex items-center gap-2 cursor-pointer text-gray-600 hover:text-blue-600"
+          >
+            <IconMapPin size={20} />
+            <span>Ward 55, Behind Manipal College of Dental Sciences, Attavar, Mangalore</span>
           </div>
         </div>
       </header>
@@ -89,15 +92,14 @@ const HeroBanner = () => {
 
         {/* Form Container - Centered */}
 
-        <div className="relative container mx-auto px-4 min-h-[80vh] flex justify-end  items-start">
+        <div className="relative container mx-auto px-4 lg:min-h-[90vh] xl:min-h-[80vh] flex justify-end  items-start">
           {/* Form Card */}
-          <div className="absolute top-[-3rem] right-[-2rem] w-36 h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full rotate-"></div>
-          <div className="absolute bottom-[8rem] right-[34%] w-36 h-18 bg-pink-400 rotate-220 rounded-t-full opacity-50"></div>
+          <div className="absolute top-[-3rem] right-[-2rem] w-36 h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full opacity-100"></div>
+          <div className="absolute xl:bottom-[8rem] bottom-8 xl:left-[57%] left-[50%] w-36 h-18 bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"></div>
 
-          <div className="bg-white rounded-lg  shadow-lg px-8 py-16 w-full max-w-[40vw] xl:max-w-[30vw]  my-0 relative ">
-
+          <div className="bg-white rounded-lg max-h-[80vh]  shadow-lg px-8 xl:py-16 lg:py-8 w-full max-w-[40vw] xl:max-w-[30vw]  my-0 relative ">
             <h2
-              className="text-3xl xl:text-4xl font-bold mb-6 text-gray-800 text-center pb-10"
+              className="xl:text-[2.5rem] lg:text-[1.5rem]  xl:text-4xl leading-none lg:pb-5 font-bold xl:mb-6 text-gray-800 text-center xl:pb-10"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Ready to Nurture a Future Innovator

@@ -1,29 +1,27 @@
-"use client"
-import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards"
+"use client";
+import { InfiniteMovingCards } from "@/components/ui/infinite-moving-cards";
 
 export default function Testimonials() {
   return (
     <>
-     <div className="text-center">
-          <h2 className="text-4xl font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
-            Bright Minds,{" "}
-            <span className="text-[#FF8DC7] flex items-center">
-              Big Dreams
-            </span>
-          </h2>
-        </div> 
-    <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
-      <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
-    </div>
+      <div className="text-center">
+        <h2 className="lg:text-[2rem] xl:text-[2.5rem] font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
+          Bright Minds, <span className="text-[#FF8DC7] flex items-center">Big Dreams</span>
+        </h2>
+      </div>
+      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+        <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
+      </div>
     </>
-  )
+  );
 }
 
 const testimonials = [
   {
     quote: (
       <>
-        Manipal School <span className="font-extrabold">gave me the confidence to dream big</span> & the skills to achieve them. The support from teachers made all the difference.
+        Manipal School <span className="font-extrabold">gave me the confidence to dream big</span> & the skills to achieve them. The support from
+        teachers made all the difference.
       </>
     ),
     name: "Charles Dickens",
@@ -54,11 +52,8 @@ const testimonials = [
     title: "Pride and Prejudice",
   },
   {
-    quote:
-      "The dedicated teachers at Manipal School always pushed us to be our best. Their mentorship played a huge role in my success.",
+    quote: "The dedicated teachers at Manipal School always pushed us to be our best. Their mentorship played a huge role in my success.",
     name: "Herman Melville",
     title: "Moby-Dick",
   },
 ];
-
-

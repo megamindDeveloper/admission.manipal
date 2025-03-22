@@ -18,7 +18,7 @@ const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { 
 const MAPBOX_ACCESS_TOKEN =
   process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "pk.eyJ1IjoiamFtc2hhZDEiLCJhIjoiY2xrOXNsdTR0MDBoZDNkbXcxNXc1YnYybCJ9.7mKn2TGyJPQ5p1cIIss9ow";
 const MAPBOX_STYLE_ID = "streets-v12";
-const center: [number, number] = [12.853876986146968, 74.84635264097497];
+const center: [number, number] = [12.856377057438442, 74.84633878650929];
 
 const CounsellingForm = () => {
   const mapRef = useRef<Map | null>(null);
@@ -70,7 +70,7 @@ const CounsellingForm = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-  
+
     const response = await fetch("/api/submit-form", {
       method: "POST",
       headers: {
@@ -78,7 +78,7 @@ const CounsellingForm = () => {
       },
       body: JSON.stringify(formData),
     });
-  
+
     const result = await response.json();
     if (result.result === "success") {
       alert("Form submitted successfully!");
@@ -86,14 +86,14 @@ const CounsellingForm = () => {
       alert("Error submitting form.");
     }
   };
-  
+
   return (
     <div className="relative flex flex-col items-center ">
       <MapContainer
         ref={mapRef}
         center={center}
         zoom={17}
-        style={{ width: "100%", height: "100vh" }}
+        style={{ width: "100%", height: "100vh", position: "relative" }}
         scrollWheelZoom={false}
         zoomControl={false}
         minZoom={17}
@@ -109,15 +109,30 @@ const CounsellingForm = () => {
           <Popup>{popupContent}</Popup>
         </Marker>
       </MapContainer>
-
-      <div onClick={handleLocationClick} className="absolute cursor-pointer top-[16%] left-[48%] w-28 h-28 z-[1000]">
+      <div className="absolute  opacity-100 z-1000 top-[30rem] right-[8%]">
+        <svg width="315" height="314" viewBox="0 0 315 314" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M0.833984 157C0.833984 70.507 70.9504 0.390625 157.443 0.390625C243.936 0.390625 314.053 70.507 314.053 157V313.609H157.443C70.9504 313.609 0.833984 243.493 0.833984 157Z"
+            fill="#FEA3CA"
+          />
+        </svg>
+      </div>
+      <div onClick={handleLocationClick} className="absolute cursor-pointer top-[46vh] left-[46%] w-36 h-36 z-[1000]">
         <Lottie options={lottieOptions} />
       </div>
+      {/* <div className="absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg max-w-7xl w-full"> */}
+      <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg:max-w-4xl">
+        <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] lg:text-[2rem]">Ready to Nurture a Future Innovator</h2>
+        <h3 className="text-center text-gray-800 font-bold text-xl pb-12">Book Your Counselling Session Today!</h3>
 
-      <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg max-w-5xl w-full">
-        <h2 className="text-center text-orange-600 font-semibold text-lg">Ready to Nurture a Future Innovator</h2>
-        <h3 className="text-center text-gray-800 font-bold text-xl">Book Your Counselling Session Today!</h3>
-
+        <div className="absolute top-[-15%] opacity-100 z-50 right-[-7%]">
+          <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M85.5001 0.511719C73.7078 41.7387 41.4828 73.9637 0.255859 85.756C41.4828 97.5482 73.7078 129.773 85.5001 171C97.2894 129.773 129.517 97.5482 170.744 85.756C129.517 73.9637 97.2923 41.7358 85.5001 0.511719Z"
+              fill="#FBE360"
+            />
+          </svg>
+        </div>
         <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-2 gap-7">
           <input
             type="text"
@@ -172,7 +187,7 @@ const CounsellingForm = () => {
           </button>
         </form>
       </div>
-
+      {/* </div> */}
       <footer className="bg-[#1A1A1A] text-white w-full">
         <div className="container mx-auto px-4 pt-72">
           {/* Logo and Address Section */}
