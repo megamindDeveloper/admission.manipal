@@ -2,7 +2,6 @@
 import { useEffect, useState, useRef } from "react";
 import dynamic from "next/dynamic";
 import "leaflet/dist/leaflet.css";
-import animationData from "../../../animation/pulseAnimation.json";
 import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import type { LeafletMouseEvent, Map } from "leaflet";
