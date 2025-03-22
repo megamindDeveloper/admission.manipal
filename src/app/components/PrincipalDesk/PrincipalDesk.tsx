@@ -54,7 +54,7 @@ const PrincipalDesk = () => {
             viewport={{ once: true }}
             className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-12 text-center"
           >
-            From the <span className="text-[#31CB6E]">Principal's Desk</span>
+            From the <span className="text-[#31CB6E]">Principal&apos;s Desk</span>
           </motion.h1>
         </div>
         {/* Animated Video Container */}
