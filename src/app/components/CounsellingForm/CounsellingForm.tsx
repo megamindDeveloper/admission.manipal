@@ -6,6 +6,7 @@ import { Mail, Phone } from "lucide-react";
 import Image from "next/image";
 import type { LeafletMouseEvent, Map } from "leaflet";
 import logo from "../../../../public/images/logo/manipalBottom.svg";
+import Link from "next/link";
 
 // Correct dynamic imports for Leaflet components
 
@@ -78,7 +79,7 @@ const CounsellingForm = () => {
   };
 
   return (
-    <div className="relative flex flex-col items-center ">
+    <div className="relative flex bg-[#1A1A1A] flex-col items-center ">
       <MapContainer
         ref={mapRef}
         center={center}
@@ -184,10 +185,10 @@ const CounsellingForm = () => {
         </form>
       </div>
       {/* </div> */}
-      <footer className="bg-[#1A1A1A] text-white w-full mt-32">
+      <footer className="bg-[#1A1A1A] text-white w-full xl:mt-32">
         <div className="container mx-auto px-4 pt-72">
           {/* Logo and Address Section */}
-          <div className="flex flex-col items-center text-center mb-8">
+          <div className="flex flex-col items-center text-center mb-8 mt-96">
             <div className="mb-4">
               <Image src={logo} alt="Manipal School" className="h-12" />
             </div>
@@ -200,26 +201,38 @@ const CounsellingForm = () => {
           </div>
 
           {/* Contact Section */}
-          <div className="bg-[#FB7824] rounded-lg p-6  max-w-7xl mx-auto  mb-8">
+          <div className="bg-[#FB7824] rounded-lg p-6 max-w-7xl mx-auto mb-8">
             <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left">
               <div className="mb-4 md:mb-0">
-                <h3 className="text-xl font-semibold">For Admission Enquires</h3>
+                <h3 className="text-xl font-semibold">For Admission Enquiries</h3>
                 <p className="text-sm">You can also Get in Touch</p>
               </div>
               <div className="space-y-2">
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <Phone size={18} />
-                  <span>+91 9538820398</span>
+                  <Link href="tel:+919538820398" className="hover:underline">
+                    +91 9538820398
+                  </Link>
                 </div>
                 <div className="flex items-center justify-center md:justify-start gap-2">
                   <Mail size={18} />
-                  <span>feedback@manipalschool.edu.in</span>
+                  <Link href="mailto:feedback@manipalschool.edu.in" className="hover:underline">
+                    feedback@manipalschool.edu.in
+                  </Link>
                 </div>
-                <p className="text-sm">Office Telephone: +91 824 4252305 / 4252307</p>
+                <p className="text-sm">
+                  Office Telephone:{" "}
+                  <Link href="tel:+918244252305" className="hover:underline">
+                    +91 824 4252305
+                  </Link>{" "}
+                  /{" "}
+                  <Link href="tel:+918244252307" className="hover:underline">
+                    4252307
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
-
           {/* Social Links and Copyright */}
           <div className="flex flex-col items-center">
             <h2 className="text-white text-center font-bold pb-4">Follow Us</h2>
@@ -330,7 +343,7 @@ const CounsellingForm = () => {
 
             <div className="text-sm text-white/56 text-center flex flex-row w-full justify-between pb-4 items-center">
               <div className="text-left">
-              <p>© Manipal School 2024 | All Rights Reserved</p>
+                <p>© Manipal School 2024 | All Rights Reserved</p>
               </div>
               <div className="flex gap-4 text-right">
                 <a href="#" className="hover:text-[#FB7824]">

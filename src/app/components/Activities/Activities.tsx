@@ -10,19 +10,23 @@ interface FacilityCardProps {
   imageUrl: string;
   className?: string;
   gradientColor?: string;
-  style?: React.CSSProperties; // Add style prop
+  delay: number;
+  index: number; // Used to alternate direction
 }
 
-const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className = "", gradientColor }) => {
+const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className = "", gradientColor, delay, index }) => {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true }); // Animation triggers only once
+  const isInView = useInView(ref, { once: true });
+
+  // Alternate direction: even index from left, odd from right
+  const direction = index % 2 === 0 ? -50 : 50; // -50 for left, 50 for right
 
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 20 }} // Start invisible and slightly below
-      animate={{ opacity: isInView ? 1 : 0, y: isInView ? 0 : 20 }} // Fade in and slide up when in view
-      transition={{ duration: 0.5, ease: "easeOut" }} // Smooth transition over 0.5 seconds
+      initial={{ opacity: 0, x: direction }} // Start off-screen left or right
+      animate={{ opacity: isInView ? 1 : 0, x: isInView ? 0 : direction }} // Slide to center
+      transition={{ duration: 0.5, ease: "easeOut", delay }} // Smooth transition with delay
       className={`relative rounded-2xl overflow-hidden group h-[360px] ${className}`}
     >
       <AppleStyledCard
@@ -45,10 +49,13 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className 
     </motion.div>
   );
 };
+
 function Activities() {
-  
+  const sectionRef = useRef(null);
+  const isSectionInView = useInView(sectionRef, { once: true });
+
   return (
-    <div className="min-h-screen relative">
+    <div className="min-h-screen relative" ref={sectionRef}>
       <div className="absolute bottom-[4%] opacity-100 z-50 right-[-3%]">
         <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -58,56 +65,69 @@ function Activities() {
         </svg>
       </div>
       <div className="max-w-7xl xl:mx-auto lg:mx-8">
-        <div className="my-24">
+        <motion.div
+          initial={{ opacity: 0, y: -50 }}
+          animate={{ opacity: isSectionInView ? 1 : 0, y: isSectionInView ? 0 : -50 }}
+          transition={{ duration: 0.5 }}
+          className="my-24"
+        >
           <h1 className="xl:text-[2.5rem] lg:text-[2rem] leading-10 font-bold text-gray-900 mb-4">
             Comprehensive Support
             <br />
             for Growing Minds
           </h1>
-          <p className="text-gray-600 max-w-1/3 ">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
-        </div>
+          <p className="text-gray-600 max-w-1/3">
+            From high-tech labs to serene study spaces, We provide the perfect learning environment.
+          </p>
+        </motion.div>
         <div className="grid grid-cols-12 gap-4 relative">
           <FacilityCard
             title="Expansive Library"
             imageUrl="/images/activityImages/activityImage1.png"
-            className="col-span-3 row-span-2 mt-56 fade-in"
-            style={{ animationDelay: "0s" }}
+            className="col-span-3 row-span-2 mt-56"
             gradientColor="#FECBE5"
+            delay={0.1}
+            index={0} // From left
           />
           <FacilityCard
             title="Access to World-Class Sports Facilities"
             imageUrl="/images/activityImages/activityImage2.png"
-            className="col-span-3 row-span-1 top-32 fade-in"
-            style={{ animationDelay: "0.2s" }}
+            className="col-span-3 row-span-1 top-32"
             gradientColor="#2B9FF7"
+            delay={0.2}
+            index={1} // From right
           />
           <FacilityCard
             title="Insightful Guest Lectures"
             imageUrl="/images/activityImages/activityImage3.png"
-            className="col-span-3 row-span-2 fade-in"
-            style={{ animationDelay: "0.4s" }}
+            className="col-span-3 row-span-2"
             gradientColor="#FBD034"
+            delay={0.3}
+            index={2} // From left
           />
           <FacilityCard
             title="Outreach Activities"
             imageUrl="/images/activityImages/activityImage4.png"
-            className="col-span-3 row-span-1 top-20 fade-in"
-            style={{ animationDelay: "0.6s" }}
+            className="col-span-3 row-span-1 top-20"
             gradientColor="#AF84CC"
+            delay={0.4}
+            index={3} // From right
           />
           <FacilityCard
             title="Career Collaborations with MAHE Manipal"
             imageUrl="/images/activityImages/activityImage5.png"
-            className="col-span-3 row-span-2 top-36 fade-in"
-            style={{ animationDelay: "0.8s" }}
+            className="col-span-3 row-span-2 top-36"
             gradientColor="#31CB6E"
+            delay={0.5}
+            index={4} // From left
           />
           <FacilityCard
             title="Higher Education Exposure"
             imageUrl="/images/activityImages/activityImage6.png"
-            className="col-span-4 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem] fade-in"
-            style={{ animationDelay: "1.0s" }}
+            className="col-span-4 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem]"
             gradientColor="#FB7824"
+            delay={0.6}
+            index={5} // From right
           />
         </div>
       </div>

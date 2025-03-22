@@ -1,10 +1,17 @@
-import React from "react";
-import studentImage from "../../../../public/images/freepik__the-style-is-candid-image-photography-with-natural__18228 1.png";
-import Image from "next/image";
+'use client'
+
+import React, { useRef } from 'react'
+import Image from 'next/image'
+import studentImage from '../../../../public/images/freepik__the-style-is-candid-image-photography-with-natural__18228 1.png'
+import { motion, useInView } from 'framer-motion'
 
 const DiscoverSchool = () => {
+  // References to detect when sections are in view
+  const imageRef = useRef(null)
+  const textRef = useRef(null)
+  const isImageInView = useInView(imageRef, { once: true })
+  const isTextInView = useInView(textRef, { once: true })
 
-  
   return (
     <div className="bg-white">
       <div className="max-w-7xl xl:mx-auto lg:mx-8 h-auto">
@@ -12,8 +19,15 @@ const DiscoverSchool = () => {
           {/* Main content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-20 lg:gap-16">
             {/* Image section */}
-            <div className="relative z-0">
-              <div className="absolute lg:right-[-10%] xl:right-[0%] top-[-5rem] w-36 h-36 bg-[#AF84CC]  rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
+            <motion.div
+              ref={imageRef}
+              initial={{ opacity: 0, x: -100 }} // Start off-screen to the left
+              whileInView={{ opacity: 1, x: 0 }} // Slide in to position
+              transition={{ duration: 0.5 }} // Animation duration
+              viewport={{ once: true }} // Trigger only once
+              className="relative z-0"
+            >
+              <div className="absolute lg:right-[-10%] xl:right-[0%] top-[-5rem] w-36 h-36 bg-[#AF84CC] rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
               <div className="absolute xl:bottom-[-10%] lg:bottom-[-13%] left-[0%]">
                 <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -25,12 +39,19 @@ const DiscoverSchool = () => {
               <Image
                 src={studentImage}
                 alt="Students in classroom"
-                className="object-cover rounded-2xl z-0" // Ensure the image has a lower z-index
+                className="object-cover rounded-2xl z-0"
               />
-            </div>
+            </motion.div>
 
             {/* Content section */}
-            <div className="relative  xl:pt-16  px-4 lg:px-8">
+            <motion.div
+              ref={textRef}
+              initial={{ opacity: 0, x: 100 }} // Start off-screen to the right
+              whileInView={{ opacity: 1, x: 0 }} // Slide in to position
+              transition={{ duration: 0.5 }} // Animation duration
+              viewport={{ once: true }} // Trigger only once
+              className="relative xl:pt-16 px-4 lg:px-8"
+            >
               <div className="relative z-10 space-y-6">
                 <h1 className="lg:text-[2rem] xl:text-[2.5rem] font-semibold text-black leading-tight">
                   Discover a New Way to Learn at <span className="text-[#FF5F1F]">a School That Inspires</span>
@@ -50,12 +71,12 @@ const DiscoverSchool = () => {
                   </p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default DiscoverSchool;
+export default DiscoverSchool

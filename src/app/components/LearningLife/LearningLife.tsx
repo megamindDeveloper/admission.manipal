@@ -1,7 +1,8 @@
 "use client";
 
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
+import { motion, useInView } from 'framer-motion';
 
 interface EducationLevel {
   id: string;
@@ -40,21 +41,44 @@ function LearningLife() {
     }
   ];
 
+  // Reference for scroll detection
+  const sectionRef = useRef(null);
+  const isInView = useInView(sectionRef, { once: true });
+
   return (
-    <div className="bg-gradient-to-br flex items-center relative justify-center ">
-      <div className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC] rotate-37 rounded-b-full opacity-100 z-50"></div>
-      <div className="w-full max-w-7xl  xl:mx-auto lg:mx-8  mt-56">
-        <h1 className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8">
+    <div className="bg-gradient-to-br flex items-center relative justify-center" ref={sectionRef}>
+      {/* Decorative Rotated Rectangle - Scales and Fades In */}
+      <motion.div
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        viewport={{ once: true }}
+        className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC] rotate-37 rounded-b-full opacity-100 z-50"
+      ></motion.div>
+
+      <div className="w-full max-w-7xl xl:mx-auto lg:mx-8 mt-56">
+        {/* Heading - Slides Down and Fades In */}
+        <motion.h1
+          initial={{ opacity: 0, y: -50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ once: true }}
+          className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8"
+        >
           Learning for Life: From{' '}
           <span className="text-blue-500">Nursery</span> to{' '}
           <span className="text-orange-500">Senior Secondary</span>
-        </h1>
+        </motion.h1>
 
-        {/* Grid for 4 Cards */}
+        {/* Grid for 4 Cards - Staggered Fade and Slide Up */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {educationLevels.map((level) => (
-            <div
+          {educationLevels.map((level, index) => (
+            <motion.div
               key={level.id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }} // Staggered delay
+              viewport={{ once: true }}
               className="overflow-hidden transition-all duration-500 ease-in-out rounded-xl w-full h-full"
             >
               <button
@@ -66,17 +90,13 @@ function LearningLife() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-semibold">{level.title}</span>
-                  {/* ChevronRight icon will only appear on small/medium screens */}
                   <ChevronRight
                     className={`transition-transform duration-500 ease-in-out
                       ${expandedLevel === level.id ? 'rotate-90' : ''} lg:hidden`}
                     size={24}
                   />
                 </div>
-                
-                <div className={`mt-4 pt-4 border-t border-white/20 text-white/90
-                  `}
-                >
+                <div className="mt-4 pt-4 border-t border-white/20 text-white/90">
                   <p>Comprehensive education program tailored for {level.title} students.</p>
                   <ul className="mt-2 list-disc list-inside">
                     <li>Personalized learning approach</li>
@@ -86,12 +106,25 @@ function LearningLife() {
                   </ul>
                 </div>
               </button>
-            </div>
+            </motion.div>
           ))}
         </div>
 
-        <div className="absolute top-0 right-0 w-48 h-48 bg-purple-400 rounded-full opacity-20 -z-10 blur-3xl"></div>
-        <div className="absolute bottom-0 left-0 w-72 h-72 bg-purple-300 rounded-full opacity-20 -z-10 blur-3xl"></div>
+        {/* Decorative Blurred Circles - Fade In */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          viewport={{ once: true }}
+          className="absolute top-0 right-0 w-48 h-48 bg-purple-400 rounded-full -z-10 blur-3xl"
+        ></motion.div>
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 0.2 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          viewport={{ once: true }}
+          className="absolute bottom-0 left-0 w-72 h-72 bg-purple-300 rounded-full -z-10 blur-3xl"
+        ></motion.div>
       </div>
     </div>
   );
