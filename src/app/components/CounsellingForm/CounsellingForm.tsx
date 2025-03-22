@@ -9,7 +9,7 @@ import type { LeafletMouseEvent, Map } from "leaflet";
 import logo from "../../../../public/images/logo/manipalBottom.svg";
 
 // Correct dynamic imports for Leaflet components
-const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
 const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), { ssr: false });
