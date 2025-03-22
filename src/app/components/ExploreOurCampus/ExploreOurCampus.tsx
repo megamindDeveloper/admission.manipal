@@ -2,7 +2,7 @@
 
 import React, { useRef } from 'react'
 import { YouTubeEmbed } from '@next/third-parties/google'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const ExploreOurCampus = () => {
   const getVideoId = (url: string): string | null => {
@@ -13,7 +13,6 @@ const ExploreOurCampus = () => {
 
   // Reference for scroll detection
   const sectionRef = useRef(null)
-  const isInView = useInView(sectionRef, { once: true })
 
   return (
     <div

@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import { motion, useInView } from "framer-motion";
+import { motion } from "framer-motion";
 import LearningIcon from "../../../../public/icons/learningIcon";
 import GrowthIcon from "../../../../public/icons/growthIcon";
 import Innovations from "../../../../public/icons/innovations";
@@ -14,7 +14,7 @@ import advantageImage4 from "../../../../public/images/advantage4.png";
 const ManipalAdvantage = () => {
   // Reference for scroll detection
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
+
 
   return (
     <div className="max-w-7xl xl:mx-auto lg:mx-8 bg-white pt-44" ref={sectionRef}>

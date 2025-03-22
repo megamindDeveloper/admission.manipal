@@ -3,14 +3,13 @@
 import React, { useRef } from 'react'
 import Image from 'next/image'
 import studentImage from '../../../../public/images/freepik__the-style-is-candid-image-photography-with-natural__18228 1.png'
-import { motion, useInView } from 'framer-motion'
+import { motion } from 'framer-motion'
 
 const DiscoverSchool = () => {
   // References to detect when sections are in view
   const imageRef = useRef(null)
   const textRef = useRef(null)
-  const isImageInView = useInView(imageRef, { once: true })
-  const isTextInView = useInView(textRef, { once: true })
+
 
   return (
     <div className="bg-white">

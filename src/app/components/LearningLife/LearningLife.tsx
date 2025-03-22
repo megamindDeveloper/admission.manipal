@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from 'react';
 import { ChevronRight } from 'lucide-react';
-import { motion, useInView } from 'framer-motion';
+import { motion } from 'framer-motion';
 
 interface EducationLevel {
   id: string;
@@ -43,7 +43,7 @@ function LearningLife() {
 
   // Reference for scroll detection
   const sectionRef = useRef(null);
-  const isInView = useInView(sectionRef, { once: true });
+
 
   return (
     <div className="bg-gradient-to-br flex items-center relative justify-center" ref={sectionRef}>
