@@ -24,11 +24,11 @@ function AboutSchool() {
 
   return (
     <div className="bg-white flex items-center">
-      <div className="max-w-7xl xl:mx-auto lg:mx-8 h-auto">
+      <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Text Section */}
           <div className="space-y-4">
-            <h1 className="lg:text-[2rem] xl:text-[2.5rem] leading-tight tracking-tight">
+            <h1 className="lg:text-[2rem] md:text-[2.5rem] xl:text-[2.5rem] leading-tight tracking-tight">
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}

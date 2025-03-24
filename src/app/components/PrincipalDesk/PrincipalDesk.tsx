@@ -12,14 +12,14 @@ const PrincipalDesk = () => {
   };
 
   return (
-    <div className="max-w-7xl xl:mx-auto lg:mx-8 py-16 relative">
+    <div className="max-w-7xl xl:mx-auto mx-8 lg:py-16 md:pt-24 relative">
       {/* Decorative Elements with Animations */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="absolute top-[5.5rem] right-[-5%] w-36 h-36 bg-[#2B9FF7] rounded-tr-full rounded-tl-full rounded-br-full z-10"
+        className="absolute top-[9rem] right-[-5%] lg:top-[5.5rem] lg:right-[-5%] w-20 h-20 lg:w-36 lg:h-36 bg-[#2B9FF7] rounded-tr-full rounded-tl-full rounded-br-full z-10"
       ></motion.div>
       <motion.div
         initial={{ opacity: 0, rotate: 0 }}
@@ -33,7 +33,7 @@ const PrincipalDesk = () => {
         whileInView={{ opacity: 1 }}
         transition={{ duration: 0.5, delay: 0.6 }}
         viewport={{ once: true }}
-        className="absolute top-[8%] opacity-100 z-50 left-[-3%]"
+        className="md:hidden  absolute top-[8%] opacity-100 z-50 left-[-3%]"
       >
         <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
@@ -42,7 +42,23 @@ const PrincipalDesk = () => {
           />
         </svg>
       </motion.div>
-
+      <motion.svg
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
+        width="105"
+        height="105"
+        viewBox="0 0 105 105"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute top-[25%] lg:hidden flex opacity-100 z-50 left-[-2%]"
+      >
+        <path
+          d="M54.3037 0.0644531C46.7948 25.5978 26.2752 45.556 0.0234375 52.8594C26.2752 60.1627 46.7948 80.1209 54.3037 105.654C61.8107 80.1209 82.3322 60.1627 108.584 52.8594C82.3322 45.556 61.8125 25.5961 54.3037 0.0644531Z"
+          fill="#FB9D2B"
+        />
+      </motion.svg>
       {/* Content */}
       <div className="relative">
         <div className="px-auto mx-auto">
@@ -52,7 +68,7 @@ const PrincipalDesk = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
             viewport={{ once: true }}
-            className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-12 text-center"
+            className="xl:text-[2.5rem] lg:text-[2rem] md:text-[2.5rem] text-black font-bold mb-12 text-center"
           >
             From the <span className="text-[#31CB6E]">Principal&apos;s Desk</span>
           </motion.h1>

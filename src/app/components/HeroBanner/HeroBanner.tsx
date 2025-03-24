@@ -87,7 +87,7 @@ const HeroBanner = () => {
 
       {/* Header */}
       <header className="bg-white shadow-sm">
-        <div className="container mx-auto py-4 px-4 flex items-center justify-between">
+        <div className="container lg:mx-auto py-4 lg:px-4  flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Image src={logo} alt="Manipal School Logo" className="h-12" />
           </div>
@@ -126,7 +126,7 @@ const HeroBanner = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="absolute top-[-3rem] right-[-2rem] w-36 h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full opacity-100"
+            className="absolute lg:top-[-3rem] lg:right-[-2rem] md:top-[-2rem] md:right-[-1rem] lg:w-36 lg:h-36 h-20 w-20 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full opacity-100"
           ></motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
@@ -142,7 +142,7 @@ const HeroBanner = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isFormInView ? 1 : 0, y: isFormInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg max-h-[80vh] shadow-lg px-8 xl:py-16 lg:py-8 w-full max-w-[40vw] xl:max-w-[30vw] my-0 relative"
+            className="bg-white rounded-lg max-h-[80vh] shadow-lg px-8 xl:py-16 py-8 w-full max-w-[40vw] xl:max-w-[30vw] my-0 relative"
           >
             {/* Animated Heading */}
             <motion.h2

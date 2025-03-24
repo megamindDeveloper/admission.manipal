@@ -17,14 +17,14 @@ const ManipalAdvantage = () => {
 
 
   return (
-    <div className="max-w-7xl xl:mx-auto lg:mx-8 bg-white pt-44" ref={sectionRef}>
+    <div className="max-w-7xl xl:mx-auto mx-8 bg-white lg:pt-44 md:pt-24" ref={sectionRef}>
       {/* Heading - Slides Down and Fades In */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="xl:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8"
+        className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8"
       >
         Step into the <span className="text-purple-600">Manipal Advantage</span>
       </motion.h1>

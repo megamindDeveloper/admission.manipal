@@ -13,7 +13,7 @@ const DiscoverSchool = () => {
 
   return (
     <div className="bg-white">
-      <div className="max-w-7xl xl:mx-auto lg:mx-8 h-auto">
+      <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
         <div className="relative bg-white rounded-3xl overflow-hidden">
           {/* Main content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-20 lg:gap-16">
@@ -26,8 +26,8 @@ const DiscoverSchool = () => {
               viewport={{ once: true }} // Trigger only once
               className="relative z-0"
             >
-              <div className="absolute lg:right-[-10%] xl:right-[0%] top-[-5rem] w-36 h-36 bg-[#AF84CC] rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
-              <div className="absolute xl:bottom-[-10%] lg:bottom-[-13%] left-[0%]">
+              <div className="absolute right-[0%] lg:right-[-10%] xl:right-[0%] top-[-5rem] w-36 h-36 bg-[#AF84CC] rounded-tr-full rounded-tl-full rounded-br-full z-10"></div>
+              <div className="absolute xl:bottom-[-10%] lg:bottom-[-13%] bottom-[-10%] left-[0%]">
                 <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
                     d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
@@ -38,7 +38,7 @@ const DiscoverSchool = () => {
               <Image
                 src={studentImage}
                 alt="Students in classroom"
-                className="object-cover rounded-2xl z-0"
+                className="object-cover w-full rounded-2xl z-0"
               />
             </motion.div>
 
@@ -49,10 +49,10 @@ const DiscoverSchool = () => {
               whileInView={{ opacity: 1, x: 0 }} // Slide in to position
               transition={{ duration: 0.5 }} // Animation duration
               viewport={{ once: true }} // Trigger only once
-              className="relative xl:pt-16 px-4 lg:px-8"
+              className="relative xl:pt-16 md:pt-14 lg:pt-0 px-4 lg:px-8"
             >
               <div className="relative z-10 space-y-6">
-                <h1 className="lg:text-[2rem] xl:text-[2.5rem] font-semibold text-black leading-tight">
+                <h1 className="lg:text-[2rem] xl:text-[2.5rem] md:text-[2.5rem] font-semibold text-black leading-tight">
                   Discover a New Way to Learn at <span className="text-[#FF5F1F]">a School That Inspires</span>
                 </h1>
 

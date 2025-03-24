@@ -64,27 +64,25 @@ function Activities() {
           />
         </svg>
       </div>
-      <div className="max-w-7xl xl:mx-auto lg:mx-8">
+      <div className="max-w-7xl xl:mx-auto mx-8">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: isSectionInView ? 1 : 0, y: isSectionInView ? 0 : -50 }}
           transition={{ duration: 0.5 }}
           className="my-24"
         >
-          <h1 className="xl:text-[2.5rem] lg:text-[2rem] leading-10 font-bold text-gray-900 mb-4">
+          <h1 className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] leading-10 font-bold text-gray-900 mb-4">
             Comprehensive Support
             <br />
             for Growing Minds
           </h1>
-          <p className="text-gray-600 max-w-1/3">
-            From high-tech labs to serene study spaces, We provide the perfect learning environment.
-          </p>
+          <p className="text-gray-600 max-w-1/3">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
         </motion.div>
-        <div className="grid grid-cols-12 gap-4 relative">
+        <div className="lg:grid grid-cols-12 gap-4 hidden relative">
           <FacilityCard
             title="Expansive Library"
             imageUrl="/images/activityImages/activityImage1.png"
-            className="col-span-3 row-span-2 mt-56"
+            className="lg:col-span-3 md:col-span-5 row-span-2 mt-56"
             gradientColor="#FECBE5"
             delay={0.1}
             index={0} // From left
@@ -92,7 +90,7 @@ function Activities() {
           <FacilityCard
             title="Access to World-Class Sports Facilities"
             imageUrl="/images/activityImages/activityImage2.png"
-            className="col-span-3 row-span-1 top-32"
+            className="lg:col-span-3 md:col-span-5 row-span-1 top-32"
             gradientColor="#2B9FF7"
             delay={0.2}
             index={1} // From right
@@ -100,7 +98,7 @@ function Activities() {
           <FacilityCard
             title="Insightful Guest Lectures"
             imageUrl="/images/activityImages/activityImage3.png"
-            className="col-span-3 row-span-2"
+            className="lg:col-span-3 md:col-span-5 row-span-2"
             gradientColor="#FBD034"
             delay={0.3}
             index={2} // From left
@@ -108,7 +106,7 @@ function Activities() {
           <FacilityCard
             title="Outreach Activities"
             imageUrl="/images/activityImages/activityImage4.png"
-            className="col-span-3 row-span-1 top-20"
+            className="lg:col-span-3 md:col-span-5 row-span-1 top-20"
             gradientColor="#AF84CC"
             delay={0.4}
             index={3} // From right
@@ -116,7 +114,7 @@ function Activities() {
           <FacilityCard
             title="Career Collaborations with MAHE Manipal"
             imageUrl="/images/activityImages/activityImage5.png"
-            className="col-span-3 row-span-2 top-36"
+            className="lg:col-span-3 md:col-span-5 row-span-2 top-36"
             gradientColor="#31CB6E"
             delay={0.5}
             index={4} // From left
@@ -124,10 +122,60 @@ function Activities() {
           <FacilityCard
             title="Higher Education Exposure"
             imageUrl="/images/activityImages/activityImage6.png"
-            className="col-span-4 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem]"
+            className="lg:col-span-4 md:col-span-5 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem]"
             gradientColor="#FB7824"
             delay={0.6}
             index={5} // From right
+          />
+        </div>
+        <div className="grid md:grid-cols-2 grid-cols-1 gap-4 relative lg:hidden">
+          <FacilityCard
+            title="Expansive Library"
+            imageUrl="/images/activityImages/activityImage1.png"
+            className="col-span-1"
+            gradientColor="#FECBE5"
+            delay={0.1}
+            index={0}
+          />
+          <FacilityCard
+            title="Access to World-Class Sports Facilities"
+            imageUrl="/images/activityImages/activityImage2.png"
+            className="col-span-1"
+            gradientColor="#2B9FF7"
+            delay={0.2}
+            index={1}
+          />
+          <FacilityCard
+            title="Insightful Guest Lectures"
+            imageUrl="/images/activityImages/activityImage3.png"
+            className="col-span-1"
+            gradientColor="#FBD034"
+            delay={0.3}
+            index={2}
+          />
+          <FacilityCard
+            title="Outreach Activities"
+            imageUrl="/images/activityImages/activityImage4.png"
+            className="col-span-1"
+            gradientColor="#AF84CC"
+            delay={0.4}
+            index={3}
+          />
+          <FacilityCard
+            title="Career Collaborations with MAHE Manipal"
+            imageUrl="/images/activityImages/activityImage5.png"
+            className="col-span-1"
+            gradientColor="#31CB6E"
+            delay={0.5}
+            index={4}
+          />
+          <FacilityCard
+            title="Higher Education Exposure"
+            imageUrl="/images/activityImages/activityImage6.png"
+            className="col-span-1"
+            gradientColor="#FB7824"
+            delay={0.6}
+            index={5}
           />
         </div>
       </div>

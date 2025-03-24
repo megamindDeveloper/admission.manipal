@@ -1,18 +1,18 @@
-'use client'
+"use client";
 
-import React, { useRef } from 'react'
-import { YouTubeEmbed } from '@next/third-parties/google'
-import { motion } from 'framer-motion'
+import React, { useRef } from "react";
+import { YouTubeEmbed } from "@next/third-parties/google";
+import { motion } from "framer-motion";
 
 const ExploreOurCampus = () => {
   const getVideoId = (url: string): string | null => {
-    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/
-    const match = url.match(regExp)
-    return match && match[2].length === 11 ? match[2] : null
-  }
+    const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/;
+    const match = url.match(regExp);
+    return match && match[2].length === 11 ? match[2] : null;
+  };
 
   // Reference for scroll detection
-  const sectionRef = useRef(null)
+  const sectionRef = useRef(null);
 
   return (
     <div
@@ -25,7 +25,7 @@ const ExploreOurCampus = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="absolute left-[-5%] bottom-[5rem] w-36 h-36 bg-[#AF84CC] rounded-bl-full rounded-tl-full rounded-br-full z-10"
+        className="absolute lg:left-[-5%] lg:bottom-[5rem] lg:w-36 lg:h-36 left-[0%] bottom-0 w-20 h-20 bg-[#AF84CC] rounded-bl-full rounded-tl-full rounded-br-full z-10"
       ></motion.div>
 
       {/* Blue Rotated Rectangle - Fades In */}
@@ -48,10 +48,27 @@ const ExploreOurCampus = () => {
         viewBox="0 0 171 171"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-[7%] opacity-100 z-50 right-[22%]"
+        className="absolute bottom-[7%] md:hidden lg:flex opacity-100 z-50 right-[22%]"
       >
         <path
           d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
+          fill="#FB9D2B"
+        />
+      </motion.svg>
+      <motion.svg
+        initial={{ opacity: 0, scale: 0.8 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ duration: 0.5, delay: 0.6 }}
+        viewport={{ once: true }}
+        width="105"
+        height="105"
+        viewBox="0 0 105 105"
+        fill="none"
+        xmlns="http://www.w3.org/2000/svg"
+        className="absolute top-[12%] lg:hidden flex opacity-100 z-50 right-[22%]"
+      >
+        <path
+          d="M54.3037 0.0644531C46.7948 25.5978 26.2752 45.556 0.0234375 52.8594C26.2752 60.1627 46.7948 80.1209 54.3037 105.654C61.8107 80.1209 82.3322 60.1627 108.584 52.8594C82.3322 45.556 61.8125 25.5961 54.3037 0.0644531Z"
           fill="#FB9D2B"
         />
       </motion.svg>
@@ -62,7 +79,7 @@ const ExploreOurCampus = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-black lg:text-[2rem] xl:text-[2.5rem] font-bold pb-14 relative"
+        className="text-black lg:text-[2rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold pb-14 relative"
       >
         Explore Our<span className="text-[#31CB6E]"> Campus</span>
       </motion.h1>
@@ -75,7 +92,7 @@ const ExploreOurCampus = () => {
         viewport={{ once: true }}
         className="w-full xl:px-0 px-8 rounded-2xl overflow-hidden relative"
       >
-        <YouTubeEmbed videoid={getVideoId('https://youtu.be/Qw44JxtcC8g?si=Gk7NDdIXx98XAfcs') as string} />
+        <YouTubeEmbed videoid={getVideoId("https://youtu.be/Qw44JxtcC8g?si=Gk7NDdIXx98XAfcs") as string} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
@@ -89,7 +106,7 @@ const ExploreOurCampus = () => {
         </motion.div>
       </motion.div>
     </div>
-  )
-}
+  );
+};
 
-export default ExploreOurCampus
+export default ExploreOurCampus;

@@ -7,6 +7,8 @@ import Image from "next/image";
 import type { LeafletMouseEvent, Map } from "leaflet";
 import logo from "../../../../public/images/logo/manipalBottom.svg";
 import Link from "next/link";
+import { useForm } from "react-hook-form";
+import toast from "react-hot-toast";
 
 // Correct dynamic imports for Leaflet components
 
@@ -59,22 +61,31 @@ const CounsellingForm = () => {
     window.open(googleMapsUrl, "_blank");
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>();
+  const [loading, setLoading] = useState(false);
 
+  const onSubmit = async (data: FormData) => {
+    setLoading(true);
     const response = await fetch("/api/submit-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(formData),
+      body: JSON.stringify(data),
     });
 
     const result = await response.json();
+    setLoading(false);
     if (result.result === "success") {
-      alert("Form submitted successfully!");
+      toast.success("Form submitted successfully!");
+      reset(); // Clear the form fields after submission
     } else {
-      alert("Error submitting form.");
+      toast.error("Error submitting form.");
     }
   };
 
@@ -130,7 +141,7 @@ const CounsellingForm = () => {
             />
           </svg>
         </div>
-        <form onSubmit={handleSubmit} className="mt-6 grid grid-cols-2 gap-7">
+        <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid grid-cols-2 gap-7">
           <input
             type="text"
             name="studentName"
@@ -178,9 +189,9 @@ const CounsellingForm = () => {
           />
           <button
             type="submit"
-            className="w-full mx-auto bg-[#FB7824] text-white py-2 mt-8 px-6 rounded-3xl font-bold text-2xl transition-colors duration-200 max-w-[10vw] col-span-2"
+            className="bg-[#FB7824] col-span-2 mx-auto cursor-pointer text-white py-2 px-6 rounded-3xl font-bold text-2xl flex items-center justify-center"
           >
-            Submit
+            {loading ? "Submitting..." : "Submit"}
           </button>
         </form>
       </div>
@@ -188,7 +199,7 @@ const CounsellingForm = () => {
       <footer className="bg-[#1A1A1A] text-white w-full xl:mt-32">
         <div className="container mx-auto px-4 pt-72">
           {/* Logo and Address Section */}
-          <div className="flex flex-col items-center text-center mb-8 mt-96">
+          <div className="flex flex-col items-center text-center mb-8 lg:mt-96 xl:mt-0">
             <div className="mb-4">
               <Image src={logo} alt="Manipal School" className="h-12" />
             </div>
