@@ -22,9 +22,17 @@ const MAPBOX_ACCESS_TOKEN =
 const MAPBOX_STYLE_ID = "streets-v12";
 const center: [number, number] = [12.856377057438442, 74.84633878650929];
 
+interface FormData {
+  studentName: string;
+  parentEmail: string;
+  parentPhone: string;
+  classApplied: string;
+  location: string;
+}
+
 const CounsellingForm = () => {
   const mapRef = useRef<Map | null>(null);
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     studentName: "",
     parentEmail: "",
     parentPhone: "",
@@ -36,21 +44,22 @@ const CounsellingForm = () => {
   const [popupContent, setPopupContent] = useState("Selected Location");
 
   useEffect(() => {
-    if (mapRef.current) {
-      const handleMapClick = (e: LeafletMouseEvent) => {
-        const { lat, lng } = e.latlng;
-        setSelectedLocation([lat, lng]);
-        const locationText = `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`;
-        setPopupContent(locationText);
-        setFormData({ ...formData, location: locationText });
-      };
+    const handleMapClickEvent = (e: LeafletMouseEvent) => {
+      const { lat, lng } = e.latlng;
+      setSelectedLocation([lat, lng]);
+      const locationText = `Lat: ${lat.toFixed(6)}, Lng: ${lng.toFixed(6)}`;
+      setPopupContent(locationText);
+      setFormData({ ...formData, location: locationText });
+    };
 
-      mapRef.current.on("click", handleMapClick);
+    const mapElement = document.querySelector('.leaflet-container');
+    if (mapElement) {
+      mapElement.addEventListener('click', handleMapClickEvent as unknown as EventListener);
       return () => {
-        mapRef.current?.off("click", handleMapClick);
+        mapElement.removeEventListener('click', handleMapClickEvent as unknown as EventListener);
       };
     }
-  }, [formData]);
+  }, [formData, setFormData]);
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -62,10 +71,7 @@ const CounsellingForm = () => {
   };
 
   const {
-    register,
     handleSubmit,
-    reset,
-    formState: { errors },
   } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
 
@@ -83,7 +89,6 @@ const CounsellingForm = () => {
     setLoading(false);
     if (result.result === "success") {
       toast.success("Form submitted successfully!");
-      reset(); // Clear the form fields after submission
     } else {
       toast.error("Error submitting form.");
     }
@@ -352,11 +357,11 @@ const CounsellingForm = () => {
 
             <hr className="border-t text-white/56  my-4 w-full " />
 
-            <div className="text-sm text-white/56 text-center flex flex-col md:flex-row w-full md:justify-between pb-4 items-center gap-4 md:gap-0">
-              <div className="text-center md:text-left">
+            <div className="text-sm text-white/56 text-center flex flex-row w-full justify-between pb-4 items-center">
+              <div className="text-left">
                 <p>© Manipal School 2024 | All Rights Reserved</p>
               </div>
-              <div className="flex gap-4 text-center md:text-right">
+              <div className="flex gap-4 text-right">
                 <a href="#" className="hover:text-[#FB7824]">
                   Privacy Policy
                 </a>
