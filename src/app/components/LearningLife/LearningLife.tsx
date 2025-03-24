@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useRef } from 'react';
-import { ChevronRight } from 'lucide-react';
+
 import { motion } from 'framer-motion';
 
 interface EducationLevel {
@@ -46,14 +46,14 @@ function LearningLife() {
 
 
   return (
-    <div className="bg-gradient-to-br flex items-center relative justify-center" ref={sectionRef}>
+    <div className="bg-white flex items-center relative justify-center" ref={sectionRef}>
       {/* Decorative Rotated Rectangle - Scales and Fades In */}
       <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC] rotate-37 rounded-b-full opacity-100 z-50"
+        className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC]  rotate-37 rounded-b-full opacity-100 z-50"
       ></motion.div>
 
       <div className="w-full max-w-7xl xl:mx-auto mx-8 mt-16 lg:mt-56">
@@ -63,7 +63,7 @@ function LearningLife() {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
           viewport={{ once: true }}
-          className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] text-black font-bold mb-8"
+          className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] text-[1.5rem] leading-7 md:leading-none text-black font-bold mb-8"
         >
           Learning for Life: From{' '}
           <span className="text-blue-500">Nursery</span> to{' '}
@@ -90,11 +90,7 @@ function LearningLife() {
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-semibold">{level.title}</span>
-                  <ChevronRight
-                    className={`transition-transform duration-500 ease-in-out
-                      ${expandedLevel === level.id ? 'rotate-90' : ''} lg:hidden`}
-                    size={24}
-                  />
+                  
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/20 text-white/90">
                   <p>Comprehensive education program tailored for {level.title} students.</p>

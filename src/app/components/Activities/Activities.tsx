@@ -56,7 +56,7 @@ function Activities() {
 
   return (
     <div className="min-h-screen relative" ref={sectionRef}>
-      <div className="absolute bottom-[4%] opacity-100 z-50 right-[-3%]">
+      <div className="absolute bottom-[4%] opacity-100 z-50 md:flex hidden right-[-3%]">
         <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
@@ -69,14 +69,14 @@ function Activities() {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: isSectionInView ? 1 : 0, y: isSectionInView ? 0 : -50 }}
           transition={{ duration: 0.5 }}
-          className="my-24"
+          className="md:my-24 my-16"
         >
-          <h1 className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] leading-10 font-bold text-gray-900 mb-4">
+          <h1 className="xl:text-[2.5rem] md:text-[2.5rem] text-[1.5rem]  lg:text-[2rem] md:leading-10 leading-7 font-bold text-gray-900 mb-4">
             Comprehensive Support
             <br />
             for Growing Minds
           </h1>
-          <p className="text-gray-600 max-w-1/3">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
+          <p className="text-gray-600 lg:max-w-1/3">From high-tech labs to serene study spaces, We provide the perfect learning environment.</p>
         </motion.div>
         <div className="lg:grid grid-cols-12 gap-4 hidden relative">
           <FacilityCard

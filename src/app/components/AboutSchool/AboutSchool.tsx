@@ -28,7 +28,7 @@ function AboutSchool() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Text Section */}
           <div className="space-y-4">
-            <h1 className="lg:text-[2rem] md:text-[2.5rem] xl:text-[2.5rem] leading-tight tracking-tight">
+            <h1 className="lg:text-[2rem] md:text-[2.5rem] xl:text-[2.5rem] text-[1.5rem] leading-tight tracking-tight">
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -51,7 +51,7 @@ function AboutSchool() {
           </div>
 
           {/* Lottie Animation Section */}
-          <div className="w-full">
+          <div className="w-full md:block hidden">
             <motion.div
               ref={lottieRef}
               initial={{ opacity: 0, scale: 0.8 }}

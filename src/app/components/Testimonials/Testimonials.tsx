@@ -5,11 +5,11 @@ export default function Testimonials() {
   return (
     <>
       <div className="text-center lg:pt-0 pt-24">
-        <h2 className="lg:text-[2rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
+        <h2 className="lg:text-[2rem] text-[1.5rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
           Bright Minds, <span className="text-[#FF8DC7] flex items-center">Big Dreams</span>
         </h2>
       </div>
-      <div className="h-[40rem] rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
+      <div className="md:h-[40rem] my-12 md:my-0 rounded-md flex flex-col antialiased bg-white dark:bg-black dark:bg-grid-white/[0.05] items-center justify-center relative overflow-hidden">
         <InfiniteMovingCards items={testimonials} direction="left" speed="slow" />
       </div>
     </>

@@ -25,7 +25,7 @@ const ExploreOurCampus = () => {
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
-        className="absolute lg:left-[-5%] lg:bottom-[5rem] lg:w-36 lg:h-36 left-[0%] bottom-0 w-20 h-20 bg-[#AF84CC] rounded-bl-full rounded-tl-full rounded-br-full z-10"
+        className="absolute lg:left-[-5%] lg:bottom-[5rem] lg:w-36 lg:h-36 left-[0%] bottom-0 md:w-20 md:h-20 h-16 w-16 bg-[#AF84CC] rounded-bl-full rounded-tl-full rounded-br-full z-10"
       ></motion.div>
 
       {/* Blue Rotated Rectangle - Fades In */}
@@ -48,7 +48,7 @@ const ExploreOurCampus = () => {
         viewBox="0 0 171 171"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute bottom-[7%] md:hidden lg:flex opacity-100 z-50 right-[22%]"
+        className="absolute bottom-[7%] hidden lg:flex opacity-100 z-50 right-[22%]"
       >
         <path
           d="M85.4823 170.873C97.2746 129.646 129.5 97.421 170.727 85.6288C129.5 73.8365 97.2746 41.6115 85.4824 0.384514C73.693 41.6115 41.4651 73.8365 0.23809 85.6288C41.465 97.421 73.6901 129.649 85.4823 170.873Z"
@@ -65,7 +65,7 @@ const ExploreOurCampus = () => {
         viewBox="0 0 105 105"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
-        className="absolute top-[12%] lg:hidden flex opacity-100 z-50 right-[22%]"
+        className="absolute top-[12%] lg:hidden flex opacity-100 z-50 md:right-[22%] right-0"
       >
         <path
           d="M54.3037 0.0644531C46.7948 25.5978 26.2752 45.556 0.0234375 52.8594C26.2752 60.1627 46.7948 80.1209 54.3037 105.654C61.8107 80.1209 82.3322 60.1627 108.584 52.8594C82.3322 45.556 61.8125 25.5961 54.3037 0.0644531Z"
@@ -79,7 +79,7 @@ const ExploreOurCampus = () => {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.5 }}
         viewport={{ once: true }}
-        className="text-black lg:text-[2rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold pb-14 relative"
+        className="text-black lg:text-[2rem] text-[1.5rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold pb-14 relative"
       >
         Explore Our<span className="text-[#31CB6E]"> Campus</span>
       </motion.h1>
