@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "react-hot-toast";
+import WhatsappChatWidget from "./components/WhatsappChatWidget/WhatsappChatWidget";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -63,6 +64,7 @@ export default function RootLayout({
         {" "}
         <Toaster position="top-right" />
         {children}
+        <WhatsappChatWidget />
       </body>
     </html>
   );
