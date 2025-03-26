@@ -36,7 +36,7 @@ function AboutSchool() {
                 viewport={{ once: true }}
                 className="text-[#FF5F1F] font-bold"
               >
-                Manipal School  
+                Manipal School  {" "} 
               </motion.span>
               <motion.span
                 initial={{ opacity: 0 }}
