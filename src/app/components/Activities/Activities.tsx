@@ -34,7 +34,6 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className 
         imageSrc={imageUrl}
         title={title}
         imageAlt={title}
-        category="Nothing"
         key={title}
         gradientColor={gradientColor}
         content={

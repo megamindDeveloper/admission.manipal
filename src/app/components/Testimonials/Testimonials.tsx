@@ -28,7 +28,7 @@ const testimonials = [
     ),
     name: "Dr. Kedar Mahendra Kodkany, Batch of 2014-15",
     title: "MD Emergency Medicine Resident, Yenepoya Medical College Hospital",
-    profile: "/images/testimonialsImages/KedarKodkany.jpg"
+    profile: "/images/testimonialsImages/KedarKodkany.jpg",
   },
   {
     quote: (
@@ -40,32 +40,37 @@ const testimonials = [
     ),
     name: "Dr Anvia Vilina Dsouza, Batch of 2014-15",
     title: "Junior Doctor in Medicine, Wenlock hospital",
-    profile:"/images/testimonialsImages/AnviaDsouza.jpg"
-  },
-  {
-    quote:
-      " I'm proud to be an alumnus of Manipal School, where I gained knowledge, confidence, a strong foundation for success, and some amazing friends! I'm also grateful for the supportive and inspiring teachers who helped shape my journey - thank you for being incredible role models",
-    name: "Mohammed Juman Hussain, Batch of 2014-15",
-    title: "HR Analyst II, DXC Technology India",
-    profile:"/images/testimonialsImages/MohdJumanHussain.jpg"
+    profile: "/images/testimonialsImages/AnviaDsouza.jpg",
   },
   {
     quote: (
       <>
-        Manipal School provided me with a truly holistic learning experience, shaping not just my academic growth but also my creative and technical
-        pursuits. The school's environment fostered curiosity, critical thinking, and hands-on learning, which played a crucial role in my journey as
-        an engineer.
+        I&apos;m proud to be an alumnus of Manipal School, where I gained knowledge, confidence, a strong foundation for success, and some amazing
+        friends! I&apos;m also grateful for the supportive and inspiring teachers who helped shape my journey - thank you for being incredible role
+        models.
       </>
+    ),
+    name: "Mohammed Juman Hussain, Batch of 2014-15",
+    title: "HR Analyst II, DXC Technology India",
+    profile: "/images/testimonialsImages/MohdJumanHussain.jpg",
+  },
+  {
+    quote: (
+      <>
+      Manipal School provided me with a truly holistic learning experience, shaping not just my academic growth but also my creative and technical
+      pursuits. The school&apos;s environment fostered curiosity, critical thinking, and hands-on learning, which played a crucial role in my journey as
+      an engineer.
+    </>
     ),
     name: "Ishaan Pilar, Batch of 2014-15",
     title: "Co-founder Bloc42 Learning",
-     profile:"/images/testimonialsImages/Ishaanpilar.jpg"
+    profile: "/images/testimonialsImages/Ishaanpilar.jpg",
   },
   {
     quote:
       " Manipal school gave me the opportunity to dream and achieve my goals and excel in academics as well as support me throughout my sporting career. It also gave me the best foundation for my future and challenged me to always strive to be the best.",
     name: "Keya Ashutosh Boloor, Batch of 2021-22",
     title: "Pursuing Architecture at Manipal School of Architecture and Planning, Manipal",
-    profile:"/images/testimonialsImages/KeyaBoloor.jpg"
+    profile: "/images/testimonialsImages/KeyaBoloor.jpg",
   },
 ];

@@ -6,7 +6,6 @@ import { AnimatePresence, motion } from "motion/react";
 import Image, { type ImageProps } from "next/image";
 
 type CardProps = {
-  category?: string;
   title?: string;
   imageSrc: string;
   imageAlt: string;
@@ -32,7 +31,7 @@ export const BlurImage = ({ height, width, src, className, alt, ...rest }: Image
   );
 };
 
-export default function AppleStyledCard({ category, title, imageSrc, imageAlt, content, gradientColor = "rgba(0,0,0,0.8)" }: CardProps) {
+export default function AppleStyledCard({ title, imageSrc, imageAlt, content, gradientColor = "rgba(0,0,0,0.8)" }: CardProps) {
   const [open, setOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 

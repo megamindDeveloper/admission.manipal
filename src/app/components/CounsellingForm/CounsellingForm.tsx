@@ -61,10 +61,6 @@ const CounsellingForm = () => {
     }
   }, [formData, setFormData]);
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
   const handleLocationClick = () => {
     const googleMapsUrl = `https://maps.app.goo.gl/1VF8MxuicvabAJoT9`;
     window.open(googleMapsUrl, "_blank");
@@ -87,7 +83,7 @@ const CounsellingForm = () => {
       toast.error("Error submitting form.");
     }
   };
-  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<FormData>({
+  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
     defaultValues: {
       studentName: "",
       parentEmail: "",
