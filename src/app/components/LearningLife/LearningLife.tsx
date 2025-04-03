@@ -1,14 +1,15 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef } from "react";
 
-import { motion } from 'framer-motion';
+import { motion } from "framer-motion";
 
 interface EducationLevel {
   id: string;
   title: string;
   color: string;
   hoverColor: string;
+  description: string;
 }
 
 function LearningLife() {
@@ -16,34 +17,41 @@ function LearningLife() {
 
   const educationLevels: EducationLevel[] = [
     {
-      id: 'nursery',
-      title: 'Nursery',
-      color: 'bg-[#2196F3]',
-      hoverColor: 'hover:bg-[#1E88E5]'
+      id: "nursery",
+      title: "Foundation Level: (Nursery to Grade II)",
+      color: "bg-[#2B9FF7]",
+      hoverColor: "hover:bg-[#2B9FF7]",
+      description:
+        "Our Foundation level Programme is designed to provide a secure, stimulating, and nurturing learning environment where young learners thrive. Through structured play activities, art, craft, and interactive games, children develop essential cognitive and social skills. Intellectual growth is fostered through storytelling, discussions, early writing, number games, hands-on observations, and engaging scientific experiences. We maintain a strong partnership with parents, ensuring their active involvement in their child's learning journey.",
     },
     {
-      id: 'prep-school',
-      title: 'Prep-School (Prep I - II)',
-      color: 'bg-[#4CAF50]',
-      hoverColor: 'hover:bg-[#43A047]'
+      id: "prep-school",
+      title: "Preparatory Level: Grades III",
+      color: "bg-[#31CB6E]",
+      hoverColor: "hover:bg-[#31CB6E]",
+      description:
+        "As students’ transition to Primary School, we nurture their natural curiosity by providing hands-on learning experiences that build essential foundational skills. Our approach encourages them to question, explore, apply, and test their knowledge in a dynamic and supportive environment. Alongside academic growth, we emphasize the importance of respect, collaboration, and social etiquette, helping students develop confidence and a strong sense of community.",
     },
     {
-      id: 'grades-1-10',
-      title: 'Grades I - X',
-      color: 'bg-[#FFC107]',
-      hoverColor: 'hover:bg-[#FFB300]'
+      id: "grades-1-10",
+      title: "Middle School Level: (Grades VI – VIII)",
+      color: "bg-[#FBD034]",
+      hoverColor: "hover:bg-[#FBD034]",
+      description:
+        "Our Middle School curriculum is designed to nurture confident, competent learners by cultivating collaborative learning communities, encouraging meaningful student-faculty discussions, and integrating digital engagement. This stage is a crucial turning point in a student's educational journey. We provide the necessary guidance and support to help them stay focused on their aspirations. Our goal is to empower students to grow into responsible, independent, and well-rounded young adults, prepared for future challenges",
     },
     {
-      id: 'senior-secondary',
-      title: 'Senior Secondary (Grades XI - XII)',
-      color: 'bg-[#FF5722]',
-      hoverColor: 'hover:bg-[#F4511E]'
-    }
+      id: "senior-secondary",
+      title: "Secondary (Grades IX - XII)",
+      color: "bg-[#FB7824]",
+      hoverColor: "hover:bg-[#FB7824]",
+      description:
+        "Our Secondary School curriculum is designed to empower students with critical thinking, problem-solving, and analytical skills essential for academic and personal growth. At this pivotal stage, we provide the right balance of academic rigor and personal development, ensuring students remain focused on their goals while building resilience and confidence. Through a well-structured curriculum, guided mentorship, and real-world applications of learning, we prepare students to transition seamlessly into higher education and future careers.",
+    },
   ];
 
   // Reference for scroll detection
   const sectionRef = useRef(null);
-
 
   return (
     <div className="bg-white flex items-center relative justify-center" ref={sectionRef}>
@@ -65,9 +73,7 @@ function LearningLife() {
           viewport={{ once: true }}
           className="xl:text-[2.5rem] md:text-[2.5rem] lg:text-[2rem] text-[1.5rem] leading-7 md:leading-none text-black font-bold mb-8"
         >
-          Learning for Life: From{' '}
-          <span className="text-blue-500">Nursery</span> to{' '}
-          <span className="text-orange-500">Senior Secondary</span>
+          Learning for Life: From <span className="text-blue-500">Nursery</span> to <span className="text-orange-500">Senior Secondary</span>
         </motion.h1>
 
         {/* Grid for 4 Cards - Staggered Fade and Slide Up */}
@@ -84,22 +90,15 @@ function LearningLife() {
               <button
                 className={`w-full h-full text-left p-6 text-white transition-all duration-300 transform 
                   ${level.color} ${level.hoverColor} 
-                  ${expandedLevel === level.id ? 'scale-[1.02]' : 'hover:scale-[1.01]'}
+                  ${expandedLevel === level.id ? "scale-[1.02]" : "hover:scale-[1.01]"}
                   shadow-lg hover:shadow-xl`}
                 onClick={() => setExpandedLevel(expandedLevel === level.id ? null : level.id)}
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xl font-semibold">{level.title}</span>
-                  
                 </div>
                 <div className="mt-4 pt-4 border-t border-white/20 text-white/90">
-                  <p>Comprehensive education program tailored for {level.title} students.</p>
-                  <ul className="mt-2 list-disc list-inside">
-                    <li>Personalized learning approach</li>
-                    <li>Interactive classroom activities</li>
-                    <li>Regular progress assessments</li>
-                    <li>Holistic development focus</li>
-                  </ul>
+                  <p>{level.description}</p>
                 </div>
               </button>
             </motion.div>

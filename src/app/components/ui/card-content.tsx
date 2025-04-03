@@ -1,23 +1,23 @@
 "use client";
 
-import Image from "next/image"
+import Image from "next/image";
 import { motion } from "framer-motion";
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/utils";
 
 interface CardContentProps {
-  title?: string
-  description?: string
-  imageSrc?: string
-  imageAlt?: string
-  backgroundColor?: string
-  textColor?: string
-  headingColor?: string
-  className?: string
+  title?: string;
+  description?: string;
+  imageSrc?: string;
+  imageAlt?: string;
+  backgroundColor?: string;
+  textColor?: string;
+  headingColor?: string;
+  className?: string;
 }
 
 export default function CardContent({
-  title = "The first rule of Apple club is that you boast about Apple club.",
+  title = "",
   description = "Keep a journal, quickly jot down a grocery list, and take amazing class notes. Want to convert those notes to text? No problem.",
   imageSrc = "https://assets.aceternity.com/macbook.png",
   imageAlt = "Product image",
@@ -44,6 +44,29 @@ export default function CardContent({
         transition: { duration: 0.2 },
       }}
     >
+      {imageSrc && (
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{
+            opacity: 1,
+            y: 0,
+            transition: {
+              delay: 0.4,
+              duration: 0.5,
+              type: "spring",
+              damping: 20,
+            },
+          }}
+        >
+          <Image
+            src={imageSrc || "/placeholder.svg"}
+            alt={imageAlt}
+            height={500}
+            width={900}
+            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mb-6"
+          />
+        </motion.div>
+      )}
       <motion.p className={cn(textColor, "dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto")}>
         {title && (
           <motion.span
@@ -67,32 +90,6 @@ export default function CardContent({
           {description}
         </motion.span>
       </motion.p>
-
-      {imageSrc && (
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{
-            opacity: 1,
-            y: 0,
-            transition: {
-              delay: 0.4,
-              duration: 0.5,
-              type: "spring",
-              damping: 20,
-            },
-          }}
-          className="mt-8"
-        >
-          <Image
-            src={imageSrc || "/placeholder.svg"}
-            alt={imageAlt}
-            height={500}
-            width={500}
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain"
-          />
-        </motion.div>
-      )}
     </motion.div>
-  )
+  );
 }
-

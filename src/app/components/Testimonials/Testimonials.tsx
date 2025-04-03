@@ -20,40 +20,52 @@ const testimonials = [
   {
     quote: (
       <>
-        Manipal School <span className="font-extrabold">gave me the confidence to dream big</span> & the skills to achieve them. The support from
-        teachers made all the difference.
+        As a member of the inaugural graduating cohort of Manipal School, the wonderful memories and invaluable lessons I learned, both intellectually
+        and personally, have intricately woven the very fabric of who I am today. The relentless dedication and unwavering commitment of the school
+        and its educators to unearth the latent potential within each of us have propelled us towards living the extraordinary lives we once only
+        dared to dream. I remain eternally indebted and profoundly thankful.
       </>
     ),
-    name: "Charles Dickens",
-    title: "A Tale of Two Cities",
+    name: "Dr. Kedar Mahendra Kodkany, Batch of 2014-15",
+    title: "MD Emergency Medicine Resident, Yenepoya Medical College Hospital",
+    profile: "/images/testimonialsImages/KedarKodkany.jpg"
   },
   {
     quote: (
       <>
-        <span className="font-extrabold">Manipal School helped me grow in every way</span>. I left with knowledge, friendships & lifelong memories.
+        As a member of the first batch of Manipal School, I am a testament to the institution’s philosophy. The strong foundation I built there has
+        stayed with me throughout my life and continues to shape me as a doctor today. The emphasis on all-round development truly sets Manipal apart,
+        instilling skills and values that go beyond academics and prepare you for every challenge.
       </>
     ),
-    name: "William Shakespeare",
-    title: "Hamlet",
+    name: "Dr Anvia Vilina Dsouza, Batch of 2014-15",
+    title: "Junior Doctor in Medicine, Wenlock hospital",
+    profile:"/images/testimonialsImages/AnviaDsouza.jpg"
   },
   {
-    quote: "All that we see or seem is but a dream within a dream.",
-    name: "Edgar Allan Poe",
-    title: "A Dream Within a Dream",
+    quote:
+      " I'm proud to be an alumnus of Manipal School, where I gained knowledge, confidence, a strong foundation for success, and some amazing friends! I'm also grateful for the supportive and inspiring teachers who helped shape my journey - thank you for being incredible role models",
+    name: "Mohammed Juman Hussain, Batch of 2014-15",
+    title: "HR Analyst II, DXC Technology India",
+    profile:"/images/testimonialsImages/MohdJumanHussain.jpg"
   },
   {
     quote: (
       <>
-        The learning experience at Manipal School was truly world-class. It{" "}
-        <span className="font-extrabold">laid a strong foundation for my higher studies & career</span>.
+        Manipal School provided me with a truly holistic learning experience, shaping not just my academic growth but also my creative and technical
+        pursuits. The school's environment fostered curiosity, critical thinking, and hands-on learning, which played a crucial role in my journey as
+        an engineer.
       </>
     ),
-    name: "Jane Austen",
-    title: "Pride and Prejudice",
+    name: "Ishaan Pilar, Batch of 2014-15",
+    title: "Co-founder Bloc42 Learning",
+     profile:"/images/testimonialsImages/Ishaanpilar.jpg"
   },
   {
-    quote: "The dedicated teachers at Manipal School always pushed us to be our best. Their mentorship played a huge role in my success.",
-    name: "Herman Melville",
-    title: "Moby-Dick",
+    quote:
+      " Manipal school gave me the opportunity to dream and achieve my goals and excel in academics as well as support me throughout my sporting career. It also gave me the best foundation for my future and challenged me to always strive to be the best.",
+    name: "Keya Ashutosh Boloor, Batch of 2021-22",
+    title: "Pursuing Architecture at Manipal School of Architecture and Planning, Manipal",
+    profile:"/images/testimonialsImages/KeyaBoloor.jpg"
   },
 ];

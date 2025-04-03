@@ -138,7 +138,7 @@ useEffect(() => {
                   transition: { delay: 0.1, duration: 0.3 },
                 }}
               >
-                <motion.p className="text-base font-medium text-black dark:text-white">{category}</motion.p>
+              
                 <motion.p className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white">{title}</motion.p>
               </motion.div>
 
@@ -175,7 +175,7 @@ useEffect(() => {
 
       <motion.button
         onClick={handleOpen}
-        className="rounded-3xl bg-gray-100 dark:bg-neutral-900 h-full w-full overflow-hidden bg-gradient-to-t from-black/100 flex flex-col items-start justify-start relative z-10"
+        className="rounded-3xl  dark:bg-neutral-900 h-full w-full overflow-hidden bg-gradient-to-t from-black/100 flex flex-col items-start justify-start relative z-10"
       >
         <motion.div
           className="absolute top-[70%] h-[30%] inset-x-0 z-100 pointer-events-none"

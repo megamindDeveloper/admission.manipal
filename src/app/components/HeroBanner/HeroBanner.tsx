@@ -8,13 +8,17 @@ import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
-import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import websitebg1 from "../../../../public/images/Manipal1.png";
-import websitebg2 from "../../../../public/images/Manipal1.png";
+import websitebg2 from "../../../../public/images/freepik__a-group-of-indian-school-children-in-neat-uniforms__83956.jpeg";
 import websitebg3 from "../../../../public/images/Manipal1.png";
 import logo from "../../../../public/images/logo/manipalHead.svg";
-
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/autoplay";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
 interface FormData {
   studentName: string;
   parentEmail: string;
@@ -66,21 +70,20 @@ const HeroBanner = () => {
             .fill(null)
             .map((_, i) => (
               <p key={i}>
-                Contact Ms. XYZ Sample Name Phone:
+                Contact Admission Managers Phone:
                 <Link href="tel:+919538820398" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mx-1">+91 9538820398</a>
+                  <a className="cursor-pointer hover:text-gray-200">+91 9538820398 / </a>
+                </Link>
+                <Link href="tel:+919902875329" passHref legacyBehavior>
+                  <a className="cursor-pointer hover:text-gray-200 mr-1">+91 9902875329</a>
                 </Link>
                 | Office Telephone:
                 <Link href="tel:+918244252305" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mx-1">+91 824 4252305</a>
+                  <a className="cursor-pointer hover:text-gray-200 mx-1"> 0824-4252305</a>
                 </Link>{" "}
-                /
-                <Link href="tel:+918244252307" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mx-1">4252307</a>
-                </Link>
                 |
-                <Link href="mailto:feedback@manipal.edu" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mx-1">feedback@manipal.edu</a>
+                <Link href="mailto:info@manipalschool.edu.in" passHref legacyBehavior>
+                  <a className="cursor-pointer hover:text-gray-200 mx-1">info@manipalschool.edu.in</a>
                 </Link>
               </p>
             ))}
@@ -106,22 +109,42 @@ const HeroBanner = () => {
       {/* Main Content with Background Image */}
       <main className="relative min-h-screen flex  items-center justify-center">
         {/* Background Image Carousel */}
-        <div className="absolute inset-0">
-          <Carousel autoPlay interval={5000} transitionTime={1000} infiniteLoop showThumbs={false} showStatus={false}>
-            <div>
-              <Image src={websitebg1} alt="Students 1" className="w-full md:h-[89vh] md:object-cover object-contain" />
-            </div>
-            <div>
-              <Image src={websitebg2} alt="Students 2" className="w-full md:h-[89vh] md:object-cover object-contain" />
-            </div>
-            <div>
-              <Image src={websitebg3} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-contain" />
-            </div>
-          </Carousel>
+        <div className="absolute inset-0 z-0">
+          <Swiper
+            pagination={{ clickable: true }}
+            className="transition-all duration-700 ease-in-out w-full h-full"
+            spaceBetween={10}
+            centeredSlides={false}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 5000,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+            modules={[Autoplay, Pagination]}
+          >
+            <SwiperSlide>
+              <Image src={websitebg1} alt="Students 1" className="w-full md:h-[89vh] md:object-cover object-cover" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={websitebg2} alt="Students 2" className="w-full md:h-[89vh] md:object-cover object-cover" />
+            </SwiperSlide>
+            <SwiperSlide>
+              <Image src={websitebg3} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover" />
+            </SwiperSlide>
+          </Swiper>
+          <style jsx global>{`
+            .swiper-pagination {
+              bottom: 170px !important;
+
+              z-index: 10;
+            }
+          `}</style>
         </div>
 
         {/* Form Container - Centered */}
-        <div className="relative container mx-auto mt-[10rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start">
+        <div className="relative container mx-auto mt-[10rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
           {/* Decorative Elements with Animations */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

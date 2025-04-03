@@ -33,7 +33,7 @@ const WhatsappChatWidget = () => {
         ctaText: "Chat with us",
         borderRadius: "25",
         autoShow: false,
-        phoneNumber: "917012257903",
+        phoneNumber: "919902875329",
       },
     }),
     []

@@ -61,15 +61,15 @@ const DiscoverSchool = () => {
 
                 <div className="space-y-4 text-gray-600">
                   <p>
-                    Ranked No.1 in Mangalore, Manipal School is the first choice for discerning parents. Affiliated with CBSE (830495), we follow the
-                    MyPedia curriculum in Kindergarten before transitioning to CBSE for Grades 1-12. Our student-centric approach ensures top-tier
-                    health, safety & protection standards, while technology-enabled learning equips students for a tech-driven world.
-                  </p>
-
-                  <p>
-                    Beyond academics, we encourage active participation in sports & extracurriculars, shaping well-rounded individuals. Signature
-                    programs like Manipal Sparkle, our annual talent show, & Manipal Mind-Spark, an innovation-driven exhibition, celebrate student
-                    creativity. Our Mentor-Mentee Program provides personalized guidance, empowering students to reach their full potential.
+                    Manipal School, Mangalore, is a trusted institution known for its excellence in academics and holistic development, making it the
+                    preferred choice for parents seeking quality education in the heart of the city. Affiliated with CBSE (830495), we follow
+                    Pearson’s Nurture curriculum in Kindergarten before transitioning to CBSE for Grades 1–12.
+                    
+                    </p> <p> Our student-centric approach ensures
+                    top-tier health, safety & protection standards, while technology-enabled learning equips students for a tech-driven world. Beyond
+                    academics, we encourage active participation in sports & extra-curricular, shaping well-rounded individuals. Signature programs
+                    like Manipal Mind-Spark, our annual innovation-driven exhibition, celebrate student creativity. Our Mentor-Mentee Program provides
+                    personalized guidance, empowering students to achieve their full potential.
                   </p>
                 </div>
               </div>

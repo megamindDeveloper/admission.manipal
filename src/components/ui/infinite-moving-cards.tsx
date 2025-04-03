@@ -1,6 +1,7 @@
 "use client";
 
 import { cn } from "@/lib/utils";
+import Image from "next/image";
 import React, { useEffect, useState, useCallback } from "react";
 
 export const InfiniteMovingCards = ({
@@ -14,6 +15,7 @@ export const InfiniteMovingCards = ({
     quote: React.ReactNode;
     name: string;
     title: string;
+    profile: string;
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -104,7 +106,7 @@ export const InfiniteMovingCards = ({
       >
         {items.map((item, idx) => (
           <li
-            className="relative w-[300px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 px-8 py-6 dark:border-zinc-700 bg-opacity-20 flex flex-col justify-between"
+            className="relative md:w-[600px] sm:w-[300px] w-[300px] max-w-full shrink-0 rounded-2xl border border-b-0 border-zinc-200 px-8 py-6 dark:border-zinc-700 bg-opacity-20 flex flex-col justify-between"
             key={item.name}
             style={{
               backgroundColor: bgColors[idx % bgColors.length],
@@ -115,7 +117,9 @@ export const InfiniteMovingCards = ({
               <span className="relative z-20 font-normal text-[20px] dark:text-gray-100">{item.quote}</span>
             </blockquote>
 
-            <div className="mt-[100px]">
+            <div className="mt-[50px]">
+              <Image alt={item.name} src={item.profile} width={50} height={50} className="w-16 h-16 object-cover rounded-full  shadow-md" />
+
               <span className="flex flex-col gap-1">
                 <span className="text-xl font-extrabold">{item.name}</span>
                 <span className="text-xl font-normal">{item.title}</span>
