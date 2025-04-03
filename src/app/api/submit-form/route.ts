@@ -6,7 +6,7 @@ export async function POST(request: Request) {
     try {
       console.log("Form Data Received:", formData); // Log form data for debugging
   
-      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbzswiK78qgK1cqB5-DOK4UqvzTO0gVTCsxe32Qp-HMV9tzdj8CGAkQWZFnM1YH1aO45/exec";
+      const googleScriptUrl = "https://script.google.com/macros/s/AKfycbz30utuGeAdOgqojtVa9x1ulNGSL5DqfG77mH4QHWSJuqINxq46g-tlkiHsCElwNLV-JQ/exec";
       
       const response = await fetch(googleScriptUrl, {
         method: "POST",
