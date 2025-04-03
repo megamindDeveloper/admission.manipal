@@ -69,31 +69,33 @@ const CounsellingForm = () => {
     const googleMapsUrl = `https://maps.app.goo.gl/1VF8MxuicvabAJoT9`;
     window.open(googleMapsUrl, "_blank");
   };
-
-  const {
-    handleSubmit,
-  } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     const response = await fetch("/api/submit-form", {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
+      headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
     });
-
     const result = await response.json();
     setLoading(false);
     if (result.result === "success") {
       toast.success("Form submitted successfully!");
+      reset();
     } else {
       toast.error("Error submitting form.");
     }
   };
-
+  const { register, handleSubmit, setValue, reset, formState: { errors } } = useForm<FormData>({
+    defaultValues: {
+      studentName: "",
+      parentEmail: "",
+      parentPhone: "",
+      classApplied: "",
+      location: "",
+    },
+  });
   return (
     <div className="relative flex bg-[#1A1A1A] flex-col items-center ">
       <MapContainer
@@ -149,49 +151,44 @@ const CounsellingForm = () => {
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7">
           <input
             type="text"
-            name="studentName"
             placeholder="Student Name"
-            value={formData.studentName}
-            onChange={handleChange}
-            required
+            {...register("studentName", { required: "Student Name is required" })}
             className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
           />
+          {errors.studentName && <p className="text-red-500 text-sm">{errors.studentName.message}</p>}
+          
           <input
             type="email"
-            name="parentEmail"
             placeholder="Parent Email"
-            value={formData.parentEmail}
-            onChange={handleChange}
-            required
+            {...register("parentEmail", { required: "Parent Email is required" })}
             className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
           />
+          {errors.parentEmail && <p className="text-red-500 text-sm">{errors.parentEmail.message}</p>}
+          
           <input
             type="tel"
-            name="parentPhone"
             placeholder="Parent Phone Number"
-            value={formData.parentPhone}
-            onChange={handleChange}
-            required
+            {...register("parentPhone", { required: "Parent Phone is required" })}
             className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
           />
+          {errors.parentPhone && <p className="text-red-500 text-sm">{errors.parentPhone.message}</p>}
+          
           <input
             type="text"
-            name="classApplied"
             placeholder="Class Being Applied For"
-            value={formData.classApplied}
-            onChange={handleChange}
-            required
+            {...register("classApplied", { required: "Class is required" })}
             className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
           />
+          {errors.classApplied && <p className="text-red-500 text-sm">{errors.classApplied.message}</p>}
+          
           <input
             type="text"
-            name="location"
             placeholder="Located in"
-            value={formData.location}
-            onChange={handleChange}
-            required
+            {...register("location", { required: "Location is required" })}
             className="md:col-span-2 px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
           />
+          {errors.location && <p className="text-red-500 text-sm">{errors.location.message}</p>}
+          
           <button
             type="submit"
             className="bg-[#FB7824] md:col-span-2 mx-auto cursor-pointer text-white py-2 px-6 rounded-3xl font-bold text-2xl flex items-center justify-center"
