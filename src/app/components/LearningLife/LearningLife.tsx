@@ -30,7 +30,7 @@ function LearningLife() {
       color: "bg-[#31CB6E]",
       hoverColor: "hover:bg-[#31CB6E]",
       description:
-        "As students’ transition to Primary School, we nurture their natural curiosity by providing hands-on learning experiences that build essential foundational skills. Our approach encourages them to question, explore, apply, and test their knowledge in a dynamic and supportive environment. Alongside academic growth, we emphasize the importance of respect, collaboration, and social etiquette, helping students develop confidence and a strong sense of community.",
+        "As students' transition to Primary School, we nurture their natural curiosity by providing hands-on learning experiences that build essential foundational skills. Our approach encourages them to question, explore, apply, and test their knowledge in a dynamic and supportive environment. Alongside academic growth, we emphasize the importance of respect, collaboration, and social etiquette, helping students develop confidence and a strong sense of community.",
     },
     {
       id: "grades-1-10",
@@ -91,14 +91,14 @@ function LearningLife() {
                 className={`w-full h-full text-left p-6 text-white transition-all duration-300 transform 
                   ${level.color} ${level.hoverColor} 
                   ${expandedLevel === level.id ? "scale-[1.02]" : "hover:scale-[1.01]"}
-                  shadow-lg hover:shadow-xl`}
+                  shadow-lg hover:shadow-xl flex flex-col`}
                 onClick={() => setExpandedLevel(expandedLevel === level.id ? null : level.id)}
               >
-                <div className="flex items-center justify-between">
-                  <span className="text-xl font-semibold">{level.title}</span>
+                <div className="flex items-start justify-between mb-4 min-h-[3rem]">
+                  <span className="text-xl font-semibold leading-tight">{level.title}</span>
                 </div>
-                <div className="mt-4 pt-4 border-t border-white/20 text-white/90">
-                  <p>{level.description}</p>
+                <div className="mt-2 pt-4 border-t border-white/20 text-white/90 flex-grow">
+                  <p className="text-sm leading-relaxed">{level.description}</p>
                 </div>
               </button>
             </motion.div>

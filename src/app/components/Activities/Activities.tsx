@@ -82,7 +82,7 @@ function Activities() {
           <FacilityCard
             title="Expansive Library"
             description="Manipal School boasts well-stocked libraries that serve as vibrant learning hubs, offering a diverse collection of periodicals, journals, magazines, newsletters, encyclopedias, fiction, and reference books. Our libraries go beyond traditional reading by integrating structured learning programs, including phonics for early learners and literary classics for older students. We are committed to providing a rich reading culture, inspiring students to explore, engage, and develop a lifelong love for books"
-            imageUrl="/images/activityImages/activityImage1.png"
+            imageUrl="/images/activityImages/activityImage1.jpg"
             className="lg:col-span-3 md:col-span-5 row-span-2 mt-56"
             gradientColor="#FECBE5"
             delay={0.1}
@@ -93,7 +93,7 @@ function Activities() {
             description="At Manipal School, we believe that a healthy body nurtures a healthy mind. Our state-of-the-art sports infrastructure(Marena) is designed to meet the diverse physical training needs of our students. With dedicated spaces for cricket, basketball, football, and badminton, we provide ample opportunities for students to engage in sports under the guidance of experienced coaches.
 To support overall well-being, we incorporate yoga into our curriculum, fostering mindfulness and inner balance. Additionally, Karate training is offered to instill discipline, confidence, and self-defense skills, promoting both physical and mental resilience. Our structured sports program for Junior school students, curated by our training partner Edusports, ensures that every student develops essential athletic skills and gains exposure to various sports. 
 "
-            imageUrl="/images/activityImages/activityImage2.png"
+            imageUrl="/images/activityImages/activityImage2.jpg"
             className="lg:col-span-3 md:col-span-5 row-span-1 top-32"
             gradientColor="#2B9FF7"
             delay={0.2}
@@ -102,7 +102,7 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
           <FacilityCard
             title="Insightful Guest Lectures"
             description="At Manipal School, we enrich our students' learning experience by hosting insightful guest lectures delivered by industry experts and academicians. These sessions provide valuable real-world perspectives, inspire critical thinking, and broaden students' horizons. Through interactive discussions and expert guidance, our students gain deeper insights into various fields, helping them make informed academic and career choices."
-            imageUrl="/images/activityImages/activityImage3.png"
+            imageUrl="/images/activityImages/activityImage3.jpg"
             className="lg:col-span-3 md:col-span-5 row-span-2"
             gradientColor="#FBD034"
             delay={0.3}
@@ -111,7 +111,7 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
           <FacilityCard
             title="Outreach Activities"
             description=" At Manipal School, we believe in nurturing socially responsible individuals by encouraging students to actively participate in outreach and community engagement programs. Through initiatives such as environmental drives, visits to orphanages and elderly homes, and awareness campaigns, students develop empathy, leadership, and a strong sense of civic responsibility. These experiences not only enrich their personal growth but also instill values of compassion and service, shaping them into responsible and compassionate individuals."
-            imageUrl="/images/activityImages/activityImage4.png"
+            imageUrl="/images/activityImages/activityImage4.jpg"
             className="lg:col-span-3 md:col-span-5 row-span-1 top-20"
             gradientColor="#AF84CC"
             delay={0.4}
@@ -120,7 +120,7 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
           <FacilityCard
             title="Career Collaborations with MAHE Manipal"
             description=" Manipal School collaborates with MAHE (Manipal Academy of Higher Education) to provide students with exclusive career exposure and academic guidance. Through expert-led workshops, career counseling sessions, and interactive seminars, students gain insights into various professional fields and emerging career trends. This collaboration offers a unique opportunity for mentorship, skill development, and hands-on learning experiences, empowering students to make informed choices about their higher education and future careers."
-            imageUrl="/images/activityImages/activityImage5.png"
+            imageUrl="/images/activityImages/activityImage5.jpg"
             className="lg:col-span-3 md:col-span-5 row-span-2 top-36"
             gradientColor="#31CB6E"
             delay={0.5}
@@ -129,7 +129,7 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
           <FacilityCard
             title="Higher Education Exposure"
             description="We are committed to equipping our students with the knowledge and guidance needed to make informed decisions about their future. Through university fairs, career counseling sessions, and interactions with esteemed academicians, we provide students with valuable insights into higher education opportunities. College visits, workshops, Job shadowing program and mentorship programs help them explore diverse career paths, empowering them to make confident choices for their academic and professional journeys."
-            imageUrl="/images/activityImages/activityImage6.png"
+            imageUrl="/images/activityImages/activityImage6.jpg"
             className="lg:col-span-4 md:col-span-5 lg:max-w-[230px] row-span-2 xl:max-w-[310px] top-[-13rem]"
             gradientColor="#FB7824"
             delay={0.6}

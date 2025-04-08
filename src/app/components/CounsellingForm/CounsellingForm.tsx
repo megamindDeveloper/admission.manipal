@@ -103,6 +103,7 @@ const CounsellingForm = () => {
         zoomControl={false}
         minZoom={17}
         maxZoom={17}
+        className="pointer-events-none"
       >
         <TileLayer
           url={`https://api.mapbox.com/styles/v1/mapbox/${MAPBOX_STYLE_ID}/tiles/{z}/{x}/{y}?access_token=${MAPBOX_ACCESS_TOKEN}`}
