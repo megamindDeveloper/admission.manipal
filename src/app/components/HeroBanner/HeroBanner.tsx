@@ -111,46 +111,46 @@ const HeroBanner = () => {
       <main className="relative min-h-screen flex  items-center justify-center">
         {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
-        <Swiper
-  pagination={{
-    clickable: true,
-    el: ".swiper-pagination",
-    bulletClass: "swiper-pagination-bullet",
-    bulletActiveClass: "swiper-pagination-bullet-active",
-  }}
-  className="transition-all duration-700 ease-in-out w-full h-full"
-  spaceBetween={10}
-  centeredSlides={false}
-  loop={true}
-  speed={1500}
-  autoplay={{
-    delay: 5000,
-    disableOnInteraction: false,
-  }}
-  slidesPerView={1}
-  modules={[Autoplay, Pagination]}
-  on={{
-    init: (swiper) => {
-      const bullets = document.querySelectorAll(".swiper-pagination-bullet");
-      bullets.forEach((bullet, index) => {
-        bullet.addEventListener("click", () => {
-          swiper.slideToLoop(index);
-        });
-      });
-    },
-  }}
->
+          <Swiper
+            pagination={{
+              clickable: true,
+              el: ".swiper-pagination",
+              bulletClass: "swiper-pagination-bullet",
+              bulletActiveClass: "swiper-pagination-bullet-active",
+            }}
+            className="transition-all duration-700 ease-in-out w-full h-full"
+            spaceBetween={10}
+            centeredSlides={false}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 544000,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+            modules={[Autoplay, Pagination]}
+            on={{
+              init: (swiper) => {
+                const bullets = document.querySelectorAll(".swiper-pagination-bullet");
+                bullets.forEach((bullet, index) => {
+                  bullet.addEventListener("click", () => {
+                    swiper.slideToLoop(index);
+                  });
+                });
+              },
+            }}
+          >
             <SwiperSlide>
-              <Image src={websitebg1} alt="Students 1" className="w-full md:h-[89vh] md:object-cover object-cover" />
+            <Image src={websitebg1}  alt="Banner " className="h-[50vh] md:h-[89vh] md:object-cover object-cover sm:object-[30%_center] object-[10%_center]" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg2} alt="Students 2" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
+              <Image src={websitebg2} alt="Students 2" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[85%_center]" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg3} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
+              <Image src={websitebg3} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[90%_center]"  />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg4} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
+              <Image src={websitebg4} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[80%_center]" />
             </SwiperSlide>
             <div className="swiper-pagination" />
           </Swiper>
@@ -186,7 +186,7 @@ const HeroBanner = () => {
         </div>
 
         {/* Form Container - Centered */}
-        <div className="relative container mx-auto mt-[10rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
+        <div className="relative container mx-auto mt-[30rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
           {/* Decorative Elements with Animations */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}

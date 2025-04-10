@@ -11,7 +11,7 @@ const DiscoverSchool = () => {
   const textRef = useRef(null);
 
   return (
-    <div className="bg-white my-32">
+    <div className="bg-white md:my-32">
       <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
         <div className="relative bg-white rounded-3xl overflow-hidden">
           {/* Main content grid */}

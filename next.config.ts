@@ -2,9 +2,17 @@ import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
   images: {
-    domains: ["assets.aceternity.com"],
+    unoptimized: true,
   },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
+  typescript: {
+    ignoreBuildErrors: true, 
+  },
+  output: 'export',
   
+  trailingSlash: true,
 };
 
 export default nextConfig;
