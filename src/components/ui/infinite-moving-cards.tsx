@@ -117,13 +117,13 @@ export const InfiniteMovingCards = ({
               <span className="relative z-20 font-normal text-[20px] dark:text-gray-100">{item.quote}</span>
             </blockquote>
 
-            <div className="mt-[50px]">
-              <Image alt={item.name} src={item.profile} width={50} height={50} className="w-16 h-16 object-cover rounded-full  shadow-md" />
+            <div className="mt-[50px] flex items-start gap-4">
+              <Image alt={item.name} src={item.profile} width={50} height={50} className="w-16 h-16 object-cover rounded-full shadow-md flex-shrink-0" />
 
-              <span className="flex flex-col gap-1">
-                <span className="text-xl font-extrabold">{item.name}</span>
-                <span className="text-xl font-normal">{item.title}</span>
-              </span>
+              <div className="flex flex-col gap-1">
+                <span className="text-xl font-extrabold leading-tight">{item.name}</span>
+                <span className="text-lg font-normal leading-tight">{item.title}</span>
+              </div>
             </div>
           </li>
         ))}

@@ -17,7 +17,7 @@ const ExploreOurCampus = () => {
   return (
     <div
       ref={sectionRef}
-      className="flex relative max-w-7xl mx-auto flex-col items-center justify-center pb-10 bg-white lg:pb-40 xl:pb-40 2xl:h-screen"
+      className="flex  my-32 relative max-w-7xl mx-auto flex-col items-center justify-center pb-10 bg-white lg:pb-40 xl:pb-40 2xl:h-screen"
     >
       {/* Purple Circle - Scales and Fades In */}
       <motion.div
@@ -92,7 +92,7 @@ const ExploreOurCampus = () => {
         viewport={{ once: true }}
         className="w-full xl:px-0 px-8 rounded-2xl overflow-hidden relative"
       >
-        <YouTubeEmbed videoid={getVideoId("https://youtu.be/Qw44JxtcC8g?si=Gk7NDdIXx98XAfcs") as string} />
+        <YouTubeEmbed videoid={getVideoId("https://youtu.be/RybrVD4uNUM?si=5RjWcVzIxWAe20zD") as string} />
         <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}

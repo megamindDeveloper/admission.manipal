@@ -6,17 +6,17 @@ import { motion } from "framer-motion";
 import LearningIcon from "../../../../public/icons/learningIcon";
 import GrowthIcon from "../../../../public/icons/growthIcon";
 import Innovations from "../../../../public/icons/innovations";
-import advantageImage1 from "../../../../public/images/advantage1.png";
-import advantageImage2 from "../../../../public/images/advantage2.png";
-import advantageImage3 from "../../../../public/images/advantage3.png";
-import advantageImage4 from "../../../../public/images/advantage4.png";
+import advantageImage1 from "../../../../public/images/advantage1.jpg";
+import advantageImage2 from "../../../../public/images/advantage2.jpg";
+import advantageImage3 from "../../../../public/images/advantage3.jpg";
+import advantageImage4 from "../../../../public/images/advantage4.jpg";
 
 const ManipalAdvantage = () => {
   // Reference for scroll detection
   const sectionRef = useRef(null);
 
   return (
-    <div className="max-w-7xl xl:mx-auto mx-8 bg-white lg:pt-44 md:pt-24 pt-16" ref={sectionRef}>
+    <div className="max-w-7xl xl:mx-auto mx-8 bg-white mb-32 lg:pt-44 md:pt-24 pt-16" ref={sectionRef}>
       {/* Heading - Slides Down and Fades In */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}

@@ -116,7 +116,7 @@ const PrincipalDesk = () => {
           viewport={{ once: true }}
           className="relative rounded-2xl overflow-hidden bg-black aspect-video w-full max-w-full mx-auto"
         >
-          <YouTubeEmbed videoid={getVideoId("https://www.youtube.com/watch?v=Lv8BD8xefJs") as string} />
+          <YouTubeEmbed videoid={getVideoId("https://youtu.be/-tOpBkKAxIM?si=H6-bErsKJBnYl1CT") as string} />
           {/* Custom Overlay */}
           <div className="absolute bottom-4 right-4 flex gap-2">
             <button

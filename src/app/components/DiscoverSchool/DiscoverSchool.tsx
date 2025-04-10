@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import Image from "next/image";
-import studentImage from "../../../../public/images/freepik__the-style-is-candid-image-photography-with-natural__18228 1.png";
+import studentImage from "../../../../public/images/DISCOVERIMAGE.jpg";
 import { motion } from "framer-motion";
 
 const DiscoverSchool = () => {
@@ -11,7 +11,7 @@ const DiscoverSchool = () => {
   const textRef = useRef(null);
 
   return (
-    <div className="bg-white">
+    <div className="bg-white my-32">
       <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
         <div className="relative bg-white rounded-3xl overflow-hidden">
           {/* Main content grid */}
@@ -42,7 +42,7 @@ const DiscoverSchool = () => {
                   />
                 </svg>
               </div>
-              <Image src={studentImage} alt="Students in classroom" className="object-cover w-full rounded-2xl z-0" />
+              <Image src={studentImage} alt="Students in classroom" className="object-cover w-[100%] h-[100%] rounded-2xl z-0" />
             </motion.div>
 
             {/* Content section */}
@@ -52,7 +52,7 @@ const DiscoverSchool = () => {
               whileInView={{ opacity: 1, x: 0 }} // Slide in to position
               transition={{ duration: 0.5 }} // Animation duration
               viewport={{ once: true }} // Trigger only once
-              className="relative xl:pt-16 md:pt-14 lg:pt-0 md:px-4 lg:px-8"
+              className="relative  md:px-4 lg:px-8"
             >
               <div className="relative z-10 space-y-6">
                 <h1 className="lg:text-[2rem] text-[1.5rem] xl:text-[2.5rem] md:text-[2.5rem] font-semibold text-black leading-tight">
