@@ -8,7 +8,6 @@ import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
 import websitebg1 from "../../../../public/images/BannerImage1.jpg";
 import websitebg2 from "../../../../public/images/BannerImage2.jpg";
 import websitebg3 from "../../../../public/images/BannerImage3.jpg";
@@ -18,8 +17,8 @@ import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper/modules";
+
 interface FormData {
   studentName: string;
   parentEmail: string;
@@ -51,13 +50,12 @@ const HeroBanner = () => {
     setLoading(false);
     if (result.result === "success") {
       toast.success("Form submitted successfully!");
-      reset(); // Clear the form fields after submission
+      reset();
     } else {
       toast.error("Error submitting form.");
     }
   };
 
-  // Reference for scroll detection
   const formRef = useRef(null);
   const isFormInView = useInView(formRef, { once: true });
 
@@ -66,7 +64,6 @@ const HeroBanner = () => {
       {/* Top Contact Bar */}
       <div className="bg-orange-500 text-white text-sm py-2 px-4 overflow-hidden whitespace-nowrap">
         <div className="relative flex space-x-10 animate-marquee">
-          {/* Repeated contact info */}
           {Array(6)
             .fill(null)
             .map((_, i) => (
@@ -99,7 +96,7 @@ const HeroBanner = () => {
           </div>
           <div
             onClick={() => window.open("https://maps.app.goo.gl/1VF8MxuicvabAJoT9", "_blank")}
-            className="md:flex hidden items-center  gap-2 cursor-pointer text-gray-600 hover:text-blue-600"
+            className="md:flex hidden items-center gap-2 cursor-pointer text-gray-600 hover:text-blue-600"
           >
             <IconMapPin size={20} />
             <span>Ward 55, Behind Manipal College of Dental Sciences, Attavar, Mangalore</span>
@@ -108,86 +105,73 @@ const HeroBanner = () => {
       </header>
 
       {/* Main Content with Background Image */}
-      <main className="relative min-h-screen flex  items-center justify-center">
+      <main className="relative min-h-screen flex items-center justify-center">
         {/* Background Image Carousel */}
-        <div className="absolute inset-0 z-0">
-          <Swiper
-            pagination={{
-              clickable: true,
-              el: ".swiper-pagination",
-              bulletClass: "swiper-pagination-bullet",
-              bulletActiveClass: "swiper-pagination-bullet-active",
-            }}
-            className="transition-all duration-700 ease-in-out w-full h-full"
-            spaceBetween={10}
-            centeredSlides={false}
-            loop={true}
-            speed={1500}
-            autoplay={{
-              delay: 544000,
-              disableOnInteraction: false,
-            }}
-            slidesPerView={1}
-            modules={[Autoplay, Pagination]}
-            on={{
-              init: (swiper) => {
-                const bullets = document.querySelectorAll(".swiper-pagination-bullet");
-                bullets.forEach((bullet, index) => {
-                  bullet.addEventListener("click", () => {
-                    swiper.slideToLoop(index);
-                  });
-                });
-              },
-            }}
-          >
-            <SwiperSlide>
-            <Image src={websitebg1}  alt="Banner " className="h-[50vh] md:h-[89vh] md:object-cover object-cover sm:object-[30%_center] object-[10%_center]" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={websitebg2} alt="Students 2" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[85%_center]" />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={websitebg3} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[90%_center]"  />
-            </SwiperSlide>
-            <SwiperSlide>
-              <Image src={websitebg4} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[80%_center]" />
-            </SwiperSlide>
-            <div className="swiper-pagination" />
-          </Swiper>
-          <style jsx global>{`
-            .swiper {
-              position: relative; /* Ensures pagination positioning works */
-            }
-            .swiper-pagination {
-              bottom: 170px !important;
-              z-index: 10;
-              display: flex;
-              justify-content: center;
-              gap: 8px;
-            }
+        <div className="absolute inset-0 z-0 ">
+  <Swiper
+    spaceBetween={50}
+    slidesPerView={1}
+    modules={[Autoplay, Pagination]}
+    autoplay={{ 
+      delay: 3000, 
+      disableOnInteraction: false 
+    }}
+    pagination={{ 
+      clickable: true,
+    }}
+    onSlideChange={() => console.log('slide change')}
+    onSwiper={(swiper) => console.log(swiper)}
+  >
+    <SwiperSlide>
+      <img 
+        src={websitebg1.src} 
+        alt="Banner 1" 
+      />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img 
+        src={websitebg2.src} 
+        alt="Banner 2" 
+      />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img 
+        src={websitebg2.src} 
+        alt="Banner 3" 
+      />
+    </SwiperSlide>
+    <SwiperSlide>
+      <img 
+        src={websitebg4.src} 
+        alt="Banner 4" 
+      />
+    </SwiperSlide>
+  </Swiper>
 
-            .swiper-pagination-bullet {
-              background: white;
-              opacity: 0.6;
-              width: 10px;
-              height: 10px;
-              border-radius: 50%;
-              transition: all 0.3s ease;
-            }
-
-            .swiper-pagination-bullet-active {
-              width: 40px !important; /* Bigger active bullet */
-              height: 10px;
-              border-radius: 10px;
-              opacity: 1;
-              background: white;
-            }
-          `}</style>
-        </div>
-
+  {/* Inline CSS for centering pagination dots */}
+  <style jsx>{`
+    .swiper-pagination {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 10;
+    }
+    .swiper-pagination-bullet {
+      background: white;
+      opacity: 0.8;
+      width: 10px;
+      height: 10px;
+      margin: 0 5px;
+    }
+    .swiper-pagination-bullet-active {
+      background: #007bff;
+      opacity: 1;
+    }
+  `}</style>
+</div>
         {/* Form Container - Centered */}
         <div className="relative container mx-auto mt-[30rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
-          {/* Decorative Elements with Animations */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
@@ -203,30 +187,24 @@ const HeroBanner = () => {
             className="absolute bottom-[-20] left-[-2rem] md:left-[50%] w-24 h-12 md:w-32 md:h-16 xl:w-36 xl:h-18 xl:bottom-[13rem] xl:left-[57%] bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"
           ></motion.div>
 
-          {/* Form Card with Scroll-Triggered Animation */}
           <motion.div
             ref={formRef}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isFormInView ? 1 : 0, y: isFormInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg shadow-lg px-4 md:px-6 lg:px-8 py-6 md:py-8 xl:py-16 w-full 
-                       max-w-[95vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[40vw] xl:max-w-[30vw] 
-                       my-0 relative"
+            className="formsec bg-white rounded-lg shadow-lg px-4 md:px-6 lg:px-8 py-6 md:py-8 xl:py-16 w-full max-w-[95vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[40vw] xl:max-w-[30vw] my-0 relative"
           >
-            {/* Animated Heading */}
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[2.5rem] leading-tight 
-                         pb-4 lg:pb-5 xl:pb-10 font-bold mb-4 xl:mb-6 text-gray-800 text-center"
+              className="formsec2 text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[2.5rem] leading-tight pb-4 lg:pb-5 xl:pb-10 font-bold mb-4 xl:mb-6 text-gray-800 text-center"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Ready to Nurture a Future Innovator
             </motion.h2>
 
-            <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
-              {/* Staggered Input Fields */}
+            <form onSubmit={handleSubmit(onSubmit)} className="formsec4 space-y-6 md:space-y-6">
               {["studentName", "parentEmail", "parentPhone", "class", "location"].map((field, index) => (
                 <motion.div
                   key={field}
@@ -240,20 +218,20 @@ const HeroBanner = () => {
                     {...register(field as keyof FormData, {
                       required: `${field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())} is required`,
                     })}
-                    className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
+                    className="formsec3 w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
                   />
-                  {errors[field as keyof FormData] && <p className="text-red-500 text-xs md:text-sm">{errors[field as keyof FormData]?.message}</p>}
+                  {errors[field as keyof FormData] && (
+                    <p className="text-red-500 text-xs md:text-sm">{errors[field as keyof FormData]?.message}</p>
+                  )}
                 </motion.div>
               ))}
 
-              {/* Animated Submit Button */}
               <div className="justify-center flex">
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
-                           font-bold text-xl md:text-2xl flex items-center justify-center"
+                  className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl font-bold text-xl md:text-2xl flex items-center justify-center"
                 >
                   {loading ? <>Submitting...</> : "Submit"}
                 </motion.button>

@@ -175,3 +175,56 @@ lite-youtube {
   white-space: nowrap;
   animation: marquee 30s linear infinite;
 }
+
+
+
+
+
+@media screen and (max-width: 768px) {
+  .formsec {
+    min-width: 80vw !important;
+  }
+}
+
+@media screen and (min-width: 769px) {
+  .formsec {
+    max-width: 35vw !important;
+  }
+}
+
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  .formsec {
+    max-width: 35vw !important;
+   padding-bottom: 0px;
+   font-size: 22px !important;
+   padding-top: 25px;
+   padding-bottom: 15px; /* Adjusted to a more readable size */
+  }
+}
+
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  .formsec2 {
+    max-width: 35vw !important;
+   padding-bottom: 0px;
+   font-size: 30px !important; /* Adjusted to a more readable size */
+  }
+}
+
+
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  .formsec3 {
+    
+   font-size: 17px !important; /* Adjusted to a more readable size */
+  }
+}
+
+
+@media screen and (max-width: 1920px) and (max-height: 1080px) {
+  .formsec4 {
+    font-size: 17px !important; /* Adjusted to a more readable size */
+    @apply space-y-5;
+  }
+}
+
+
+ 
