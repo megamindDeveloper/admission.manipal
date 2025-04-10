@@ -40,7 +40,7 @@ const HeroBanner = () => {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
+    const response = await fetch("/api/submit-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
