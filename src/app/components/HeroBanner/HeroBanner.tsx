@@ -8,6 +8,7 @@ import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
+import { ClipLoader } from "react-spinners";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import websitebg1 from "../../../../public/images/BannerImage1.jpg";
 import websitebg2 from "../../../../public/images/BannerImage2.jpg";
@@ -39,7 +40,7 @@ const HeroBanner = () => {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    const response = await fetch("/api/submit-form", {
+    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -141,16 +142,32 @@ const HeroBanner = () => {
             }}
           >
             <SwiperSlide>
-            <Image src={websitebg1}  alt="Banner " className="h-[50vh] md:h-[89vh] md:object-cover object-cover sm:object-[30%_center] object-[10%_center]" />
+              <Image
+                src={websitebg1}
+                alt="Banner "
+                className="h-[50vh] md:h-[89vh] md:object-cover object-cover sm:object-[30%_center] object-[10%_center]"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg2} alt="Students 2" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[85%_center]" />
+              <Image
+                src={websitebg2}
+                alt="Students 2"
+                className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[85%_center]"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg3} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[90%_center]"  />
+              <Image
+                src={websitebg3}
+                alt="Students 3"
+                className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[90%_center]"
+              />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg4} alt="Students 3" className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[80%_center]" />
+              <Image
+                src={websitebg4}
+                alt="Students 3"
+                className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[80%_center]"
+              />
             </SwiperSlide>
             <div className="swiper-pagination" />
           </Swiper>
@@ -253,9 +270,9 @@ const HeroBanner = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
-                           font-bold text-xl md:text-2xl flex items-center justify-center"
+             font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
                 >
-                  {loading ? <>Submitting...</> : "Submit"}
+                  {loading ? <ClipLoader size={24} color="#fff" /> : "Submit"}
                 </motion.button>
               </div>
             </form>

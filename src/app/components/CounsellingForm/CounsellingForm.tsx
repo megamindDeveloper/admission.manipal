@@ -9,7 +9,8 @@ import logo from "../../../../public/images/logo/manipalBottom.svg";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-
+import { motion, useInView } from "framer-motion";
+import { ClipLoader } from "react-spinners";
 // Correct dynamic imports for Leaflet components
 
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
@@ -69,7 +70,7 @@ const CounsellingForm = () => {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    const response = await fetch("/api/submit-form", {
+    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(data),
@@ -186,12 +187,15 @@ const CounsellingForm = () => {
           />
           {errors.location && <p className="text-red-500 text-sm">{errors.location.message}</p>}
           
-          <button
-            type="submit"
-            className="bg-[#FB7824] md:col-span-2 mx-auto cursor-pointer text-white py-2 px-6 rounded-3xl font-bold text-2xl flex items-center justify-center"
-          >
-            {loading ? "Submitting..." : "Submit"}
-          </button>
+          <motion.button
+                  type="submit"
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
+             font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
+                >
+                  {loading ? <ClipLoader size={24} color="#fff" /> : "Submit"}
+                </motion.button>
         </form>
       </div>
       {/* </div> */}
