@@ -17,7 +17,7 @@ export const BlurImage = ({ height, width, src, className, alt, ...rest }: Image
   const [isLoading, setLoading] = useState(true);
   return (
     <Image
-      className={cn("transition duration-300", isLoading ? "blur-sm" : "blur-0", className)}
+      className={cn("transition duration-300 ", isLoading ? "blur-sm" : "blur-0", className)}
       onLoad={() => setLoading(false)}
       src={src || "/placeholder.svg"}
       width={width}

@@ -18,10 +18,10 @@ export default function Home() {
       <HeroBanner/>
       <AboutSchool/>
       <DiscoverSchool/>
-      <ExploreOurCampus/>
+      {/* <ExploreOurCampus/> */}
       <LearningLife/>
       <ManipalAdvantage/>
-      <PrincipalDesk/>
+      {/* <PrincipalDesk/> */}
       <Activities/>
       <Testimonials/>
       <CounsellingForm/>

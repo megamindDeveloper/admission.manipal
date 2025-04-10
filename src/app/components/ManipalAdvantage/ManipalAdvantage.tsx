@@ -75,8 +75,7 @@ const ManipalAdvantage = () => {
             alt="Students in classroom"
           />
           <div className="">
-            <h2 className="font-bold pt-10 text-[1.5rem] leading-7 text-black mb-2">Smart Learning &  Innovation Hub</h2>
-           
+            <h2 className="font-bold pt-10 text-[1.5rem] leading-7 text-black mb-2">Smart Learning & Innovation Hub</h2>
           </div>
         </motion.div>
         <motion.div
@@ -107,7 +106,8 @@ const ManipalAdvantage = () => {
           className="relative col-span-2 rounded-2xl overflow-hidden h-[380px]"
         >
           <Image src={advantageImage1} className="absolute inset-0 object-cover h-[100%] w-[100%]" alt="Students in classroom" />
-          <div className="absolute inset-0 p-8 flex flex-col justify-start">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+          <div className="absolute z-100 inset-0 p-8 flex flex-col justify-start">
             <h2 className="font-bold text-[2rem] leading-9 text-white mb-2 max-w-2/4">Well-Equipped Future Ready Digital Classrooms</h2>
             <p className="text-gray-200 max-w-1/3">Awarded the School Excellence Award for future-ready digital classrooms.</p>
           </div>
@@ -138,7 +138,8 @@ const ManipalAdvantage = () => {
           className="relative rounded-2xl overflow-hidden h-[380px]"
         >
           <Image src={advantageImage2} className="absolute inset-0 w-full h-full object-cover" alt="Library" />
-          <div className="absolute inset-0 bg-gradient-to-t p-6 flex flex-col justify-start">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+          <div className="absolute z-100 inset-0 p-8 flex flex-col justify-start">
             <h2 className="text-[2rem] leading-none font-bold text-white mb-2 max-w-3/4">Where Curiosity Grows</h2>
             <p className="text-gray-200 max-w-[10vw]">with an expansive In-School & Digital Library</p>
           </div>
@@ -168,8 +169,14 @@ const ManipalAdvantage = () => {
           viewport={{ once: true }}
           className="relative rounded-2xl overflow-hidden h-[380px]"
         >
-          <Image src={advantageImage3} className="absolute inset-0 w-full h-full object-cover" alt="Innovation Hub" />
-          <div className="absolute inset-0 bg-gradient-to-t p-6 flex flex-col justify-start">
+         <div className="absolute inset-0 bg-gradient-to-b from-black/70 via-transparent to-transparent z-10" />
+
+          <Image src={advantageImage3} className="absolute inset-0 w-full h-full object-cover z-0" alt="Innovation Hub" />
+
+          {/* Gradient Overlay */}
+
+          {/* Text Content */}
+          <div className="absolute inset-0 p-8 flex flex-col justify-start z-30">
             <h2 className="text-2xl font-bold text-white text-[2rem]">Smart Learning & Innovation Hub</h2>
           </div>
         </motion.div>
@@ -199,7 +206,8 @@ const ManipalAdvantage = () => {
           className="relative col-span-1 rounded-2xl overflow-hidden h-[380px]"
         >
           <Image src={advantageImage4} className="absolute inset-0 w-full h-full object-cover" alt="Student performing" />
-          <div className="absolute inset-0 bg-gradient-to-t p-8 flex flex-col justify-start">
+          <div className="absolute inset-0 bg-gradient-to-r from-black/50 via-transparent to-transparent z-10" />
+          <div className="absolute z-100 inset-0 p-8 flex flex-col justify-start">
             <h2 className="text-3xl font-bold text-white mb-2 text-[2rem]">Where Talents are Nurtured</h2>
             <p className="text-gray-200 max-w-2/4">We believe that creative expressions are the window to the soul.</p>
           </div>

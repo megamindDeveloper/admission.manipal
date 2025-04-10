@@ -1,9 +1,9 @@
-"use client"; // Required for using hooks in Next.js 13+ App Router
+"use client";
 
 import React, { useRef } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { motion, useInView } from "framer-motion"; // Import Framer Motion
+import { motion, useInView } from "framer-motion";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
@@ -12,6 +12,7 @@ import "react-responsive-carousel/lib/styles/carousel.min.css";
 import websitebg1 from "../../../../public/images/BannerImage1.jpg";
 import websitebg2 from "../../../../public/images/BannerImage2.jpg";
 import websitebg3 from "../../../../public/images/BannerImage3.jpg";
+import websitebg4 from "../../../../public/images/BannerImage4.jpg";
 import logo from "../../../../public/images/logo/manipalHead.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -110,35 +111,76 @@ const HeroBanner = () => {
       <main className="relative min-h-screen flex  items-center justify-center">
         {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
-          <Swiper
-            pagination={{ clickable: true }}
-            className="transition-all duration-700 ease-in-out w-full h-full"
-            spaceBetween={10}
-            centeredSlides={false}
-            loop={true}
-            speed={1500}
-            autoplay={{
-              delay: 5000,
-              disableOnInteraction: false,
-            }}
-            slidesPerView={1}
-            modules={[Autoplay, Pagination]}
-          >
+        <Swiper
+  pagination={{
+    clickable: true,
+    el: ".swiper-pagination",
+    bulletClass: "swiper-pagination-bullet",
+    bulletActiveClass: "swiper-pagination-bullet-active",
+  }}
+  className="transition-all duration-700 ease-in-out w-full h-full"
+  spaceBetween={10}
+  centeredSlides={false}
+  loop={true}
+  speed={1500}
+  autoplay={{
+    delay: 5000,
+    disableOnInteraction: false,
+  }}
+  slidesPerView={1}
+  modules={[Autoplay, Pagination]}
+  on={{
+    init: (swiper) => {
+      const bullets = document.querySelectorAll(".swiper-pagination-bullet");
+      bullets.forEach((bullet, index) => {
+        bullet.addEventListener("click", () => {
+          swiper.slideToLoop(index);
+        });
+      });
+    },
+  }}
+>
             <SwiperSlide>
               <Image src={websitebg1} alt="Students 1" className="w-full md:h-[89vh] md:object-cover object-cover" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg2} alt="Students 2" className="w-full md:h-[89vh] md:object-cover object-cover" />
+              <Image src={websitebg2} alt="Students 2" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
             </SwiperSlide>
             <SwiperSlide>
-              <Image src={websitebg3} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover" />
+              <Image src={websitebg3} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
             </SwiperSlide>
+            <SwiperSlide>
+              <Image src={websitebg4} alt="Students 3" className="w-full md:h-[89vh] md:object-cover object-cover scale-x-[-1]" />
+            </SwiperSlide>
+            <div className="swiper-pagination" />
           </Swiper>
           <style jsx global>{`
+            .swiper {
+              position: relative; /* Ensures pagination positioning works */
+            }
             .swiper-pagination {
               bottom: 170px !important;
-
               z-index: 10;
+              display: flex;
+              justify-content: center;
+              gap: 8px;
+            }
+
+            .swiper-pagination-bullet {
+              background: white;
+              opacity: 0.6;
+              width: 10px;
+              height: 10px;
+              border-radius: 50%;
+              transition: all 0.3s ease;
+            }
+
+            .swiper-pagination-bullet-active {
+              width: 40px !important; /* Bigger active bullet */
+              height: 10px;
+              border-radius: 10px;
+              opacity: 1;
+              background: white;
             }
           `}</style>
         </div>
