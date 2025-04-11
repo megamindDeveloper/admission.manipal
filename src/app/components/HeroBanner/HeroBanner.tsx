@@ -233,7 +233,7 @@ const HeroBanner = () => {
                          pb-4 lg:pb-5  font-bold text-gray-800 text-center"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
-              now for 2025
+              now for 2025 
             </motion.h2>
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
