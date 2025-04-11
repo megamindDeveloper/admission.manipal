@@ -53,11 +53,11 @@ const CounsellingForm = () => {
       setFormData({ ...formData, location: locationText });
     };
 
-    const mapElement = document.querySelector('.leaflet-container');
+    const mapElement = document.querySelector(".leaflet-container");
     if (mapElement) {
-      mapElement.addEventListener('click', handleMapClickEvent as unknown as EventListener);
+      mapElement.addEventListener("click", handleMapClickEvent as unknown as EventListener);
       return () => {
-        mapElement.removeEventListener('click', handleMapClickEvent as unknown as EventListener);
+        mapElement.removeEventListener("click", handleMapClickEvent as unknown as EventListener);
       };
     }
   }, [formData, setFormData]);
@@ -84,7 +84,12 @@ const CounsellingForm = () => {
       toast.error("Error submitting form.");
     }
   };
-  const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm<FormData>({
     defaultValues: {
       studentName: "",
       parentEmail: "",
@@ -112,9 +117,9 @@ const CounsellingForm = () => {
           tileSize={512}
           zoomOffset={-1}
         />
-        <Marker position={selectedLocation}>
+        {/* <Marker position={selectedLocation}>
           <Popup>{popupContent}</Popup>
-        </Marker>
+        </Marker> */}
       </MapContainer>
       <div className="absolute  opacity-100 z-1000 top-[30rem] right-[8%]">
         <svg width="315" height="314" viewBox="0 0 315 314" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -147,55 +152,67 @@ const CounsellingForm = () => {
           </svg>
         </div>
         <form onSubmit={handleSubmit(onSubmit)} className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-7">
-          <input
-            type="text"
-            placeholder="Student Name"
-            {...register("studentName", { required: "Student Name is required" })}
-            className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-          />
-          {errors.studentName && <p className="text-red-500 text-sm">{errors.studentName.message}</p>}
-          
-          <input
-            type="email"
-            placeholder="Parent Email"
-            {...register("parentEmail", { required: "Parent Email is required" })}
-            className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-          />
-          {errors.parentEmail && <p className="text-red-500 text-sm">{errors.parentEmail.message}</p>}
-          
-          <input
-            type="tel"
-            placeholder="Parent Phone Number"
-            {...register("parentPhone", { required: "Parent Phone is required" })}
-            className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-          />
-          {errors.parentPhone && <p className="text-red-500 text-sm">{errors.parentPhone.message}</p>}
-          
-          <input
-            type="text"
-            placeholder="Class Being Applied For"
-            {...register("classApplied", { required: "Class is required" })}
-            className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-          />
-          {errors.classApplied && <p className="text-red-500 text-sm">{errors.classApplied.message}</p>}
-          
-          <input
-            type="text"
-            placeholder="Located in"
-            {...register("location", { required: "Location is required" })}
-            className="md:col-span-2 px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-          />
-          {errors.location && <p className="text-red-500 text-sm">{errors.location.message}</p>}
-          
-          <motion.button
-                  type="submit"
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="bg-[#FB7824] cursor-pointer text-white py-2  px-4 md:px-6 rounded-3xl 
-             font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
-                >
-                  {loading ? <ClipLoader size={24} color="#fff" /> : "Apply Now"}
-                </motion.button>
+          <div className="flex flex-col">
+            <input
+              type="text"
+              placeholder="Student Name"
+              {...register("studentName", { required: "Student Name is required" })}
+              className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+            />
+            {errors.studentName && <p className="text-red-500 text-sm mt-1">{errors.studentName.message}</p>}
+          </div>
+
+          <div className="flex flex-col">
+            <input
+              type="email"
+              placeholder="Parent Email"
+              {...register("parentEmail", { required: "Parent Email is required" })}
+              className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+            />
+            {errors.parentEmail && <p className="text-red-500 text-sm mt-1">{errors.parentEmail.message}</p>}
+          </div>
+
+          <div className="flex flex-col">
+            <input
+              type="tel"
+              placeholder="Parent Phone Number"
+              {...register("parentPhone", { required: "Parent Phone is required" })}
+              className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+            />
+            {errors.parentPhone && <p className="text-red-500 text-sm mt-1">{errors.parentPhone.message}</p>}
+          </div>
+
+          <div className="flex flex-col">
+            <input
+              type="text"
+              placeholder="Class Being Applied For"
+              {...register("classApplied", { required: "Class is required" })}
+              className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+            />
+            {errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
+          </div>
+
+          <div className="md:col-span-2 flex flex-col">
+            <input
+              type="text"
+              placeholder="Located in"
+              {...register("location", { required: "Location is required" })}
+              className="px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+            />
+            {errors.location && <p className="text-red-500 text-sm mt-1">{errors.location.message}</p>}
+          </div>
+
+          <div className="md:col-span-2 flex justify-center">
+            <motion.button
+              type="submit"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
+        font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
+            >
+              {loading ? <ClipLoader size={24} color="#fff" /> : "Apply Now"}
+            </motion.button>
+          </div>
         </form>
       </div>
       {/* </div> */}

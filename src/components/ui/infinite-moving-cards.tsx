@@ -122,7 +122,7 @@ export const InfiniteMovingCards = ({
 
               <div className="flex flex-col gap-1">
                 <span className="text-xl font-extrabold leading-tight">{item.name}</span>
-                <span className="text-lg font-normal leading-tight">{item.title}</span>
+                {/* <span className="text-lg font-normal leading-tight">{item.title}</span> */}
               </div>
             </div>
           </li>
