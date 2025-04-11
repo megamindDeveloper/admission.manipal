@@ -20,10 +20,7 @@ const testimonials = [
   {
     quote: (
       <>
-        As a member of the inaugural graduating cohort of Manipal School, the wonderful memories and invaluable lessons I learned, both intellectually
-        and personally, have intricately woven the very fabric of who I am today. The relentless dedication and unwavering commitment of the school
-        and its educators to unearth the latent potential within each of us have propelled us towards living the extraordinary lives we once only
-        dared to dream. I remain eternally indebted and profoundly thankful.
+As part of Manipal School’s first batch, the support and guidance I received shaped who I am today. Grateful for a journey that turned dreams into reality.
       </>
     ),
     name: "Dr. Kedar Mahendra Kodkany, Batch of 2014-15",
@@ -33,9 +30,8 @@ const testimonials = [
   {
     quote: (
       <>
-        As a member of the first batch of Manipal School, I am a testament to the institution’s philosophy. The strong foundation I built there has
-        stayed with me throughout my life and continues to shape me as a doctor today. The emphasis on all-round development truly sets Manipal apart,
-        instilling skills and values that go beyond academics and prepare you for every challenge.
+        As part of Manipal School’s first batch, the foundation I built there still guides me as a doctor today. Its focus on all-round development shaped my skills, values, and readiness for life’s challenges.
+
       </>
     ),
     name: "Dr Anvia Vilina Dsouza, Batch of 2014-15",
@@ -45,9 +41,9 @@ const testimonials = [
   {
     quote: (
       <>
-        I&apos;m proud to be an alumnus of Manipal School, where I gained knowledge, confidence, a strong foundation for success, and some amazing
-        friends! I&apos;m also grateful for the supportive and inspiring teachers who helped shape my journey - thank you for being incredible role
-        models.
+      Proud to be a Manipal School alumnus — where I gained knowledge, confidence, lifelong friends, and the foundation for success. Grateful to the inspiring teachers who shaped my journey.
+
+
       </>
     ),
     name: "Mohammed Juman Hussain, Batch of 2014-15",
@@ -57,9 +53,8 @@ const testimonials = [
   {
     quote: (
       <>
-      Manipal School provided me with a truly holistic learning experience, shaping not just my academic growth but also my creative and technical
-      pursuits. The school&apos;s environment fostered curiosity, critical thinking, and hands-on learning, which played a crucial role in my journey as
-      an engineer.
+     Manipal School offered a holistic learning experience that nurtured my academic, creative, and technical growth. It sparked curiosity and critical thinking, shaping my path as an engineer.
+
     </>
     ),
     name: "Ishaan Pilar, Batch of 2014-15",
@@ -68,7 +63,7 @@ const testimonials = [
   },
   {
     quote:
-      " Manipal school gave me the opportunity to dream and achieve my goals and excel in academics as well as support me throughout my sporting career. It also gave me the best foundation for my future and challenged me to always strive to be the best.",
+      " Manipal School empowered me to chase my dreams, excel in academics, and thrive in sports. It laid a strong foundation and inspired me to always strive for the best.",
     name: "Keya Ashutosh Boloor, Batch of 2021-22",
     title: "Pursuing Architecture at Manipal School of Architecture and Planning, Manipal",
     profile: "/images/testimonialsImages/KeyaBoloor.jpg",
