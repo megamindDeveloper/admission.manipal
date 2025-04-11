@@ -23,7 +23,7 @@ function AboutSchool() {
   }
 
   return (
-    <div className="bg-white flex items-center  md:my-32 my-24">
+    <div className="bg-white flex items-center">
       <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Text Section */}

@@ -40,7 +40,7 @@ const HeroBanner = () => {
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
-    const response = await fetch("/api/submit-form", {
+    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -65,7 +65,7 @@ const HeroBanner = () => {
   return (
     <div className="min-h-screen">
       {/* Top Contact Bar */}
-      <div className="bg-orange-500 text-white text-sm py-2 px-4 overflow-hidden whitespace-nowrap">
+      <div className="bg-orange-500 text-white text-sm py-4 px-4 overflow-hidden whitespace-nowrap">
         <div className="relative flex space-x-10 animate-marquee">
           {/* Repeated contact info */}
           {Array(6)
@@ -100,10 +100,10 @@ const HeroBanner = () => {
           </div>
           <div
             onClick={() => window.open("https://maps.app.goo.gl/1VF8MxuicvabAJoT9", "_blank")}
-            className="md:flex hidden items-center  gap-2 cursor-pointer text-gray-600 hover:text-blue-600"
+            className="md:flex hidden items-center  gap-2 cursor-pointer text-gray-600 hover:text-[#FB7824]"
           >
             <IconMapPin size={20} />
-            <span>Ward 55, Behind Manipal College of Dental Sciences, Attavar, Mangalore</span>
+            <span>Behind KMC Hospital, Attavar, Mangalore</span>
           </div>
         </div>
       </header>
@@ -112,7 +112,7 @@ const HeroBanner = () => {
       <main className="relative min-h-screen flex  items-center justify-center">
         {/* Background Image Carousel */}
         <div className="absolute inset-0 z-0">
-          <Swiper
+          {/* <Swiper
             pagination={{
               clickable: true,
               el: ".swiper-pagination",
@@ -125,7 +125,7 @@ const HeroBanner = () => {
             loop={true}
             speed={1500}
             autoplay={{
-              delay: 544000,
+              delay: 5000,
               disableOnInteraction: false,
             }}
             slidesPerView={1}
@@ -140,6 +140,19 @@ const HeroBanner = () => {
                 });
               },
             }}
+          > */}
+          <Swiper
+            className={`transition-all duration-700 ease-in-out w-full h-full`}
+            spaceBetween={10}
+            centeredSlides={false}
+            loop={true}
+            speed={1500}
+            autoplay={{
+              delay: 2000,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+            modules={[Autoplay]}
           >
             <SwiperSlide>
               <Image
@@ -171,35 +184,6 @@ const HeroBanner = () => {
             </SwiperSlide>
             <div className="swiper-pagination" />
           </Swiper>
-          <style jsx global>{`
-            .swiper {
-              position: relative; /* Ensures pagination positioning works */
-            }
-            .swiper-pagination {
-              bottom: 170px !important;
-              z-index: 10;
-              display: flex;
-              justify-content: center;
-              gap: 8px;
-            }
-
-            .swiper-pagination-bullet {
-              background: white;
-              opacity: 0.6;
-              width: 10px;
-              height: 10px;
-              border-radius: 50%;
-              transition: all 0.3s ease;
-            }
-
-            .swiper-pagination-bullet-active {
-              width: 40px !important; /* Bigger active bullet */
-              height: 10px;
-              border-radius: 10px;
-              opacity: 1;
-              background: white;
-            }
-          `}</style>
         </div>
 
         {/* Form Container - Centered */}
@@ -226,11 +210,31 @@ const HeroBanner = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isFormInView ? 1 : 0, y: isFormInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg shadow-lg px-4 md:px-6 lg:px-8 py-6 md:py-8 xl:py-16 w-full 
+            className="bg-white rounded-lg shadow-lg px-4 md:px-6 lg:px-8 py-6  w-full 
                        max-w-[95vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[40vw] xl:max-w-[30vw] 
                        my-0 relative"
           >
             {/* Animated Heading */}
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[3.5rem]  leading-tight 
+                         font-bold  text-[#FB7824] text-center"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+            >
+              Admissions Open
+            </motion.h2>
+            <motion.h2
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[2.5rem] leading-tight 
+                         pb-4 lg:pb-5  font-bold text-gray-800 text-center"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+            >
+              now for 2025
+            </motion.h2>
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -243,36 +247,122 @@ const HeroBanner = () => {
             </motion.h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
-              {/* Staggered Input Fields */}
-              {["studentName", "parentEmail", "parentPhone", "class", "location"].map((field, index) => (
-                <motion.div
-                  key={field}
-                  initial={{ opacity: 0, x: -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
-                >
-                  <input
-                    type={field === "parentEmail" ? "email" : field === "parentPhone" ? "tel" : "text"}
-                    placeholder={field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
-                    {...register(field as keyof FormData, {
-                      required: `${field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())} is required`,
-                    })}
-                    className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
-                  />
-                  {errors[field as keyof FormData] && <p className="text-red-500 text-xs md:text-sm">{errors[field as keyof FormData]?.message}</p>}
-                </motion.div>
-              ))}
+              {/* Student Name */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.1 }}>
+                <input
+                  type="text"
+                  placeholder="Student Name"
+                  {...register("studentName", { required: "Student Name is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
+                />
+                {errors.studentName && <p className="text-red-500 text-xs md:text-sm">{errors.studentName.message}</p>}
+              </motion.div>
 
-              {/* Animated Submit Button */}
+              {/* Parent Email */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.2 }}>
+                <input
+                  type="email"
+                  placeholder="Parent Email"
+                  {...register("parentEmail", { required: "Parent Email is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
+                />
+                {errors.parentEmail && <p className="text-red-500 text-xs md:text-sm">{errors.parentEmail.message}</p>}
+              </motion.div>
+
+              {/* Parent Phone */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.3 }}>
+                <input
+                  type="tel"
+                  placeholder="Parent Phone"
+                  {...register("parentPhone", { required: "Parent Phone is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
+                />
+                {errors.parentPhone && <p className="text-red-500 text-xs md:text-sm">{errors.parentPhone.message}</p>}
+              </motion.div>
+
+              {/* Class Dropdown */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.4 }}>
+                <select
+                  {...register("class", { required: "Class is required" })}
+                  defaultValue=""
+                  className="w-full border-b border-black/[20%] focus:outline-none bg-transparent text-black/70 placeholder:text-black/70 text-base md:text-lg xl:text-xl appearance-none"
+                >
+                  <option value="" disabled className="!text-gray-400 placeholder:text-white">
+                    Class Being applied for
+                  </option>
+                  <option className="text-black" value="Nursery">
+                    Nursery
+                  </option>
+                  <option className="text-black" value="PP I">
+                    PP I
+                  </option>
+                  <option className="text-black" value="PP II">
+                    PP II
+                  </option>
+                  <option className="text-black" value="I">
+                    I
+                  </option>
+                  <option className="text-black" value="II">
+                    II
+                  </option>
+                  <option className="text-black" value="III">
+                    III
+                  </option>
+                  <option className="text-black" value="IV">
+                    IV
+                  </option>
+                  <option className="text-black" value="V">
+                    V
+                  </option>
+                  <option className="text-black" value="VI">
+                    VI
+                  </option>
+                  <option className="text-black" value="VII">
+                    VII
+                  </option>
+                  <option className="text-black" value="VIII">
+                    VIII
+                  </option>
+                  <option className="text-black" value="IX">
+                    IX
+                  </option>
+                  <option className="text-black" value="X">
+                    X
+                  </option>
+                  <option className="text-black" value="XI">
+                    XI
+                  </option>
+                  <option className="text-black" value="XII">
+                    XII
+                  </option>
+                  <option className="text-black" value="ABCD">
+                    ABCD
+                  </option>
+                </select>
+                {errors.class && <p className="text-red-500 text-xs md:text-sm">{errors.class.message}</p>}
+              </motion.div>
+
+              {/* Location */}
+              <motion.div initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.5, delay: 0.5 }}>
+                <input
+                  type="text"
+                  placeholder="Location"
+                  {...register("location", { required: "Location is required" })}
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
+                />
+                {errors.location && <p className="text-red-500 text-xs md:text-sm">{errors.location.message}</p>}
+              </motion.div>
+
+              {/* Submit Button */}
               <div className="justify-center flex">
                 <motion.button
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
-             font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
+     font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
                 >
-                  {loading ? <ClipLoader size={24} color="#fff" /> : "Submit"}
+                  {loading ? <ClipLoader size={24} color="#fff" /> : "Apply Now"}
                 </motion.button>
               </div>
             </form>

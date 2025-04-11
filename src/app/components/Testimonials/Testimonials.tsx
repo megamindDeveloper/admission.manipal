@@ -5,7 +5,7 @@ export default function Testimonials() {
   return (
     <>
       <div className="text-center lg:pt-0 pt-24">
-        <h2 className="lg:text-[2rem] text-[1.5rem] xl:text-[2.5rem] md:text-[2.5rem] font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
+        <h2 className="xl:text-[4.5rem] md:text-[2.5rem] lg:text-[3rem] text-[1.5rem] font-bold tracking-tight text-gray-900 flex items-center justify-center gap-2">
           Bright Minds, <span className="text-[#FF8DC7] flex items-center">Big Dreams</span>
         </h2>
       </div>

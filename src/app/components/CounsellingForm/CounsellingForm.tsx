@@ -191,10 +191,10 @@ const CounsellingForm = () => {
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
+                  className="bg-[#FB7824] cursor-pointer text-white py-2  px-4 md:px-6 rounded-3xl 
              font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
                 >
-                  {loading ? <ClipLoader size={24} color="#fff" /> : "Submit"}
+                  {loading ? <ClipLoader size={24} color="#fff" /> : "Apply Now"}
                 </motion.button>
         </form>
       </div>

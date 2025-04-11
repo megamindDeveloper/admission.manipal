@@ -22,15 +22,15 @@ function LearningLife() {
       color: "bg-[#2B9FF7]",
       hoverColor: "hover:bg-[#2B9FF7]",
       description:
-        "Our Foundation level Programme is designed to provide a secure, stimulating, and nurturing learning environment where young learners thrive. Through structured play activities, art, craft, and interactive games, children develop essential cognitive and social skills. Intellectual growth is fostered through storytelling, discussions, early writing, number games, hands-on observations, and engaging scientific experiences. We maintain a strong partnership with parents, ensuring their active involvement in their child's learning journey.",
+        "Our Foundation Programme offers a safe, nurturing space where young minds thrive.Through play, art, and interactive games, children build key cognitive and social skills.Storytelling, number games, and hands-on activities spark curiosity and early learning.We partner closely with parents to support every child’s growth and development.",
     },
     {
       id: "prep-school",
-      title: "Preparatory Level: Grades III",
+      title: "Preparatory Level: (Grades III)",
       color: "bg-[#31CB6E]",
       hoverColor: "hover:bg-[#31CB6E]",
       description:
-        "As students' transition to Primary School, we nurture their natural curiosity by providing hands-on learning experiences that build essential foundational skills. Our approach encourages them to question, explore, apply, and test their knowledge in a dynamic and supportive environment. Alongside academic growth, we emphasize the importance of respect, collaboration, and social etiquette, helping students develop confidence and a strong sense of community.",
+        "In Primary School, we nurture curiosity through hands-on, experiential learning.Students are encouraged to explore, question, and apply knowledge confidently.Our approach builds strong academic foundations in a dynamic, supportive setting.We also focus on respect, teamwork, and social skills to foster a sense of community.",
     },
     {
       id: "grades-1-10",
@@ -38,15 +38,15 @@ function LearningLife() {
       color: "bg-[#FBD034]",
       hoverColor: "hover:bg-[#FBD034]",
       description:
-        "Our Middle School curriculum is designed to nurture confident, competent learners by cultivating collaborative learning communities, encouraging meaningful student-faculty discussions, and integrating digital engagement. This stage is a crucial turning point in a student's educational journey. We provide the necessary guidance and support to help them stay focused on their aspirations. Our goal is to empower students to grow into responsible, independent, and well-rounded young adults, prepared for future challenges",
+        "Our Middle School programme builds confident, capable learners through collaboration and digital engagement.We encourage meaningful student-faculty interactions to deepen understanding and critical thinking.With guidance and support, students stay focused on their goals and aspirations.We aim to shape independent, well-rounded young adults ready for future challenges.",
     },
     {
       id: "senior-secondary",
-      title: "Secondary (Grades IX - XII)",
+      title: "Secondary School Level:(Grades IX - XII)",
       color: "bg-[#FB7824]",
       hoverColor: "hover:bg-[#FB7824]",
       description:
-        "Our Secondary School curriculum is designed to empower students with critical thinking, problem-solving, and analytical skills essential for academic and personal growth. At this pivotal stage, we provide the right balance of academic rigor and personal development, ensuring students remain focused on their goals while building resilience and confidence. Through a well-structured curriculum, guided mentorship, and real-world applications of learning, we prepare students to transition seamlessly into higher education and future careers.",
+       "Our Secondary School programme empowers students with critical thinking and problem-solving skills.We balance academic rigor with personal growth to build confidence and resilience.Guided mentorship and real-world learning keep students focused on their goals.We prepare them for a smooth transition into higher education and future careers.",
     },
   ];
 
@@ -56,15 +56,15 @@ function LearningLife() {
   return (
     <div className="bg-white flex items-center relative justify-center" ref={sectionRef}>
       {/* Decorative Rotated Rectangle - Scales and Fades In */}
-      <motion.div
+      {/* <motion.div
         initial={{ opacity: 0, scale: 0.8 }}
         whileInView={{ opacity: 1, scale: 1 }}
         transition={{ duration: 0.5, delay: 0.2 }}
         viewport={{ once: true }}
         className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC]  rotate-37 rounded-b-full opacity-100 z-50"
-      ></motion.div>
+      ></motion.div> */}
 
-      <div className="w-full max-w-7xl xl:mx-auto mx-8 mt-16 lg:mt-56">
+      <div className="w-full max-w-7xl xl:mx-auto mx-8  ">
         {/* Heading - Slides Down and Fades In */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}
@@ -95,7 +95,7 @@ function LearningLife() {
                 onClick={() => setExpandedLevel(expandedLevel === level.id ? null : level.id)}
               >
                 <div className="flex items-start justify-between mb-4 min-h-[3rem]">
-                  <span className="text-xl font-semibold leading-tight">{level.title}</span>
+                  <span className="text-2xl font-semibold leading-tight">{level.title}</span>
                 </div>
                 <div className="mt-2 pt-4 border-t border-white/20 text-white/90 flex-grow">
                   <p className="text-sm leading-relaxed">{level.description}</p>
