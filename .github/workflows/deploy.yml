@@ -24,6 +24,12 @@ jobs:
       - name: 🔨 Build project
         run: npm run build
 
+      - name: 🌐 Export static site
+        run: npm run export
+
+      - name: 📁 Debug: Show contents of out folder
+        run: ls -la out
+
       - name: 🔑 Setup SSH Key
         run: |
           mkdir -p ~/.ssh
@@ -38,4 +44,4 @@ jobs:
             exit
           EOF
 
-          scp -i ~/.ssh/id_rsa -r "out/"* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:"/home4/megamtdj/public_html/apply.manipalschool.edu.in/"
+          scp -i ~/.ssh/id_rsa -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
