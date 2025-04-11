@@ -23,7 +23,9 @@ jobs:
 
       - name: 🔨 Build static project
         run: npm run build
-
+        
+      - name: 📁 Debug: Show output folder
+        run: ls -la && ls -la out
 
       - name: 🔑 Setup SSH Key
         run: |
