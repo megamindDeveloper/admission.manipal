@@ -38,4 +38,4 @@ jobs:
             exit
           EOF
 
-          scp -i ~/.ssh/id_rsa -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
+          scp -i ~/.ssh/id_rsa -r "out/"* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:"/home4/megamtdj/public_html/apply.manipalschool.edu.in/"
