@@ -1,4 +1,4 @@
-name: 🚀 Deploy to Server
+name: 🚀 Deploy Static Next.js to cPanel
 
 on:
   push:
@@ -10,22 +10,28 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Checkout code
+      - name: ⬇️ Checkout repo
         uses: actions/checkout@v3
 
-      - name: 🔐 Set up SSH key
-        run: |
-          mkdir -p ~/.ssh
-          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
-          chmod 600 ~/.ssh/id_rsa
-          ssh-keyscan -H 207.174.215.2 >> ~/.ssh/known_hosts
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '18'
 
-      - name: 🚀 Deploy via SSH
+      - name: 📦 Install dependencies
+        run: npm install
+
+      - name: 🔨 Build project
+        run: npm run build
+
+      - name: 📤 Export static site
+        run: npx next export
+
+      - name: 🚀 Deploy via SCP
         run: |
-          ssh megamtdj@207.174.215.2 << 'EOF'
-            cd /home/megamtdj/apply.manipalschool.edu.in
-            git pull origin main
-            npm install
-            npm run build
-            pm2 restart all || pm2 start npm --name "next-app" -- start
+          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+            rm -rf /home4/megamtdj/public_html/apply.manipalschool.edu.in/*
+            exit
           EOF
+
+          scp -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
