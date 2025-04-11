@@ -24,9 +24,6 @@ jobs:
       - name: 🔨 Build project
         run: npm run build
 
-      - name: 📤 Export static site
-        run: npx next export
-
       - name: 🚀 Deploy via SCP
         run: |
           ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
