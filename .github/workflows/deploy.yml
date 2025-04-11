@@ -24,13 +24,18 @@ jobs:
       - name: 🔨 Build project
         run: npm run build
 
+      - name: 🔑 Setup SSH Key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/id_rsa
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan -H ${{ secrets.SSH_HOST }} >> ~/.ssh/known_hosts
+
       - name: 🚀 Deploy via SCP
         run: |
-          # Step 1: Clear old files from the subdomain folder
-          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          ssh -i ~/.ssh/id_rsa ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             rm -rf /home4/megamtdj/public_html/apply.manipalschool.edu.in/*
             exit
           EOF
 
-          # Step 2: Upload new static files
-          scp -o StrictHostKeyChecking=no -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
+          scp -i ~/.ssh/id_rsa -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
