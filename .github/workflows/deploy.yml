@@ -24,11 +24,16 @@ jobs:
       - name: 🔨 Build project
         run: npm run build
 
+      - name: 📤 Export static site
+        run: npx next export
+
       - name: 🚀 Deploy via SCP
         run: |
-          ssh ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
+          # Step 1: Clear old files from the subdomain folder
+          ssh -o StrictHostKeyChecking=no ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }} << 'EOF'
             rm -rf /home4/megamtdj/public_html/apply.manipalschool.edu.in/*
             exit
           EOF
 
-          scp -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
+          # Step 2: Upload new static files
+          scp -o StrictHostKeyChecking=no -r out/* ${{ secrets.SSH_USER }}@${{ secrets.SSH_HOST }}:/home4/megamtdj/public_html/apply.manipalschool.edu.in/
