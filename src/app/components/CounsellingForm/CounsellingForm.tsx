@@ -205,7 +205,6 @@ const CounsellingForm = () => {
   <option className="text-black" value="X">X</option>
   <option className="text-black" value="XI">XI</option>
   <option className="text-black" value="XII">XII</option>
-  <option className="text-black" value="ABCD">ABCD</option>
 </select>
 {errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
 </div>

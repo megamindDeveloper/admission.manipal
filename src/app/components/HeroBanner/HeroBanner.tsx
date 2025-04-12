@@ -334,9 +334,7 @@ const HeroBanner = () => {
                   <option className="text-black" value="XII">
                     XII
                   </option>
-                  <option className="text-black" value="ABCD">
-                    ABCD
-                  </option>
+                
                 </select>
                 {errors.class && <p className="text-red-500 text-xs md:text-sm">{errors.class.message}</p>}
               </motion.div>
