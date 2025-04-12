@@ -121,7 +121,7 @@ const CounsellingForm = () => {
           <Popup>{popupContent}</Popup>
         </Marker> */}
       </MapContainer>
-      <div className="absolute  opacity-100 z-1000 top-[30rem] right-[8%]">
+      <div className="absolute hidden lg:block opacity-100 z-1000 top-[30rem] right-[8%]">
         <svg width="315" height="314" viewBox="0 0 315 314" fill="none" xmlns="http://www.w3.org/2000/svg">
           <path
             d="M0.833984 157C0.833984 70.507 70.9504 0.390625 157.443 0.390625C243.936 0.390625 314.053 70.507 314.053 157V313.609H157.443C70.9504 313.609 0.833984 243.493 0.833984 157Z"
@@ -139,9 +139,10 @@ const CounsellingForm = () => {
         </div>
       </div>
       {/* <div className="absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg max-w-7xl w-full"> */}
-      <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg:max-w-4xl">
-        <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] lg:text-[2rem]">Ready to Nurture a Future Innovator</h2>
-        <h3 className="text-center text-gray-800 font-bold text-xl pb-12">Book Your Counselling Session Today!</h3>
+      <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg2:max-w-6xl">
+        <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] text-2xl md:text-3xl lg:text-[2rem]">Admissions Open
+       <br /> Now For 2025</h2>
+        <h3 className="text-center text-gray-800 font-bold text-xl md:text-3xl  pb-12">Book Your Counselling Session Today!</h3>
 
         <div className="absolute top-[-15%] opacity-100 z-50 right-[-7%]">
           <svg width="171" height="171" viewBox="0 0 171 171" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -183,14 +184,31 @@ const CounsellingForm = () => {
           </div>
 
           <div className="flex flex-col">
-            <input
-              type="text"
-              placeholder="Class Being Applied For"
-              {...register("classApplied", { required: "Class is required" })}
-              className="w-full px-1 pb-[7px] text-[#040707] bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-            />
-            {errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
-          </div>
+          <select
+  {...register("classApplied", { required: "Class is required" })}
+  className="w-full px-1 pb-[7px] text-gray-400 bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+  defaultValue="" // Explicitly set default value to match the placeholder
+>
+  <option value="" disabled>Class Being Applied For</option>
+  <option className="text-black" value="Nursery">Nursery</option>
+  <option className="text-black" value="PP I">PP I</option>
+  <option className="text-black" value="PP II">PP II</option>
+  <option className="text-black" value="I">I</option>
+  <option className="text-black" value="II">II</option>
+  <option className="text-black" value="III">III</option>
+  <option className="text-black" value="IV">IV</option>
+  <option className="text-black" value="V">V</option>
+  <option className="text-black" value="VI">VI</option>
+  <option className="text-black" value="VII">VII</option>
+  <option className="text-black" value="VIII">VIII</option>
+  <option className="text-black" value="IX">IX</option>
+  <option className="text-black" value="X">X</option>
+  <option className="text-black" value="XI">XI</option>
+  <option className="text-black" value="XII">XII</option>
+  <option className="text-black" value="ABCD">ABCD</option>
+</select>
+{errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
+</div>
 
           <div className="md:col-span-2 flex flex-col">
             <input
@@ -217,7 +235,7 @@ const CounsellingForm = () => {
       </div>
       {/* </div> */}
       <footer className="bg-[#1A1A1A] text-white w-full xl:mt-32">
-        <div className="container mx-auto px-4 md:pt-72 pt-[40rem]">
+        <div className="container mx-auto px-4  md:pt-32 lg:pt-56 pt-[38rem]">
           {/* Logo and Address Section */}
           <div className="flex flex-col items-center text-center mb-8 lg:mt-96 xl:mt-0">
             <div className="mb-4">
@@ -372,11 +390,11 @@ const CounsellingForm = () => {
 
             <hr className="border-t text-white/56  my-4 w-full " />
 
-            <div className="text-sm text-white/56 text-center flex flex-row w-full justify-between pb-4 items-center">
-              <div className="text-left">
+            <div className="text-sm text-white/56 flex flex-col max-sm:gap-4 sm:flex-row w-full justify-between pb-4 max-sm:pb-2 items-center max-sm:text-center">
+              <div className="max-sm:text-center">
                 <p>© Manipal School 2024 | All Rights Reserved</p>
               </div>
-              <div className="flex gap-4 text-right">
+              <div className="flex gap-4 max-sm:gap-2 max-sm:justify-center">
                 <a href="#" className="hover:text-[#FB7824]">
                   Privacy Policy
                 </a>

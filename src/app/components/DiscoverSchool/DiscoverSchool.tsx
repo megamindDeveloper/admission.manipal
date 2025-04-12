@@ -12,7 +12,7 @@ const DiscoverSchool = () => {
 
   return (
     <div className="bg-white md:my-32">
-      <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
+      <div className=" xl:mx-auto mx-8 lg:mx-36 h-auto">
         <div className="relative bg-white rounded-3xl overflow-hidden">
           {/* Main content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-20 lg:gap-16">
@@ -55,7 +55,7 @@ const DiscoverSchool = () => {
               className="relative  md:px-4 lg:px-8"
             >
               <div className="relative z-10 space-y-6">
-                <h1 className="lg:text-[2rem] text-[1.5rem] xl:text-[2.5rem] md:text-[2.5rem] font-semibold text-black leading-tight">
+                <h1 className="lg:text-[2rem] text-[1.5rem] mt-10 md:mt-0 xl:text-[2.5rem] md:text-[2.5rem] font-semibold text-black leading-tight">
                   Discover a New Way to Learn at <span className="text-[#FF5F1F]">a School That Inspires</span>
                 </h1>
 

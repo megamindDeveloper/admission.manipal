@@ -54,7 +54,7 @@ function LearningLife() {
   const sectionRef = useRef(null);
 
   return (
-    <div className="bg-white flex items-center relative justify-center" ref={sectionRef}>
+    <div className="bg-white  flex items-center relative justify-center" ref={sectionRef}>
       {/* Decorative Rotated Rectangle - Scales and Fades In */}
       {/* <motion.div
         initial={{ opacity: 0, scale: 0.8 }}

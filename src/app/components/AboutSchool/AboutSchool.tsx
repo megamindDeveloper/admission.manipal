@@ -1,34 +1,34 @@
-'use client'
+"use client";
 
-import React from 'react'
-import dynamic from 'next/dynamic'
-import { motion, useInView } from 'framer-motion'
-import { useRef } from 'react'
+import React from "react";
+import dynamic from "next/dynamic";
+import { motion, useInView } from "framer-motion";
+import { useRef } from "react";
 
-const Lottie = dynamic(() => import('react-lottie'), { ssr: false })
-import animationData from '../../../animation/aboutSectionAnimation.json'
+const Lottie = dynamic(() => import("react-lottie"), { ssr: false });
+import animationData from "../../../animation/aboutSectionAnimation.json";
 
 function AboutSchool() {
   // Reference for the Lottie container to detect when it's in view
-  const lottieRef = useRef(null)
-  const isLottieInView = useInView(lottieRef, { once: true })
+  const lottieRef = useRef(null);
+  const isLottieInView = useInView(lottieRef, { once: true });
 
   const defaultOptions = {
     loop: true, // Keep looping as in the original
     autoplay: false, // Set to false to control playback manually
     animationData: animationData,
     rendererSettings: {
-      preserveAspectRatio: 'xMidYMid slice',
+      preserveAspectRatio: "xMidYMid slice",
     },
-  }
+  };
 
   return (
     <div className="bg-white flex items-center">
-      <div className="max-w-7xl xl:mx-auto mx-8 h-auto">
+      <div className=" xl:mx-auto mx-8 mt-32 md:mt-0 lg:mx-36 h-auto">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
           {/* Text Section */}
           <div className="space-y-4">
-            <h1 className="lg:text-[2rem] md:text-[2.5rem] xl:text-[2.5rem] text-[1.5rem] leading-tight tracking-tight">
+            <h1 className="lg:text-[2.5rem] md:text-[2.5rem] xl:text-[2.5rem] text-[1.5rem] leading-tight tracking-tight">
               <motion.span
                 initial={{ opacity: 0 }}
                 whileInView={{ opacity: 1 }}
@@ -36,7 +36,7 @@ function AboutSchool() {
                 viewport={{ once: true }}
                 className="text-[#FF5F1F] font-bold"
               >
-                Manipal School  {" "} 
+                Manipal School
               </motion.span>
               <motion.span
                 initial={{ opacity: 0 }}
@@ -59,18 +59,13 @@ function AboutSchool() {
               transition={{ duration: 0.5 }}
               viewport={{ once: true }}
             >
-              <Lottie
-                options={defaultOptions}
-                height={300}
-                width={300}
-                isStopped={!isLottieInView}
-              />
+              <Lottie options={defaultOptions} height={300} width={300} isStopped={!isLottieInView} />
             </motion.div>
           </div>
         </div>
       </div>
     </div>
-  )
+  );
 }
 
-export default AboutSchool
+export default AboutSchool;
