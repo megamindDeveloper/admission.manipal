@@ -41,7 +41,7 @@ const HeroBanner = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-      const response = await fetch("/api/submit-form", {
+      const response = await fetch("https://admission-manipal.onrender.com/api/submit-form/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
