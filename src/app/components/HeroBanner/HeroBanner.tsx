@@ -39,32 +39,23 @@ const HeroBanner = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    try {
-      setLoading(true);
-      const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(data),
-      });
-  
-      const result = await response.json();
-      setLoading(false);
-      if (result.result === "success") {
-        toast.success("Form submitted successfully!");
-        reset(); // Clear the form fields after submission
-      } else {
-        toast.error("Error submitting form.");
-      }
-    } catch (error) {
-      console.log(error);
-      
+    setLoading(true);
+    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(data),
+    });
+
+    const result = await response.json();
+    setLoading(false);
+    if (result.result === "success") {
+      toast.success("Form submitted successfully!");
+      reset(); // Clear the form fields after submission
+    } else {
+      toast.error("Error submitting form.");
     }
-    finally{
-      setLoading(false);
-    }
-   
   };
 
   // Reference for scroll detection
@@ -103,7 +94,7 @@ const HeroBanner = () => {
 
       {/* Header */}
       <header className="bg-white shadow-sm">
-        <div className=" mx-auto py-4 px-4 flex items-center justify-between">
+        <div className="container mx-auto py-4 px-4 flex items-center justify-between">
           <div className="flex items-center gap-4">
             <Image src={logo} alt="Manipal School Logo" className="h-12" />
           </div>
@@ -196,21 +187,21 @@ const HeroBanner = () => {
         </div>
 
         {/* Form Container - Centered */}
-        <div className="relative w-[100vw] mx-auto mt-[30rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
+        <div className="relative container mx-auto mt-[30rem] md:mt-16 px-4 md:min-h-[90vh] flex justify-center md:justify-end items-start z-10">
           {/* Decorative Elements with Animations */}
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.2 }}
             viewport={{ once: true }}
-            className="absolute top-[-1rem] right-[-1rem] w-20 h-20 md:top-[-2rem] md:right-[-1rem] lg2:top-[-3rem] lg2:right-[-2rem] lg2:w-36 lg2:h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full opacity-100"
+            className="absolute top-[-1rem] right-[-1rem] w-20 h-20 md:top-[-2rem] md:right-[-1rem] lg:top-[-3rem] lg:right-[-2rem] lg:w-36 lg:h-36 bg-green-400 rounded-bl-full rounded-tl-full rounded-br-full opacity-100"
           ></motion.div>
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="absolute bottom-[-20] left-[-2rem] md:top-[440] md:left-[210] lg2:left-[65%] !lg2:bottom-[10%] w-24 h-12 md:w-32 md:h-16 xl:w-36 xl:h-18 xl:bottom-[13rem] xl:left-[57%] bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"
+            className="absolute bottom-[-20] left-[-2rem] md:left-[50%] w-24 h-12 md:w-32 md:h-16 xl:w-36 xl:h-18 xl:bottom-[13rem] xl:left-[57%] bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"
           ></motion.div>
 
           {/* Form Card with Scroll-Triggered Animation */}
@@ -219,8 +210,8 @@ const HeroBanner = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: isFormInView ? 1 : 0, y: isFormInView ? 0 : 20 }}
             transition={{ duration: 0.5 }}
-            className="bg-white rounded-lg2 shadow-lg2 px-4 md:px-6 lg2:px-8 py-6  w-full 
-                       max-w-[95vw] sm:max-w-[80vw] md:max-w-[60vw] lg2:max-w-[30vw] xl:max-w-[30vw] 
+            className="bg-white rounded-lg shadow-lg px-4 md:px-6 lg:px-8 py-6  w-full 
+                       max-w-[95vw] sm:max-w-[80vw] md:max-w-[60vw] lg:max-w-[40vw] xl:max-w-[30vw] 
                        my-0 relative"
           >
             {/* Animated Heading */}
@@ -228,21 +219,31 @@ const HeroBanner = () => {
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-3xl lg2:text-[1.8rem] xl:text-[3.5rem]  leading-tight 
+              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[3.5rem]  leading-tight 
                          font-bold  text-[#FB7824] text-center"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
               Admissions Open
             </motion.h2>
+            <motion.h2 
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[2.5rem] leading-tight 
+                         pb-4 lg:pb-5  font-bold text-gray-800 text-center"
+              style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
+            >
+              now for 2025 
+            </motion.h2>
             <motion.h2
               initial={{ opacity: 0, y: -20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-2xl md:text-3xl lg2:text-[1.5rem] xl:text-[2.5rem] leading-tight 
-                         pb-4 lg2:pb-5  font-bold text-gray-800 text-center"
+              className="text-2xl md:text-3xl lg:text-[1.5rem] xl:text-[2.5rem] leading-tight 
+                         pb-4 lg:pb-5 xl:pb-10 font-bold mb-4 xl:mb-6 text-gray-800 text-center"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
-              Now For 2025
+              Ready to Nurture a Future Innovator
             </motion.h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
@@ -252,7 +253,7 @@ const HeroBanner = () => {
                   type="text"
                   placeholder="Student Name"
                   {...register("studentName", { required: "Student Name is required" })}
-                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg2 xl:text-xl"
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
                 />
                 {errors.studentName && <p className="text-red-500 text-xs md:text-sm">{errors.studentName.message}</p>}
               </motion.div>
@@ -263,7 +264,7 @@ const HeroBanner = () => {
                   type="email"
                   placeholder="Parent Email"
                   {...register("parentEmail", { required: "Parent Email is required" })}
-                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg2 xl:text-xl"
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
                 />
                 {errors.parentEmail && <p className="text-red-500 text-xs md:text-sm">{errors.parentEmail.message}</p>}
               </motion.div>
@@ -274,7 +275,7 @@ const HeroBanner = () => {
                   type="tel"
                   placeholder="Parent Phone"
                   {...register("parentPhone", { required: "Parent Phone is required" })}
-                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg2 xl:text-xl"
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
                 />
                 {errors.parentPhone && <p className="text-red-500 text-xs md:text-sm">{errors.parentPhone.message}</p>}
               </motion.div>
@@ -284,10 +285,10 @@ const HeroBanner = () => {
                 <select
                   {...register("class", { required: "Class is required" })}
                   defaultValue=""
-                  className="w-full border-b border-black/[20%] focus:outline-none bg-transparent text-black/70 placeholder:text-black/70 text-base md:text-lg2 xl:text-xl appearance-none"
+                  className="w-full border-b border-black/[20%] focus:outline-none bg-transparent text-black/70 placeholder:text-black/70 text-base md:text-lg xl:text-xl appearance-none"
                 >
-                  <option value="" disabled className="!text-gray-400 text-base md:text-lg2 xl:text-xl placeholder:text-white">
-                    Class Being Applied For
+                  <option value="" disabled className="!text-gray-400 placeholder:text-white">
+                    Class Being applied for
                   </option>
                   <option className="text-black" value="Nursery">
                     Nursery
@@ -334,7 +335,9 @@ const HeroBanner = () => {
                   <option className="text-black" value="XII">
                     XII
                   </option>
-                
+                  <option className="text-black" value="ABCD">
+                    ABCD
+                  </option>
                 </select>
                 {errors.class && <p className="text-red-500 text-xs md:text-sm">{errors.class.message}</p>}
               </motion.div>
@@ -345,7 +348,7 @@ const HeroBanner = () => {
                   type="text"
                   placeholder="Location"
                   {...register("location", { required: "Location is required" })}
-                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg2 xl:text-xl"
+                  className="w-full border-b border-black/[20%] focus:outline-none text-base md:text-lg xl:text-xl"
                 />
                 {errors.location && <p className="text-red-500 text-xs md:text-sm">{errors.location.message}</p>}
               </motion.div>
@@ -357,7 +360,7 @@ const HeroBanner = () => {
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                   className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
-     font-bold text-xl lg2:text-xl xl:text-2xl flex items-center justify-center min-w-[150px]"
+     font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
                 >
                   {loading ? <ClipLoader size={24} color="#fff" /> : "Apply Now"}
                 </motion.button>
