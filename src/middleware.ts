@@ -1,21 +1,35 @@
+// middleware.ts
 import { NextResponse, type NextRequest } from 'next/server';
 
 export function middleware(req: NextRequest) {
   const res = NextResponse.next();
 
-  res.headers.append('Access-Control-Allow-Credentials', 'true');
-  res.headers.append('Access-Control-Allow-Origin', ''); // Replace '' with 'http://localhost:3000' for stricter control
-  res.headers.append('Access-Control-Allow-Methods', 'GET,DELETE,PATCH,POST,PUT');
-  res.headers.append(
+  // Allow credentials if you need them
+  res.headers.set('Access-Control-Allow-Credentials', 'true');
+
+  // Either allow all origins:
+  res.headers.set('Access-Control-Allow-Origin', '*');
+  // —or echo the incoming origin for stricter control:
+  // res.headers.set('Access-Control-Allow-Origin', req.headers.get('origin') || '*');
+
+  // Allowed HTTP methods
+  res.headers.set(
+    'Access-Control-Allow-Methods',
+    'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS'
+  );
+
+  // Allowed headers
+  res.headers.set(
     'Access-Control-Allow-Headers',
-    'X-CSRF-Token, X-Requested-With, Accept, Accept-Version, Content-Length, Content-MD5, Content-Type, Date, X-Api-Version'
+    'Content-Type, Authorization, X-Requested-With'
   );
 
   return res;
 }
 
-// Apply this middleware to all API routes
 export const config = {
+  // run on all API routes
   matcher: ['/api/:path*'],
 };
+
 
