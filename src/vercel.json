@@ -1,0 +1,28 @@
+{
+    "trailingSlash": false,
+    "cleanUrls": true,
+    "headers": [
+      {
+        "source": "/api/submit-form",
+        "headers": [
+          { "key": "Access-Control-Allow-Origin", "value": "http://localhost:3000" },
+          { "key": "Access-Control-Allow-Methods", "value": "POST, OPTIONS" },
+          { "key": "Access-Control-Allow-Headers", "value": "Content-Type" }
+        ]
+      }
+    ],
+    "redirects": [],
+    "rewrites": [
+      {
+        "source": "/api/submit-form(.*)",
+        "destination": "/api/submit-form"
+      }
+    ],
+    "routes": [
+      {
+        "src": "/api/submit-form",
+        "methods": ["OPTIONS", "POST"],
+        "dest": "/api/submit-form"
+      }
+    ]
+  }
