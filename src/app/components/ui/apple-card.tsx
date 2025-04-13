@@ -87,7 +87,7 @@ useEffect(() => {
     <>
       <AnimatePresence>
         {open && (
-          <div className="fixed inset-0  z-50 overflow-auto">
+          <div className="fixed inset-0   z-50 overflow-auto">
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -114,7 +114,7 @@ useEffect(() => {
                 transition: { duration: 0.3 },
               }}
               ref={containerRef}
-              className="max-w-5xl xl:mx-auto mx-6 bg-white shadow-2xl  dark:bg-neutral-900 h-fit z-[60] my-10 p-4 md:p-10 rounded-3xl font-sans relative overflow-hidden"
+              className="max-w-5xl xl:mx-auto lg2:mx-auto  bg-white shadow-2xl mx-4  dark:bg-neutral-900 h-fit z-[60] my-10   rounded-3xl font-sans relative overflow-hidden"
             >
               <motion.button
                 initial={{ opacity: 0, scale: 0.8 }}
@@ -123,26 +123,14 @@ useEffect(() => {
                   scale: 1,
                   transition: { delay: 0.3, duration: 0.2 },
                 }}
-                className="sticky top-4 h-8 w-8 right-0 ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
+                className="absolute z-50 top-4 right-4 h-8 w-8  ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
                 onClick={handleClose}
               >
-                <IconX className="h-6 w-6 text-neutral-100 dark:text-neutral-900" />
+                <IconX className="h-6 w-6  text-neutral-100 dark:text-neutral-900" />
               </motion.button>
 
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{
-                  opacity: 1,
-                  y: 0,
-                  transition: { delay: 0.1, duration: 0.3 },
-                }}
-              >
-              
-                <motion.p className="text-2xl md:text-5xl font-semibold text-neutral-700 mt-4 dark:text-white">{title}</motion.p>
-              </motion.div>
-
-              <motion.div
-                className="py-10"
+                className=""
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: 1,

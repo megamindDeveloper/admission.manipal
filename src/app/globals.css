@@ -175,3 +175,15 @@ lite-youtube {
   white-space: nowrap;
   animation: marquee 30s linear infinite;
 }
+
+
+
+@theme {
+  --breakpoint-*: initial;
+  --breakpoint-sm: 640px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 1024px;
+  --breakpoint-lg2: 1200px;
+  --breakpoint-xl: 1580px;
+  --breakpoint-2xl: 2000px;
+}

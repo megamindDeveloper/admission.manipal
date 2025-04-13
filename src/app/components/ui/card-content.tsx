@@ -28,7 +28,8 @@ export default function CardContent({
 }: CardContentProps) {
   return (
     <motion.div
-      className={cn(backgroundColor, " md:p-14 rounded-3xl mb-4", className)}
+      data-lenis-prevent
+      className={cn(backgroundColor, " rounded-3xl mb-10", className)}
       initial={{ opacity: 0, y: 20 }}
       animate={{
         opacity: 1,
@@ -44,6 +45,7 @@ export default function CardContent({
         transition: { duration: 0.2 },
       }}
     >
+      {/* Image */}
       {imageSrc && (
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -59,37 +61,28 @@ export default function CardContent({
           }}
         >
           <Image
-            src={imageSrc || "/placeholder.svg"}
+            src={imageSrc}
             alt={imageAlt}
             height={500}
             width={900}
-            className="md:w-1/2 md:h-1/2 h-full w-full mx-auto object-contain rounded-2xl mb-6"
+            className="md:w-[100vw] md:h-[100vh] h-full w-full mx-auto object-cover  mb-6"
           />
         </motion.div>
       )}
-      <motion.p className={cn(textColor, "dark:text-neutral-400 text-base md:text-2xl font-sans max-w-3xl mx-auto")}>
-        {title && (
-          <motion.span
-            className={cn("font-bold", headingColor, "dark:text-neutral-200")}
-            initial={{ opacity: 0 }}
-            animate={{
-              opacity: 1,
-              transition: { delay: 0.2, duration: 0.3 },
-            }}
-          >
-            {title}
-          </motion.span>
-        )}{" "}
-        <motion.span
-          initial={{ opacity: 0 }}
-          animate={{
-            opacity: 1,
-            transition: { delay: 0.3, duration: 0.3 },
-          }}
-        >
-          {description}
-        </motion.span>
-      </motion.p>
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        animate={{
+          opacity: 1,
+          y: 0,
+          transition: { delay: 0.1, duration: 0.3 },
+        }}
+      >
+        <motion.p className="text-2xl md:text-4xl px-8  font-semibold text-neutral-700 mt-4 dark:text-white">{title}</motion.p>
+      </motion.div>
+      {/* Main Title + Description */}
+      <motion.p className={cn(textColor, "text-base pt-2 md:text-xl font-sans max-w-3xl px-8")}>{description}</motion.p>
+
+      {/* SubTitle */}
     </motion.div>
   );
 }
