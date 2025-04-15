@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
 import { motion, useInView } from "framer-motion";
 import { ClipLoader } from "react-spinners";
+import { useRouter } from "next/navigation";
 // Correct dynamic imports for Leaflet components
 
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
@@ -40,7 +41,7 @@ const CounsellingForm = () => {
     classApplied: "",
     location: "",
   });
-
+  const router = useRouter();
   const [selectedLocation, setSelectedLocation] = useState<[number, number]>(center);
   const [popupContent, setPopupContent] = useState("Selected Location");
 
@@ -72,14 +73,15 @@ const CounsellingForm = () => {
     setLoading(true);
     const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+      },
       body: JSON.stringify(data),
     });
+
     const result = await response.json();
-    setLoading(false);
     if (result.result === "success") {
-      toast.success("Form submitted successfully!");
-      reset();
+      router.push("/thank-you");
     } else {
       toast.error("Error submitting form.");
     }

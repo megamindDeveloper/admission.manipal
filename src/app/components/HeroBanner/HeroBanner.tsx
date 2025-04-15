@@ -53,10 +53,8 @@ const HeroBanner = () => {
       });
 
       const result = await response.json();
-      console.log(result) // ✅ fixed
       if (result.result === "success") {
         router.push("/thank-you");
-        toast.error("Form submission success");
       } else {
         toast.error("Error submitting form.");
       }
