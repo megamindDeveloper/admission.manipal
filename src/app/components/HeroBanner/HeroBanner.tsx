@@ -21,6 +21,7 @@ import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper/modules";
+import { useRouter } from 'next/navigation';
 interface FormData {
   studentName: string;
   parentEmail: string;
@@ -37,11 +38,13 @@ const HeroBanner = () => {
     formState: { errors },
   } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
+  const router = useRouter();
+ 
 
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-      const response = await fetch("/api/submit-form/", {
+      const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -50,10 +53,10 @@ const HeroBanner = () => {
       });
 
       const result = await response.json();
-      setLoading(false);
+      console.log(result) // ✅ fixed
       if (result.result === "success") {
-        toast.success("Form submitted successfully!");
-        reset(); // Clear the form fields after submission
+        router.push("/thank-you");
+        toast.error("Form submission success");
       } else {
         toast.error("Error submitting form.");
       }
@@ -80,14 +83,14 @@ const HeroBanner = () => {
               <p key={i}>
                 Contact Admission Managers Phone:
                 <Link href="tel:+919538820398" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200">+91 9538820398 / </a>
+                 +91 9538820398 /
                 </Link>
                 <Link href="tel:+919902875329" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mr-1">+91 9902875329</a>
+                 +91 9902875329
                 </Link>
                 | Office Telephone:
                 <Link href="tel:+918244252305" passHref legacyBehavior>
-                  <a className="cursor-pointer hover:text-gray-200 mx-1"> 0824-4252305</a>
+                0824-4252305
                 </Link>{" "}
                 |
                 <Link href="mailto:info@manipalschool.edu.in" passHref legacyBehavior>
