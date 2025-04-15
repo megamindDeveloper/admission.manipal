@@ -12,7 +12,7 @@ const DiscoverSchool = () => {
 
   return (
     <div className="bg-white md:my-32">
-      <div className=" xl:mx-auto mx-8 lg:mx-36 h-auto">
+      <div className=" mx-8 lg:mx-36 h-auto">
         <div className="relative bg-white rounded-3xl overflow-hidden">
           {/* Main content grid */}
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 py-20 lg:gap-16">

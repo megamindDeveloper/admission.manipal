@@ -67,7 +67,7 @@ function Activities() {
           />
         </svg>
       </div>
-      <div className="lg:mx-36 xl:mx-auto mx-8">
+      <div className="lg:mx-36  mx-8">
         <motion.div
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: isSectionInView ? 1 : 0, y: isSectionInView ? 0 : -50 }}
@@ -142,7 +142,7 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             title="Higher Education Exposure"
             description="We are committed to equipping our students with the knowledge and guidance needed to make informed decisions about their future. Through university fairs, career counseling sessions, and interactions with esteemed academicians, we provide students with valuable insights into higher education opportunities. College visits, workshops, Job shadowing program and mentorship programs help them explore diverse career paths, empowering them to make confident choices for their academic and professional journeys."
             imageUrl="/images/activityImages/activityImage6.jpg"
-            className="lg:col-span-4 md:col-span-5 lg:max-w-[300px] row-span-2 xl:max-w-[310px] top-[-13rem]"
+            className="lg:col-span-4 md:col-span-5 lg:max-w-[300px] ] row-span-2 xl:max-w-[390px] top-[-13rem]"
             gradientColor="#FB7824"
             delay={0.6}
             index={5} // From right

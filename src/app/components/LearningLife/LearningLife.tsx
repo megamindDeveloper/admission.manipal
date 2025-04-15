@@ -26,7 +26,7 @@ function LearningLife() {
     },
     {
       id: "prep-school",
-      title: "Preparatory Level: (Grades III)",
+      title: "Preparatory Level: (Grades III - V)",
       color: "bg-[#31CB6E]",
       hoverColor: "hover:bg-[#31CB6E]",
       description:
@@ -64,7 +64,7 @@ function LearningLife() {
         className="absolute top-[2.5rem] right-[5%] xl:w-96 xl:h-48 lg:w-64 lg:h-32 bg-[#AF84CC]  rotate-37 rounded-b-full opacity-100 z-50"
       ></motion.div> */}
 
-      <div className="w-full max-w-7xl xl:mx-auto mx-8  ">
+      <div className="mx-8 lg:mx-36  ">
         {/* Heading - Slides Down and Fades In */}
         <motion.h1
           initial={{ opacity: 0, y: -50 }}

@@ -41,14 +41,14 @@ const HeroBanner = () => {
   const onSubmit = async (data: FormData) => {
     try {
       setLoading(true);
-      const response = await fetch("https://admission-manipal.onrender.com/api/submit-form/", {
+      const response = await fetch("/api/submit-form/", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify(data),
       });
-  
+
       const result = await response.json();
       setLoading(false);
       if (result.result === "success") {
@@ -59,12 +59,9 @@ const HeroBanner = () => {
       }
     } catch (error) {
       console.log(error);
-      
-    }
-    finally{
+    } finally {
       setLoading(false);
     }
-   
   };
 
   // Reference for scroll detection
@@ -210,7 +207,7 @@ const HeroBanner = () => {
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.5, delay: 0.4 }}
             viewport={{ once: true }}
-            className="absolute bottom-[-20] left-[-2rem] md:top-[440] md:left-[210] lg2:left-[65%] !lg2:bottom-[10%] w-24 h-12 md:w-32 md:h-16 xl:w-36 xl:h-18 xl:bottom-[13rem] xl:left-[57%] bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"
+            className="absolute bottom-[-20] left-[-2rem] md:top-[440] md:left-[210] lg2:left-[65%] !lg2:bottom-[10%]  w-24 h-12 md:w-32 md:h-16 xl:w-36 xl:h-18 xl:bottom-[13rem] xl:left-[65%] bg-[#FEA3CA] rotate-220 rounded-t-full opacity-100"
           ></motion.div>
 
           {/* Form Card with Scroll-Triggered Animation */}
@@ -334,7 +331,6 @@ const HeroBanner = () => {
                   <option className="text-black" value="XII">
                     XII
                   </option>
-                
                 </select>
                 {errors.class && <p className="text-red-500 text-xs md:text-sm">{errors.class.message}</p>}
               </motion.div>

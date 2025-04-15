@@ -16,7 +16,7 @@ const ManipalAdvantage = () => {
   const sectionRef = useRef(null);
 
   return (
-    <div className=" xl:mx-auto mx-8 lg:mx-32 bg-white  md:pt-24 pt-16" ref={sectionRef}>
+    <div className="  mx-8 lg:mx-32 bg-white  md:pt-24 pt-16" ref={sectionRef}>
       {/* Heading - Slides Down and Fades In */}
       <motion.h1
         initial={{ opacity: 0, y: -50 }}

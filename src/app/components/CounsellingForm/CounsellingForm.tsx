@@ -140,8 +140,10 @@ const CounsellingForm = () => {
       </div>
       {/* <div className="absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg max-w-7xl w-full"> */}
       <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg2:max-w-6xl">
-        <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] text-2xl md:text-3xl lg:text-[2rem]">Admissions Open
-       <br /> Now For 2025</h2>
+        <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] text-2xl md:text-3xl lg:text-[2rem]">
+          Admissions Open
+          <br /> Now For 2025
+        </h2>
         <h3 className="text-center text-gray-800 font-bold text-xl md:text-3xl  pb-12">Book Your Counselling Session Today!</h3>
 
         <div className="absolute top-[-15%] opacity-100 z-50 right-[-7%]">
@@ -184,30 +186,62 @@ const CounsellingForm = () => {
           </div>
 
           <div className="flex flex-col">
-          <select
-  {...register("classApplied", { required: "Class is required" })}
-  className="w-full px-1 pb-[7px] text-gray-400 bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
-  defaultValue="" // Explicitly set default value to match the placeholder
->
-  <option value="" disabled>Class Being Applied For</option>
-  <option className="text-black" value="Nursery">Nursery</option>
-  <option className="text-black" value="PP I">PP I</option>
-  <option className="text-black" value="PP II">PP II</option>
-  <option className="text-black" value="I">I</option>
-  <option className="text-black" value="II">II</option>
-  <option className="text-black" value="III">III</option>
-  <option className="text-black" value="IV">IV</option>
-  <option className="text-black" value="V">V</option>
-  <option className="text-black" value="VI">VI</option>
-  <option className="text-black" value="VII">VII</option>
-  <option className="text-black" value="VIII">VIII</option>
-  <option className="text-black" value="IX">IX</option>
-  <option className="text-black" value="X">X</option>
-  <option className="text-black" value="XI">XI</option>
-  <option className="text-black" value="XII">XII</option>
-</select>
-{errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
-</div>
+            <select
+              {...register("classApplied", { required: "Class is required" })}
+              className="w-full px-1 pb-[7px] text-gray-400 bg-transparent border-0 border-b border-black/[20%] focus:outline-none text-xl"
+              defaultValue="" // Explicitly set default value to match the placeholder
+            >
+              <option value="" disabled>
+                Class Being Applied For
+              </option>
+              <option className="text-black" value="Nursery">
+                Nursery
+              </option>
+              <option className="text-black" value="PP I">
+                PP I
+              </option>
+              <option className="text-black" value="PP II">
+                PP II
+              </option>
+              <option className="text-black" value="I">
+                I
+              </option>
+              <option className="text-black" value="II">
+                II
+              </option>
+              <option className="text-black" value="III">
+                III
+              </option>
+              <option className="text-black" value="IV">
+                IV
+              </option>
+              <option className="text-black" value="V">
+                V
+              </option>
+              <option className="text-black" value="VI">
+                VI
+              </option>
+              <option className="text-black" value="VII">
+                VII
+              </option>
+              <option className="text-black" value="VIII">
+                VIII
+              </option>
+              <option className="text-black" value="IX">
+                IX
+              </option>
+              <option className="text-black" value="X">
+                X
+              </option>
+              <option className="text-black" value="XI">
+                XI
+              </option>
+              <option className="text-black" value="XII">
+                XII
+              </option>
+            </select>
+            {errors.classApplied && <p className="text-red-500 text-sm mt-1">{errors.classApplied.message}</p>}
+          </div>
 
           <div className="md:col-span-2 flex flex-col">
             <input
@@ -262,21 +296,26 @@ const CounsellingForm = () => {
                     +91 9538820398
                   </Link>
                 </div>
-                <div className="flex items-center justify-center md:justify-start gap-2">
-                  <Mail size={18} />
-                  <Link href="mailto:feedback@manipalschool.edu.in" className="hover:underline">
-                    feedback@manipalschool.edu.in
-                  </Link>
+                <div className="flex flex-col items-start gap-1">
+                  <div className="flex items-center gap-2">
+                    <Mail size={18} />
+                    <Link href="mailto:Info@manipalschool.edu.in" className="hover:underline">
+                      Info@manipalschool.edu.in
+                    </Link>
+                  </div>
+                  <div className="flex items-center gap-2 pl-[22px]">
+                    {/* Indent to align with text after icon */}
+                    <Link href="mailto:Admissions@manipalschool.edu.in" className="hover:underline">
+                      Admissions@manipalschool.edu.in
+                    </Link>
+                  </div>
                 </div>
+
                 <p className="text-sm">
                   Office Telephone:{" "}
-                  <Link href="tel:+918244252305" className="hover:underline">
-                    +91 824 4252305
+                  <Link href="tel:+08244252305" className="hover:underline">
+                    0824-4252305
                   </Link>{" "}
-                  /{" "}
-                  <Link href="tel:+918244252307" className="hover:underline">
-                    4252307
-                  </Link>
                 </p>
               </div>
             </div>
@@ -285,7 +324,7 @@ const CounsellingForm = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-white text-center font-bold pb-4">Follow Us</h2>
             <div className="flex gap-4 mb-4">
-              <a href="#" className="hover:text-[#FB7824] transition-colors">
+              <a href="https://www.instagram.com/manipal_school_mangaluru/?hl=en" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -332,7 +371,7 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="#" className="hover:text-[#FB7824] transition-colors">
+              <a href="https://www.facebook.com/manipalschool/" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">Instagram</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -351,7 +390,7 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="#" className="hover:text-[#FB7824] transition-colors">
+              <a href="" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">YouTube</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -391,7 +430,7 @@ const CounsellingForm = () => {
 
             <div className="text-sm text-white/56 flex flex-col max-sm:gap-4 sm:flex-row w-full justify-between pb-4 max-sm:pb-2 items-center max-sm:text-center">
               <div className="max-sm:text-center">
-                <p>© Manipal School 2024 | All Rights Reserved</p>
+                <p>© Manipal School 2025 | All Rights Reserved</p>
               </div>
               <div className="flex gap-4 max-sm:gap-2 max-sm:justify-center">
                 <a href="#" className="hover:text-[#FB7824]">
