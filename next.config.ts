@@ -1,6 +1,7 @@
 const nextConfig = {
+  output: "export",
   images: {
-    // unoptimized: true, // Commented out to enable Next.js Image Optimization
+    unoptimized: true, // Commented out to enable Next.js Image Optimization
   },
   eslint: {
     ignoreDuringBuilds: true,

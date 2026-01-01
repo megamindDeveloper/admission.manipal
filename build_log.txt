@@ -1,0 +1,27 @@
+
+> campaignlandingpage@0.1.0 export
+> next build
+
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+   ▲ Next.js 15.2.6
+
+   Creating an optimized production build ...
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+ ⚠ Specified "headers" will not automatically work with "output: export". See more info here: https://nextjs.org/docs/messages/export-no-custom-routes
+ ✓ Compiled successfully
+   Skipping validation of types
+   Skipping linting
+   Collecting page data ...
+Error: export const dynamic = "force-static"/export const revalidate not configured on route "/sitemap.xml" with "output: export". See more info here: https://nextjs.org/docs/advanced-features/static-html-export
+    at 24578 (C:\Megamind\admission.manipal\.next\server\app\sitemap.xml\route.js:16:1206)
+    at t (C:\Megamind\admission.manipal\.next\server\webpack-runtime.js:1:128)
+    at i (C:\Megamind\admission.manipal\.next\server\app\sitemap.xml\route.js:16:2570)
+    at <unknown> (C:\Megamind\admission.manipal\.next\server\app\sitemap.xml\route.js:16:2601)
+    at t.X (C:\Megamind\admission.manipal\.next\server\webpack-runtime.js:1:1206)
+    at <unknown> (C:\Megamind\admission.manipal\.next\server\app\sitemap.xml\route.js:16:2583)
+    at Object.<anonymous> (C:\Megamind\admission.manipal\.next\server\app\sitemap.xml\route.js:16:2629)
+
+> Build error occurred
+[Error: Failed to collect page data for /sitemap.xml] { type: 'Error' }
