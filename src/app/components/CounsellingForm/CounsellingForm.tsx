@@ -325,7 +325,12 @@ const CounsellingForm = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-white text-center font-bold pb-4">Follow Us</h2>
             <div className="flex gap-4 mb-4">
-              <a href="https://www.instagram.com/manipal_school_mangaluru/?hl=en" target="_blank" className="hover:text-[#FB7824] transition-colors">
+              <a
+                href="https://www.instagram.com/manipal_school_mangaluru/?hl=en"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FB7824] transition-colors"
+              >
                 <span className="sr-only">LinkedIn</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -372,7 +377,12 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="https://www.facebook.com/manipalschool/" target="_blank" className="hover:text-[#FB7824] transition-colors">
+              <a
+                href="https://www.facebook.com/manipalschool/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FB7824] transition-colors"
+              >
                 <span className="sr-only">Instagram</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -391,7 +401,12 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="https://www.youtube.com/@manipalschool-attavarmanga1986" target="_blank" className="hover:text-[#FB7824] transition-colors">
+              <a
+                href="https://www.youtube.com/@manipalschool-attavarmanga1986"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[#FB7824] transition-colors"
+              >
                 <span className="sr-only">YouTube</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path

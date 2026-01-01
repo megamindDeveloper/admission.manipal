@@ -45,7 +45,7 @@ function AboutSchool() {
                 viewport={{ once: true }}
                 className="font-bold text-[#1A1A1A]"
               >
-                is a premier institution dedicated to holistic education, blending academics, culture & technology to nurture well-rounded learners.
+                {" "}is a premier institution dedicated to holistic education, blending academics, culture & technology to nurture well-rounded learners.
               </motion.span>
             </h1>
           </div>
