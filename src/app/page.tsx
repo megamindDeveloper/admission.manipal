@@ -1,30 +1,29 @@
-
 import HeroBanner from "./components/HeroBanner/HeroBanner";
-import AboutSchool from "./components/AboutSchool/AboutSchool";
-import DiscoverSchool from "./components/DiscoverSchool/DiscoverSchool";
-import ExploreOurCampus from "./components/ExploreOurCampus/ExploreOurCampus";
-import LearningLife from "./components/LearningLife/LearningLife";
-import ManipalAdvantage from "./components/ManipalAdvantage/ManipalAdvantage";
-import PrincipalDesk from "./components/PrincipalDesk/PrincipalDesk";
-import Activities from "./components/Activities/Activities";
-import Testimonials from "./components/Testimonials/Testimonials";
-import CounsellingForm from "./components/CounsellingForm/CounsellingForm";
+import dynamic from "next/dynamic";
 
-
+const AboutSchool = dynamic(() => import("./components/AboutSchool/AboutSchool"));
+const DiscoverSchool = dynamic(() => import("./components/DiscoverSchool/DiscoverSchool"));
+const ExploreOurCampus = dynamic(() => import("./components/ExploreOurCampus/ExploreOurCampus"));
+const LearningLife = dynamic(() => import("./components/LearningLife/LearningLife"));
+const ManipalAdvantage = dynamic(() => import("./components/ManipalAdvantage/ManipalAdvantage"));
+const PrincipalDesk = dynamic(() => import("./components/PrincipalDesk/PrincipalDesk"));
+const Activities = dynamic(() => import("./components/Activities/Activities"));
+const Testimonials = dynamic(() => import("./components/Testimonials/Testimonials"));
+const CounsellingForm = dynamic(() => import("./components/CounsellingForm/CounsellingForm"));
 
 export default function Home() {
   return (
     <section className="overflow-hidden">
-      <HeroBanner/>
-      <AboutSchool/>
-      <DiscoverSchool/>
+      <HeroBanner />
+      <AboutSchool />
+      <DiscoverSchool />
       {/* <ExploreOurCampus/> */}
-      <LearningLife/>
-      <ManipalAdvantage/>
+      <LearningLife />
+      <ManipalAdvantage />
       {/* <PrincipalDesk/> */}
-      <Activities/>
-      <Testimonials/>
-      <CounsellingForm/>
+      <Activities />
+      <Testimonials />
+      <CounsellingForm />
     </section>
   );
 }

@@ -9,15 +9,13 @@ import logo from "../../../../public/images/logo/manipalBottom.svg";
 import Link from "next/link";
 import { useForm } from "react-hook-form";
 import toast from "react-hot-toast";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { ClipLoader } from "react-spinners";
 import { useRouter } from "next/navigation";
 // Correct dynamic imports for Leaflet components
 
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
-const Marker = dynamic(() => import("react-leaflet").then((mod) => mod.Marker), { ssr: false });
-const Popup = dynamic(() => import("react-leaflet").then((mod) => mod.Popup), { ssr: false });
 
 const MAPBOX_ACCESS_TOKEN =
   process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "pk.eyJ1IjoiamFtc2hhZDEiLCJhIjoiY2xrOXNsdTR0MDBoZDNkbXcxNXc1YnYybCJ9.7mKn2TGyJPQ5p1cIIss9ow";
@@ -144,7 +142,7 @@ const CounsellingForm = () => {
       <div className="bg-white absolute z-1000 p-8 py-24 mt-[40rem] rounded-lg shadow-lg xl:max-w-7xl w-full  lg2:max-w-6xl">
         <h2 className="text-center text-orange-600 font-semibold xl:text-[2.5rem] text-2xl md:text-3xl lg:text-[2rem]">
           Admissions Open
-          <br /> Now For 2025
+          <br /> Now For {new Date().getFullYear()}
         </h2>
         <h3 className="text-center text-gray-800 font-bold text-xl md:text-3xl  pb-12">Book Your Counselling Session Today!</h3>
 
@@ -260,6 +258,7 @@ const CounsellingForm = () => {
               type="submit"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
+              aria-label="Submit application form"
               className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
         font-bold text-xl md:text-2xl flex items-center justify-center min-w-[150px]"
             >
@@ -269,7 +268,7 @@ const CounsellingForm = () => {
         </form>
       </div>
       {/* </div> */}
-      <footer className="bg-[#1A1A1A] text-white w-full xl:mt-32">
+      <footer className="bg-[#1A1A1A] text-white w-full xl:mt-48">
         <div className="container mx-auto px-4  md:pt-32 lg:pt-56 pt-[38rem]">
           {/* Logo and Address Section */}
           <div className="flex flex-col items-center text-center mb-8 lg:mt-96 xl:mt-0">
@@ -326,7 +325,7 @@ const CounsellingForm = () => {
           <div className="flex flex-col items-center">
             <h2 className="text-white text-center font-bold pb-4">Follow Us</h2>
             <div className="flex gap-4 mb-4">
-              <a href="https://www.instagram.com/manipal_school_mangaluru/?hl=en" className="hover:text-[#FB7824] transition-colors">
+              <a href="https://www.instagram.com/manipal_school_mangaluru/?hl=en" target="_blank" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -373,7 +372,7 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="https://www.facebook.com/manipalschool/" className="hover:text-[#FB7824] transition-colors">
+              <a href="https://www.facebook.com/manipalschool/" target="_blank" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">Instagram</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <g opacity="0.88">
@@ -392,7 +391,7 @@ const CounsellingForm = () => {
                   </g>
                 </svg>
               </a>
-              <a href="" className="hover:text-[#FB7824] transition-colors">
+              <a href="https://www.youtube.com/@manipalschool-attavarmanga1986" target="_blank" className="hover:text-[#FB7824] transition-colors">
                 <span className="sr-only">YouTube</span>
                 <svg width="26" height="26" viewBox="0 0 26 26" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -432,7 +431,7 @@ const CounsellingForm = () => {
 
             <div className="text-sm text-white/56 flex flex-col max-sm:gap-4 sm:flex-row w-full justify-between pb-4 max-sm:pb-2 items-center max-sm:text-center">
               <div className="max-sm:text-center">
-                <p>© Manipal School 2025 | All Rights Reserved</p>
+                <p>© Manipal School {new Date().getFullYear()} | All Rights Reserved</p>
               </div>
               <div className="flex gap-4 max-sm:gap-2 max-sm:justify-center">
                 <a href="#" className="hover:text-[#FB7824]">

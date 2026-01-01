@@ -2,7 +2,7 @@
 
 import React, { useRef } from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const ExploreOurCampus = () => {
   const getVideoId = (url: string): string | null => {
@@ -100,7 +100,10 @@ const ExploreOurCampus = () => {
           viewport={{ once: true }}
           className="absolute bottom-4 right-4 flex gap-2"
         >
-          <button className="bg-none px-4 py-2 rounded-full text-sm text-white font-medium border-white border-2 transition-colors">
+          <button
+            aria-label="Take a virtual tour of the campus"
+            className="bg-none px-4 py-2 rounded-full text-sm text-white font-medium border-white border-2 transition-colors"
+          >
             Take a virtual tour
           </button>
         </motion.div>
