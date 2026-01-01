@@ -3,7 +3,7 @@
 import React, { useRef } from "react";
 import AppleStyledCard from "../ui/apple-card";
 import CardContent from "@/app/components/ui/card-content";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 
 interface FacilityCardProps {
   title: string;
@@ -13,10 +13,10 @@ interface FacilityCardProps {
   description: string;
   delay: number;
   index: number;
-  imageUrl2:string // Used to alternate direction
+  imageUrl2: string; // Used to alternate direction
 }
 
-const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className = "", gradientColor, delay, index, description, imageUrl2}) => {
+const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className = "", gradientColor, delay, index, description, imageUrl2 }) => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
@@ -39,13 +39,12 @@ const FacilityCard: React.FC<FacilityCardProps> = ({ title, imageUrl, className 
         gradientColor={gradientColor}
         content={
           <CardContent
-          title={title}
+            title={title}
             imageSrc={imageUrl2}
             description={description}
             backgroundColor=""
             textColor="text-neutral-600"
             headingColor="text-neutral-700"
-            
           />
         }
       />
@@ -99,7 +98,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
 "
             imageUrl="/images/activityImages/activityImage2.jpg"
             imageUrl2="/images/activityImages/Image2.png"
-
             className="lg:col-span-3 md:col-span-5 row-span-1 top-32"
             gradientColor="#2B9FF7"
             delay={0.2}
@@ -110,7 +108,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             description="At Manipal School, we enrich our students' learning experience by hosting insightful guest lectures delivered by industry experts and academicians. These sessions provide valuable real-world perspectives, inspire critical thinking, and broaden students' horizons. Through interactive discussions and expert guidance, our students gain deeper insights into various fields, helping them make informed academic and career choices."
             imageUrl="/images/activityImages/activityImage3.jpg"
             imageUrl2="/images/activityImages/Image3.jpeg"
-
             className="lg:col-span-3 md:col-span-5 row-span-2"
             gradientColor="#FBD034"
             delay={0.3}
@@ -124,7 +121,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             gradientColor="#AF84CC"
             delay={0.4}
             imageUrl2="/images/activityImages/Image4.png"
-
             index={3} // From right
           />
           <FacilityCard
@@ -134,7 +130,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             className="lg:col-span-3 md:col-span-5 row-span-2 top-36"
             gradientColor="#31CB6E"
             imageUrl2="/images/activityImages/Image5.png"
-
             delay={0.5}
             index={4} // From left
           />
@@ -147,7 +142,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             delay={0.6}
             index={5} // From right
             imageUrl2="/images/activityImages/Image6.png"
-
           />
         </div>
         <div className="grid md:grid-cols-2 grid-cols-1 gap-4 relative lg:hidden">
@@ -160,7 +154,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             delay={0.1}
             index={0}
             imageUrl2="/images/activityImages/Image1.png"
-
           />
           <FacilityCard
             title="Access to World-Class Sports Facilities"
@@ -172,7 +165,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             gradientColor="#2B9FF7"
             delay={0.2}
             imageUrl2="/images/activityImages/Image2.png"
-
             index={1}
           />
           <FacilityCard
@@ -184,7 +176,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             delay={0.3}
             index={2}
             imageUrl2="/images/activityImages/Image3.jpeg"
-
           />
           <FacilityCard
             title="Outreach Activities"
@@ -194,7 +185,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             gradientColor="#AF84CC"
             delay={0.4}
             imageUrl2="/images/activityImages/Image4.png"
-
             index={3}
           />
           <FacilityCard
@@ -205,7 +195,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             gradientColor="#31CB6E"
             delay={0.5}
             imageUrl2="/images/activityImages/Image5.png"
-
             index={4}
           />
           <FacilityCard
@@ -216,7 +205,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
             gradientColor="#FB7824"
             delay={0.6}
             imageUrl2="/images/activityImages/Image6.png"
-
             index={5}
           />
         </div>
@@ -226,10 +214,6 @@ To support overall well-being, we incorporate yoga into our curriculum, fosterin
 }
 
 export default Activities;
-
-
-
-
 
 // "use client";
 
@@ -325,7 +309,7 @@ export default Activities;
 //           <FacilityCard
 //             title="Access to World-Class Sports Facilities"
 //             description="At Manipal School, we believe that a healthy body nurtures a healthy mind. Our state-of-the-art sports infrastructure(Marena) is designed to meet the diverse physical training needs of our students. With dedicated spaces for cricket, basketball, football, and badminton, we provide ample opportunities for students to engage in sports under the guidance of experienced coaches.
-// To support overall well-being, we incorporate yoga into our curriculum, fostering mindfulness and inner balance. Additionally, Karate training is offered to instill discipline, confidence, and self-defense skills, promoting both physical and mental resilience. Our structured sports program for Junior school students, curated by our training partner Edusports, ensures that every student develops essential athletic skills and gains exposure to various sports. 
+// To support overall well-being, we incorporate yoga into our curriculum, fostering mindfulness and inner balance. Additionally, Karate training is offered to instill discipline, confidence, and self-defense skills, promoting both physical and mental resilience. Our structured sports program for Junior school students, curated by our training partner Edusports, ensures that every student develops essential athletic skills and gains exposure to various sports.
 // "
 //             imageUrl="/images/activityImages/Image2.png"
 //             className="lg:col-span-3 md:col-span-5 row-span-1 top-32"
@@ -383,7 +367,7 @@ export default Activities;
 //           <FacilityCard
 //             title="Access to World-Class Sports Facilities"
 //             description="At Manipal School, we believe that a healthy body nurtures a healthy mind. Our state-of-the-art sports infrastructure(Marena) is designed to meet the diverse physical training needs of our students. With dedicated spaces for cricket, basketball, football, and badminton, we provide ample opportunities for students to engage in sports under the guidance of experienced coaches.
-// To support overall well-being, we incorporate yoga into our curriculum, fostering mindfulness and inner balance. Additionally, Karate training is offered to instill discipline, confidence, and self-defense skills, promoting both physical and mental resilience. Our structured sports program for Junior school students, curated by our training partner Edusports, ensures that every student develops essential athletic skills and gains exposure to various sports. 
+// To support overall well-being, we incorporate yoga into our curriculum, fostering mindfulness and inner balance. Additionally, Karate training is offered to instill discipline, confidence, and self-defense skills, promoting both physical and mental resilience. Our structured sports program for Junior school students, curated by our training partner Edusports, ensures that every student develops essential athletic skills and gains exposure to various sports.
 // "
 //             imageUrl="/images/activityImages/Image2.png"
 //             className="col-span-1"

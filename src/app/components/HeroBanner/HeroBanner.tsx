@@ -3,13 +3,13 @@
 import React, { useRef } from "react";
 import Image from "next/image";
 import { useForm } from "react-hook-form";
-import { motion, useInView } from "framer-motion";
+import { motion, useInView } from "motion/react";
 import { toast } from "react-hot-toast";
 import { useState } from "react";
 import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import { ClipLoader } from "react-spinners";
-import "react-responsive-carousel/lib/styles/carousel.min.css";
+
 import websitebg1 from "../../../../public/images/BannerImage1.jpg";
 import websitebg2 from "../../../../public/images/BannerImage2.jpg";
 import websitebg3 from "../../../../public/images/BannerImage3.jpg";
@@ -21,7 +21,7 @@ import "swiper/css/autoplay";
 import "swiper/css/pagination";
 import "swiper/css/navigation";
 import { Autoplay, Pagination } from "swiper/modules";
-import { useRouter } from 'next/navigation';
+import { useRouter } from "next/navigation";
 interface FormData {
   studentName: string;
   parentEmail: string;
@@ -39,7 +39,6 @@ const HeroBanner = () => {
   } = useForm<FormData>();
   const [loading, setLoading] = useState(false);
   const router = useRouter();
- 
 
   const onSubmit = async (data: FormData) => {
     try {
@@ -79,18 +78,19 @@ const HeroBanner = () => {
             .fill(null)
             .map((_, i) => (
               <p key={i}>
-                Contact Admission Managers Phone:
+                Contact Admission Managers Phone:&nbsp;
                 <Link href="tel:+919538820398" passHref legacyBehavior>
-                 +91 9538820398 /
+                  +91 9538820398
                 </Link>
+                &nbsp;/&nbsp;
                 <Link href="tel:+919902875329" passHref legacyBehavior>
-                 +91 9902875329
+                  +91 9902875329
                 </Link>
-                | Office Telephone:
+                &nbsp;|&nbsp; Office Telephone:&nbsp;
                 <Link href="tel:+918244252305" passHref legacyBehavior>
-                0824-4252305
-                </Link>{" "}
-                |
+                  0824-4252305
+                </Link>
+                &nbsp;|&nbsp;
                 <Link href="mailto:info@manipalschool.edu.in" passHref legacyBehavior>
                   <a className="cursor-pointer hover:text-gray-200 mx-1">info@manipalschool.edu.in</a>
                 </Link>
@@ -165,6 +165,8 @@ const HeroBanner = () => {
               <Image
                 src={websitebg1}
                 alt="Banner "
+                priority={true}
+                sizes="100vw"
                 className="h-[50vh] md:h-[89vh] md:object-cover object-cover sm:object-[30%_center] object-[10%_center]"
               />
             </SwiperSlide>
@@ -172,6 +174,7 @@ const HeroBanner = () => {
               <Image
                 src={websitebg2}
                 alt="Students 2"
+                sizes="100vw"
                 className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[85%_center]"
               />
             </SwiperSlide>
@@ -179,6 +182,7 @@ const HeroBanner = () => {
               <Image
                 src={websitebg3}
                 alt="Students 3"
+                sizes="100vw"
                 className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[90%_center]"
               />
             </SwiperSlide>
@@ -186,6 +190,7 @@ const HeroBanner = () => {
               <Image
                 src={websitebg4}
                 alt="Students 3"
+                sizes="100vw"
                 className="w-full h-[50vh] md:h-[89vh] md:object-cover object-cover scale-x-[-1] sm:object-[30%_center] object-[80%_center]"
               />
             </SwiperSlide>
@@ -240,7 +245,7 @@ const HeroBanner = () => {
                          pb-4 lg2:pb-5  font-bold text-gray-800 text-center"
               style={{ fontFamily: "Helvetica, Arial, sans-serif" }}
             >
-              Now For 2025
+              Now For {new Date().getFullYear()}
             </motion.h2>
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-6 md:space-y-8">
@@ -353,6 +358,7 @@ const HeroBanner = () => {
                   type="submit"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
+                  aria-label="Submit application form"
                   className="bg-[#FB7824] cursor-pointer text-white py-2 px-4 md:px-6 rounded-3xl 
      font-bold text-xl lg2:text-xl xl:text-2xl flex items-center justify-center min-w-[150px]"
                 >

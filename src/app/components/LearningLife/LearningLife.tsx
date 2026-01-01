@@ -2,7 +2,7 @@
 
 import React, { useState, useRef } from "react";
 
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 interface EducationLevel {
   id: string;
@@ -46,7 +46,7 @@ function LearningLife() {
       color: "bg-[#FB7824]",
       hoverColor: "hover:bg-[#FB7824]",
       description:
-       "Our Secondary School programme empowers students with critical thinking and problem-solving skills.We balance academic rigor with personal growth to build confidence and resilience.Guided mentorship and real-world learning keep students focused on their goals.We prepare them for a smooth transition into higher education and future careers.",
+        "Our Secondary School programme empowers students with critical thinking and problem-solving skills.We balance academic rigor with personal growth to build confidence and resilience.Guided mentorship and real-world learning keep students focused on their goals.We prepare them for a smooth transition into higher education and future careers.",
     },
   ];
 
@@ -93,6 +93,7 @@ function LearningLife() {
                   ${expandedLevel === level.id ? "scale-[1.02]" : "hover:scale-[1.01]"}
                   shadow-lg hover:shadow-xl flex flex-col`}
                 onClick={() => setExpandedLevel(expandedLevel === level.id ? null : level.id)}
+                aria-label={`Expand details for ${level.title}`}
               >
                 <div className="flex items-start justify-between mb-4 min-h-[3rem]">
                   <span className="text-2xl font-semibold leading-tight">{level.title}</span>

@@ -36,25 +36,26 @@ export default function AppleStyledCard({ title, imageSrc, imageAlt, content, gr
   const containerRef = useRef<HTMLDivElement>(null);
 
   // In the useEffect for handling clicks outside
-// In the useEffect for handling clicks outside
-useEffect(() => {
-  const listener = (event: MouseEvent | TouchEvent) => { // Changed from 'any'
-    if (!containerRef.current || containerRef.current.contains(event.target as Node)) {
-      return;
+  // In the useEffect for handling clicks outside
+  useEffect(() => {
+    const listener = (event: MouseEvent | TouchEvent) => {
+      // Changed from 'any'
+      if (!containerRef.current || containerRef.current.contains(event.target as Node)) {
+        return;
+      }
+      handleClose();
+    };
+
+    if (open) {
+      document.addEventListener("mousedown", listener);
+      document.addEventListener("touchstart", listener);
     }
-    handleClose();
-  };
 
-  if (open) {
-    document.addEventListener("mousedown", listener);
-    document.addEventListener("touchstart", listener);
-  }
-
-  return () => {
-    document.removeEventListener("mousedown", listener);
-    document.removeEventListener("touchstart", listener);
-  };
-}, [open]);
+    return () => {
+      document.removeEventListener("mousedown", listener);
+      document.removeEventListener("touchstart", listener);
+    };
+  }, [open]);
   // Handle clicks outside the modal
   useEffect(() => {
     const listener = (event: MouseEvent | TouchEvent) => {
@@ -125,6 +126,7 @@ useEffect(() => {
                 }}
                 className="absolute z-50 top-4 right-4 h-8 w-8  ml-auto bg-black dark:bg-white rounded-full flex items-center justify-center"
                 onClick={handleClose}
+                aria-label="Close modal"
               >
                 <IconX className="h-6 w-6  text-neutral-100 dark:text-neutral-900" />
               </motion.button>
@@ -162,6 +164,7 @@ useEffect(() => {
 
       <motion.button
         onClick={handleOpen}
+        aria-label={`Open ${title} card`}
         className="rounded-3xl  dark:bg-neutral-900 h-full w-full overflow-hidden bg-gradient-to-t from-black/100 flex flex-col items-start justify-start relative z-10"
       >
         <motion.div
@@ -174,7 +177,12 @@ useEffect(() => {
         <motion.div className="absolute  bottom-4 z-100 text-center w-full">
           <motion.p className="text-white text-xl md:text-2xl font-bold px-6 mt-2">{title}</motion.p>
         </motion.div>
-        <BlurImage src={imageSrc} alt={imageAlt || title || "Card image"} fill className="absolute object-cover z-10 inset-0 transition-transform duration-700 ease-in-out" />
+        <BlurImage
+          src={imageSrc}
+          alt={imageAlt || title || "Card image"}
+          fill
+          className="absolute object-cover z-10 inset-0 transition-transform duration-700 ease-in-out"
+        />
       </motion.button>
     </>
   );

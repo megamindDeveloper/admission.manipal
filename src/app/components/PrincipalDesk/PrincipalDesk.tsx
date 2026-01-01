@@ -2,7 +2,7 @@
 
 import React from "react";
 import { YouTubeEmbed } from "@next/third-parties/google";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 const PrincipalDesk = () => {
   const videoUrl = "https://www.youtube.com/watch?v=Lv8BD8xefJs";
@@ -121,6 +121,7 @@ const PrincipalDesk = () => {
           <div className="absolute bottom-4 right-4 flex gap-2">
             <button
               onClick={() => window.open(videoUrl, "_blank")}
+              aria-label="Watch the full Principal's Desk video"
               className="bg-none px-4 py-2 rounded-full md:flex hidden text-sm text-white font-medium border-white border-2 transition-colors hover:bg-white/20"
             >
               Watch the Full Video
