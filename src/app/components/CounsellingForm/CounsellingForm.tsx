@@ -429,11 +429,11 @@ const CounsellingForm = () => {
 
             <hr className="border-t text-white/56  my-4 w-full " />
 
-            <div className="text-sm text-white/56 flex flex-col max-sm:gap-4 sm:flex-row w-full justify-between pb-4 max-sm:pb-2 items-center max-sm:text-center">
+            <div className="text-sm text-white/56 flex flex-col max-sm:gap-4 sm:flex-row w-full justify-center pb-4 max-sm:pb-2 items-center max-sm:text-center">
               <div className="max-sm:text-center">
                 <p>© Manipal School {new Date().getFullYear()} | All Rights Reserved</p>
               </div>
-              <div className="flex gap-4 max-sm:gap-2 max-sm:justify-center">
+              {/* <div className="flex gap-4 max-sm:gap-2 max-sm:justify-center">
                 <a href="#" className="hover:text-[#FB7824]">
                   Privacy Policy
                 </a>
@@ -441,7 +441,7 @@ const CounsellingForm = () => {
                 <a href="#" className="hover:text-[#FB7824]">
                   Terms of Use
                 </a>
-              </div>
+              </div> */}
             </div>
           </div>
         </div>
