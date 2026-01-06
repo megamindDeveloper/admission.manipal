@@ -10,10 +10,10 @@ import { IconMapPin } from "@tabler/icons-react";
 import Link from "next/link";
 import { ClipLoader } from "react-spinners";
 
-import websitebg1 from "../../../../public/images/BannerImage1.jpg";
-import websitebg2 from "../../../../public/images/BannerImage2.jpg";
-import websitebg3 from "../../../../public/images/BannerImage3.jpg";
-import websitebg4 from "../../../../public/images/BannerImage4.jpg";
+import websitebg1 from "../../../../public/images/BannerImage1.webp";
+import websitebg2 from "../../../../public/images/BannerImage2.webp";
+import websitebg3 from "../../../../public/images/BannerImage3.webp";
+import websitebg4 from "../../../../public/images/BannerImage4.webp";
 import logo from "../../../../public/images/logo/manipalHead.svg";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
