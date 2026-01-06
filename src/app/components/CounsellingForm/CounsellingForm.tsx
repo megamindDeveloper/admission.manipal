@@ -68,22 +68,34 @@ const CounsellingForm = () => {
   const [loading, setLoading] = useState(false);
 
   const onSubmit = async (data: FormData) => {
-    setLoading(true);
-    const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(data),
-    });
-
-    const result = await response.json();
-    if (result.result === "success") {
+    try {
+      setLoading(true);
       router.push("/thank-you");
-    } else {
-      toast.error("Error submitting form.");
+
+      const formBody = new URLSearchParams(data as unknown as Record<string, string>).toString();
+
+      const response = await fetch("https://script.google.com/macros/s/AKfycbzCpUWm4UM8o7xu4Vr7tpdv_oN8IPcfGO8eHz5cQRkTLIMPmEqWDlmtn-U5yJKkLB1WKA/exec", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formBody,
+      });
+
+      const result = await response.json();
+
+      if (result.result === "success") {
+        
+      } else {
+        toast.error("Error submitting form.");
+      }
+    } catch (error) {
+      toast.error("Network error");
+    } finally {
+      setLoading(false);
     }
   };
+
   const {
     register,
     handleSubmit,

@@ -40,30 +40,50 @@ const HeroBanner = () => {
   const [loading, setLoading] = useState(false);
   const router = useRouter();
 
-  const onSubmit = async (data: FormData) => {
-    try {
-      setLoading(true);
-      const response = await fetch("https://admissionmanipal.vercel.app/api/submit-form", {
+ const onSubmit = async (data: FormData) => {
+  router.push("/thank-you");
+  try {
+    setLoading(true);
+      
+
+    // 🔥 Map field names correctly
+    const formPayload = {
+      studentName: data.studentName,
+      parentEmail: data.parentEmail,
+      parentPhone: data.parentPhone,
+      classApplied: data.class, // ✅ FIXED mapping
+      location: data.location,
+    };
+
+    const formBody = new URLSearchParams(
+      formPayload as Record<string, string>
+    ).toString();
+
+    const response = await fetch(
+      "https://script.google.com/macros/s/AKfycbzCpUWm4UM8o7xu4Vr7tpdv_oN8IPcfGO8eHz5cQRkTLIMPmEqWDlmtn-U5yJKkLB1WKA/exec",
+      {
         method: "POST",
         headers: {
-          "Content-Type": "application/json",
+          "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: JSON.stringify(data),
-      });
-
-      const result = await response.json();
-      if (result.result === "success") {
-        router.push("/thank-you");
-      } else {
-        toast.error("Error submitting form.");
+        body: formBody,
       }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    );
 
+    const result = await response.json();
+
+    if (result.result === "success") {
+      reset();
+      router.push("/thank-you");
+    } else {
+      toast.error("Error submitting form");
+    }
+  } catch (error) {
+    toast.error("Network error");
+  } finally {
+    setLoading(false);
+  }
+};
   // Reference for scroll detection
   const formRef = useRef(null);
   const isFormInView = useInView(formRef, { once: true });
