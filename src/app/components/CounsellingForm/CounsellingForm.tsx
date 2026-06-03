@@ -16,6 +16,7 @@ import { useRouter } from "next/navigation";
 const MapContainer = dynamic(() => import("react-leaflet").then((mod) => mod.MapContainer), { ssr: false });
 const TileLayer = dynamic(() => import("react-leaflet").then((mod) => mod.TileLayer), { ssr: false });
 
+
 const MAPBOX_ACCESS_TOKEN = process.env.NEXT_PUBLIC_MAPBOX_ACCESS_TOKEN || "";
 const MAPBOX_STYLE_ID = "streets-v12";
 const center: [number, number] = [12.856377057438442, 74.84633878650929];
